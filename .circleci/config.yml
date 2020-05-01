@@ -47,4 +47,5 @@ jobs:
             - node_modules
 
       # prepare the database
+      - run: store_test_results
       
