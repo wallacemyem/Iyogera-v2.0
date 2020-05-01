@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ExpenseCategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +45,7 @@ class ExpenseCategoryController extends Controller
         $expense_category = new ExpenseCategory;
         $expense_category->name = $request->name;
         $expense_category->school_id = school_id();
-        $expense_category->session = get_school();
+        $expense_category->session = get_schools();
         if($expense_category->save()){
             $data = array(
                 'status' => true,
@@ -96,7 +100,7 @@ class ExpenseCategoryController extends Controller
         $expense_category = ExpenseCategory::find($id);
         $expense_category->name = $request->name;
         $expense_category->school_id = school_id();
-        $expense_category->session = get_school();
+        $expense_category->session = get_schools();
         if($expense_category->save()){
             $data = array(
                 'status' => true,

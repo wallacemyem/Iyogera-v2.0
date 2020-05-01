@@ -8,14 +8,14 @@
     isset($title) ? $title = $title." | ".$selected_branch->name : $title = $selected_branch->name; @endphp
     <title>{{ $title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Your best school ERP" name="description" />
+    <meta content="Best school ERP" name="description" />
     <meta content="Iyogera" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('backend/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('backend/images/logo-dark.png')}}">
     @include('backend.layout.styles')
 </head>
 
-<body @if(Request::route()->getName() == 'daily_attendance.index' || Request::route()->getName() == 'student.create' || Request::route()->getName() == 'student.bulk' || Request::route()->getName() == 'student.excel') class="enlarged" data-keep-enlarged="true" @endif >
+<body @if(Request::route()->getName() == 'daily_attendance.index' || Request::route()->getName() == 'student.create' || Request::route()->getName() == 'report.index' || Request::route()->getName() == 'student.bulk' || Request::route()->getName() == 'student.excel') class="enlarged" data-keep-enlarged="true" @endif >
 <!-- Begin page -->
 <div class="wrapper">
 
@@ -64,6 +64,6 @@ function switchLanguage(language_code) {
     });
 }
 </script>
-@livewireScripts
+
 </body>
 </html>

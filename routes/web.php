@@ -84,6 +84,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('mark', 'MarkController');
     Route::post('mark_list', 'MarkController@list')->name('mark.list');
 
+    Route::resource('user', 'UserController');
+    Route::post('user_list', 'UserController@list')->name('user.list');
+
     Route::resource('schools', 'SchoolController');
     Route::get('schools_list', 'SchoolController@list')->name('schools.list');
     Route::patch('schools_update/{id}', 'SchoolController@school_settings_update')->name('schools.update');
@@ -98,7 +101,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('profile', 'ProfileController');
 
     Route::resource('report' , 'ReportController');
+    Route::get('report_print' , 'ReportController@print')->name('report.print');
+    Route::post('report_list', 'ReportController@list')->name('report.list');
+    Route::post('report_generate', 'ReportController@generate')->name('report.generate');
+
+    //paystack.co
+    //Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
+    //Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
+
+    #rave flutterwave
+    Route::post('/pay', 'RaveController@initialize')->name('pay');
+    Route::post('/rave/callback', 'RaveController@callback')->name('callback');
+
 });
 
 Auth::routes();
+Route::get('login', 'Auth\LoginController@signon')->name('login');    
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+

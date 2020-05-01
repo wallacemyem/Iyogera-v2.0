@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class BookIssueController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +50,7 @@ class BookIssueController extends Controller
         $book_issue->student_id = $request->student_id;
         $book_issue->issue_date = strtotime($request->issue_date);
         $book_issue->school_id  = school_id();
-        $book_issue->session    = get_school();
+        $book_issue->session    = get_schools();
 
         if($book_issue->save()){
             $data = array(
@@ -101,7 +105,7 @@ class BookIssueController extends Controller
         $book_issue->student_id = $request->student_id;
         $book_issue->issue_date = strtotime($request->issue_date);
         $book_issue->school_id  = school_id();
-        $book_issue->session    = get_school();
+        $book_issue->session    = get_schools();
 
         if($book_issue->save()){
             $data = array(
@@ -158,7 +162,7 @@ class BookIssueController extends Controller
     }
 
     public function student($class_id) {
-        $running_session = get_school();
+        $running_session = get_schools();
         $school_id = school_id();
         $students = Enroll::where(['class_id' => $class_id, 'session' => $running_session, 'school_id' => $school_id])->get();
         return view('backend.'.Auth::user()->role.'.book_issue.student', compact('students'));

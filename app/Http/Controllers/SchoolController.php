@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 
 class SchoolController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
 
     	$title = translate('schools');
@@ -71,6 +75,13 @@ class SchoolController extends Controller
         $school->address = $request->address;
         $school->session = get_schools();
         $school->save();
+
+        $school_id = $school->id;
+
+        $role = new Role;
+        $role->school_id = $school_id;
+        $role->save();
+        
         $data = array(
             'status' => true,
             'notification' => translate('saved successfully')

@@ -9,6 +9,10 @@ use Auth;
 
 class SettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +38,7 @@ class SettingsController extends Controller
         $settings->system_email = $request->system_email;
         $settings->system_title = $request->system_title;
         $settings->phone = $request->phone;
-        $settings->purchase_code = $request->purchase_code;
+        //$settings->purchase_code = $request->purchase_code;
         $settings->address = $request->address;
         $settings_type = "system";
         $settings->save();

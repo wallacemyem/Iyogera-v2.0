@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+.button{font-size: 0.75em;
+padding: 0.833em; /* 10/12 */
+	
+	display: inline-block;
+	text-decoration: none;
+	background-repeat: no-repeat;
+}
+.round {
+	border-radius: 0.3125em; /* 5/16 */
+	-moz-border-radius: 0.3125em; /* 5/16 */
+	-webkit-border-radius: 0.3125em; /* 5/16 */
+}
+.blue {
+	background-color: #2069b4;
+	color: white;
+}
+	.blue:hover {
+		background-color: #5081b3;
+		color: white;
+	}
+.image-right {
+	background-position: right center;
+	padding-right: 3em; /* 36/12 */
+}	
+.ic-print { background-image: url("../../images/icons/ic_print.png"); }
+.text-upper { text-transform: uppercase; }
+.tbheadr{ background-color: #2069b4; color:#FFFFFF}
+.information-box {
+	background: #e5f5f9;/* url('../../images/icons/message-boxes/information.png') no-repeat 0.833em center;*/
+	border: 1px solid #cae0e5;
+	color: #5a9bab;
+}
+table tbody tr:nth-child(odd) { background-color: #f8f9fa; }
+.information-box, .confirmation-box, .error-box, .warning-box {
+	padding: 0.833em 0.833em 0.833em 3em; /* 10/12 36/12 */
+	margin-bottom: 0.833em; /* 20/12 */
+}
+.error-box {
+	background: #fde8e4 url('../../images/icons/message-boxes/error.png') no-repeat 0.833em center;
+	border: 1px solid #e6bbb3;
+	color: #cf4425;
+	
+}
+a.table-actions-button {
+	width: 1.25em;
+	height: 1.25em;
+	display: inline-block;
+	background-position: center center;
+}
+.ic-table-delete { background-image: url("../../images/icons/table/actions-delete.png"); }

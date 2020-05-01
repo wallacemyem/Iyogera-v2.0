@@ -6,11 +6,18 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "djunehor/laravel-sms": "^2.0",
+        "fico7489/laravel-eloquent-join": "^4.1",
         "fideloper/proxy": "^4.0",
+        "kingflamez/laravelrave": "^2.0",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "livewire/livewire": "^1.0"
+        "livewire/livewire": "^1.0",
+        "maatwebsite/excel": "^3.1",
+        "pion/laravel-eloquent-position": "^1.0",
+        "realrashid/sweet-alert": "^3.1",
+        "unicodeveloper/laravel-paystack": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

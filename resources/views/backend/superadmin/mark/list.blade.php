@@ -23,23 +23,24 @@
                 <thead class="thead-dark">
                 <tr>
                     <th>{{ translate('student_name') }}</th>
-                    <th>{{ translate('objectives') }}</th>
-                    <th>{{ translate('practicals') }}</th>
-                    <th>{{ translate('theory') }}</th>
-                    <th>{{ translate('action') }}</th>
+                    <th>Asgn</th>
+                    <th align="center">{{ translate('test') }}</th>
+                    <th>Exam</th>
+                    <th>{{ translate('save') }}</th>
                 </tr>
                 </thead>
                 <tbody>
                     @php
                         $marks = \App\Mark::where('subject_id', $subject_id)->where('class_id', $class_id)->where('section_id', $section_id)->where('exam_id', $exam_id)->where('session', $running_session)->where('school_id', $school_id)->get();
                     @endphp
+                    
                     @foreach ($marks as $mark)
                         <tr>
                             <td>{{ $mark->student->user->name }}</td>
                             <td>
                                 <input type="text" class="form-control" name="objectives" id="objectives_{{ $mark->id }}" value="{{ $mark->objectives }}">
                             </td>
-                            <td>
+                            <td align="center">
                                 <input type="text" class="form-control" name="practicals" id="practicals_{{ $mark->id }}" value="{{ $mark->practicals }}">
                             </td>
                             <td>
@@ -51,18 +52,19 @@
                             </td>
                         </tr>
                     @endforeach
+                    
                 </tbody>
             </table>
         </div>
     @else
         <div style="text-align: center;">
-                <img src="{{ asset('backend/images/empty_box.png') }}" alt="" class="empty-box">
+                <img src="{{ asset('backend/images/no-data.png') }}" alt="" class="empty-box">
                 <p>{{ translate('no_data_found') }}</p>
         </div>
     @endif
 @else
 <div style="text-align: center;">
-        <img src="{{ asset('backend/images/empty_box.png') }}" alt="" class="empty-box">
+        <img src="{{ asset('backend/images/no-data.png') }}" alt="" class="empty-box">
         <p>{{ translate('no_data_found') }}</p>
 </div>
 @endif

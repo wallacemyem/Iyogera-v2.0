@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="page-title"> <i class="mdi mdi-format-list-numbers title_icon"></i> {{ translate('_manage_marks') }}
+                <h4 class="page-title"> <i class="mdi mdi-format-list-numbers title_icon"></i> {{ translate('_manage_marks') }}📖
             </div>
         </div>
     </div>

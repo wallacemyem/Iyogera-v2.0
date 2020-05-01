@@ -24,6 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
     <script src="{{ asset('backend/js/main.js') }}"></script>
+    <script src="{{ asset('backend/js/toast.js') }}"></script>
 
 
     @foreach (session('flash_notification', collect())->toArray() as $message)

@@ -84,7 +84,7 @@
                     <div class="modal-body p-4">
                         <div class="text-center">
                             <i class="dripicons-information h1 text-info"></i>
-                            <h4 class="mt-2">OOPS!</h4>
+                            <h4 class="mt-2">INFO</h4>
                             <p class="mt-3">Are you sure?</p>
                             <form method="POST" class="ajaxDeleteForm" action="" id = "delete_form">
                                 @csrf

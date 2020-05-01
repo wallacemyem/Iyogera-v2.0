@@ -53,7 +53,7 @@ class RoutineController extends Controller
         $routine->day = $request->day;
         $routine->room_id = $request->class_room_id;
         $routine->teacher_id = $request->teacher_id;
-        $routine->session = get_school();
+        $routine->session = get_schools();
         $routine->school_id = school_id();
         if($routine->save()){
             $data = array(

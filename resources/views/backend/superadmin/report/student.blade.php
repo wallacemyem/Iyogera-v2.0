@@ -14,12 +14,14 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-
+                    <div class="row justify-content-md-center d-print-none" style="margin-bottom: 10px;">
+                    <span class="text-warning font-weight-bold"><small>Please generate result first or ask principal to generate result</small></span>
+                </div>
                     <div class="row justify-content-md-center d-print-none" style="margin-bottom: 10px;">
                         <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
                             <select class="form-control" name="exam_id" id="exam_id">
                                 <option value="all">{{ translate('select_a_exam') }}</option>
-                                @foreach (App\Exam::where('school_id', school_id())->where('session', get_settings('running_session'))->get() as $exam)
+                                @foreach (App\Exam::where('school_id', school_id())->where('session', get_schools())->get() as $exam)
                                     <option value="{{ $exam->id }}">{{ $exam->name }}</option>
                                 @endforeach
                             </select>
@@ -40,13 +42,23 @@
                             </select>
                         </div>
 
-                        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
-                            <button type="button" class="btn btn-icon btn-secondary form-control" onclick="manageMarks()">{{ translate('filter') }}</button>
-                        </div>
+                        @if ($sexy === true)
+                            <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
+                            <button type="button" class="btn btn-icon btn-primary form-control" onclick="manageMarks()">{{ translate('filter') }}</button>
+                            </div>
+                            
+                        @else
+                            <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
+                            <button type="button" class="btn btn-icon btn-primary form-control" onclick="manageMarks()">{{ translate('filter') }}</button>
+                            </div>
+                            
+                        @endif
+
+                        
                     </div>
 
                     <div class="table-responsive-sm" id = "marks_content">
-                        @include('backend.'.Auth::user()->role.'.mark.list')
+                        @include('backend.'.Auth::user()->role.'.report.list')
                     </div>
                 </div> <!-- end card body-->
             </div> <!-- end card -->
@@ -91,7 +103,7 @@
             var exam_id    = $("#exam_id").val();
             
             if(section_id > 0 && exam_id > 0) {
-                var url = '{{ route("mark.list") }}';
+                var url = '{{ route("report.list") }}';
                 var month = $('#month').val();
                 var year = $('#year').val();
 
@@ -101,29 +113,37 @@
                     data : { section_id : section_id, exam_id : exam_id, _token : '{{ @csrf_token() }}' },
                     success : function(response) {
                         $('#marks_content').html(response);
+                        initDataTable("basic-datatable");
                     }
                 });
             }else {
-                toastr.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                toastr.warning('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
             }
         }
 
-        function saveMark(id) {
-            var objectives    = $('#objectives_'+id).val();
-            var practicals    = $('#practicals_'+id).val();
-            var theory    = $('#theory_'+id).val();
+        var manageGenerate = function () {
+            var section_id = $("#section_id").val();
+            var exam_id    = $("#exam_id").val();
+            
+            if(section_id > 0 && exam_id > 0) {
+                var url = '{{ route("report.generate") }}';
+                var month = $('#month').val();
+                var year = $('#year').val();
 
-            var comment = $('#comment_'+id).val();
-            var url = '{{ route("mark.update", "id") }}';
-                url = url.replace('id', id);
-            $.ajax({
-                type : 'POST',
-                url: url,
-                data : { objectives : objectives, practicals : practicals, theory : theory, comment : comment, _token : '{{ @csrf_token() }}', _method: "PATCH" },
-                success : function(response) {
-                    toastr.success('{{ translate('mark_has_been_updated_successfully') }}');
-                }
-            });
+                $.ajax({
+                    type : 'POST',
+                    url: url,
+                    data : { section_id : section_id, exam_id : exam_id, _token : '{{ @csrf_token() }}' },
+                    success : function(response) {
+                        toastr.success('{{ translate('generated_successfully') }}');
+                    }
+                });
+            }else {
+                toastr.warning('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+            }
         }
+
+        
+
     </script>
 @endsection

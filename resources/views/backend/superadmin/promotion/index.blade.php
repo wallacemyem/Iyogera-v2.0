@@ -20,7 +20,7 @@
                             <label for="session_from">{{ __('current_session') }}</label>
                             <select class="form-control" id = "session_from" name="session_from">
                                 @foreach (App\Session::where('school_id', school_id())->get() as $session)
-                                    <option value="{{ $session->id }}" @if($session->id == get_settings('running_session')) selected @endif>{{ $session->name }}</option>
+                                    <option value="{{ $session->id }}" @if($session->id == get_schools()) selected @endif>{{ $session->name }}</option>
                                 @endforeach
                             </select>
                         </div>

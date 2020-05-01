@@ -23,6 +23,33 @@ function school_id() {
     }
 }
 
+function studentPostion($position){  /* student result position suffix  */                               
+                
+                if($position == 1){
+                    
+                    $positionSup = "1<sup>st</sup>"; 
+            
+                }elseif($position == 2){
+                    
+                    $positionSup = "2<sup>nd</sup>"; 
+            
+                }elseif($position == 3){
+                    
+                    $positionSup = "3<sup>rd</sup>"; 
+            
+                }elseif(($position != '') && ($position > 3)){
+                    
+                    $positionSup = "$position<sup>th</sup>"; 
+                    
+                }else{
+                    
+                    $positionSup = " - "; 
+                }
+                
+                return $positionSup;
+                
+        }   
+
 /**
  * Open Translation File
  * @return Response

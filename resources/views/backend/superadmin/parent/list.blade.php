@@ -33,7 +33,7 @@
     </div>
 @else
     <div style="text-align: center;">
-            <img src="{{ asset('backend/images/empty_box.png') }}" alt="" class="empty-box">
+            <img src="{{ asset('backend/images/no-data.png') }}" alt="" class="empty-box">
             <p>{{ translate('no_data_found') }}</p>
     </div>
 @endif

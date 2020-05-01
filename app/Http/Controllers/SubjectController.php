@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +45,7 @@ class SubjectController extends Controller
         $subject = new Subject;
         $subject->class_id = $request->class_id;
         $subject->name = $request->name;
+        $subject->teacher_id = $request->teacher_id;
         $subject->school_id = school_id();
         $subject->session = get_schools();
 
@@ -104,6 +109,7 @@ class SubjectController extends Controller
 
         $subject->name = $request->name;
         $subject->class_id = $request->class_id;
+        $subject->teacher_id = $request->teacher_id;
 
         if($subject->save()){
             $data = array(

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box ">
-                <h4 class="page-title"> <i class="mdi mdi-view-dashboard title_icon"></i> {{ translate('dashboard') }} </h4>
+                <h4 class="page-title"> <i class="em em-heart_decoration" aria-role="presentation" aria-label="HEART DECORATION"></i> {{ translate('dashboard') }} </h4>
             </div>
         </div>
     </div>

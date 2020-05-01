@@ -18,6 +18,18 @@
         <small id="name_help" class="form-text text-muted">{{ translate('provide_subject_title') }}.</small>
     </div>
 
+    <div class="form-group col-md-12">
+        <label for="teacher_id" >{{ translate('teacher') }}</label>
+        
+        <select name="teacher_id" id = "teacher_id" class="form-control" required>
+            <option value="">{{ translate('assign_a_teacher') }}</option>
+            @foreach (App\Teacher::where(['school_id' => school_id()])->get() as $teacher)
+                <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
+            @endforeach
+        </select>
+            
+    </div>
+
     <div class="form-group  col-md-12">
         <button class="btn btn-block btn-primary" type="submit">{{ translate('add_subject') }}</button>
     </div>

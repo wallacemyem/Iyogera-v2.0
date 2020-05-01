@@ -4,6 +4,15 @@
     <div class="col-12">
 
         <div class="form-group row mb-3">
+            <label class="col-md-3 col-form-label" for="name"> {{ translate('student_profile_image') }}</label>
+            
+            @if (file_exists('https://localhost/dev/backend/images/student_image/'.$student->profile_pix.'.jpg'))
+                <img src="{{'https://localhost/dev/backend/images/student_image/'.$student->profile_pix.'.jpg'}}" alt="{{$student->name}}" height="100" width="100">
+            @else
+                <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="100">
+            @endif
+        </div>
+        <div class="form-group row mb-3">
             <label class="col-md-3 col-form-label" for="example-fileinput"> {{ translate('student_profile_image') }}</label>
             <div class="col-md-9">
                 <input type="file" id="example-fileinput" name="student_image" class="form-control-file">
@@ -18,7 +27,7 @@
         </div>
 
 @php
-    $query = \App\Enroll::where(array('student_id' => $student->id, "session" => get_settings('running_session')))->first();
+    $query = \App\Enroll::where(array('student_id' => $student->id, "session" => get_schools()))->first();
     $class_id   = $query->class_id;
     $section_id = $query->section_id;
 @endphp

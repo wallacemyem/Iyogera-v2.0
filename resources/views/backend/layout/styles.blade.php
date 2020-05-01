@@ -9,3 +9,6 @@
     <link href="{{ asset('backend/css/vendor/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/css/vendor/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/css/main.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/css/toast.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/css/tble.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
