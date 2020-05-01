@@ -44,8 +44,4 @@ jobs:
       - save_cache:
           key: node-v1-{{ checksum "package.json" }}
           paths:
-            - node_modules
-
-      # prepare the database
-      - run: store_test_results
-      
+            - node_modules      
