@@ -9,14 +9,14 @@
 
         <title>SignOn System</title>
         <!-- Favicon -->
-        <link href="{{ asset('signon/') }}/img/brand/favicon.png" rel="icon" type="image/png">
+        <link href="{{ asset('public/signon/') }}/img/brand/favicon.png" rel="icon" type="image/png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <!-- Icons -->
-        <link href="{{ asset('signon/') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-        <link href="{{ asset('signon/') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="{{ asset('public/signon/') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+        <link href="{{ asset('public/signon/') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Argon CSS -->
-        <link type="text/css" href="{{ asset('signon/') }}/css/argon.css?v=1.0.0" rel="stylesheet">
+        <link type="text/css" href="{{ asset('public/signon/') }}/css/argon.css?v=1.0.0" rel="stylesheet">
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -35,12 +35,12 @@
             @include('signon.layouts.footers.guest')
         @endguest
 
-        <script src="{{ asset('signon/') }}/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="{{ asset('signon/') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('public/signon/') }}/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="{{ asset('public/signon/') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         
         @stack('js')
         
         <!-- Argon JS -->
-        <script src="{{ asset('signon/') }}/js/argon.js?v=1.0.0"></script>
+        <script src="{{ asset('public/signon/') }}/js/argon.js?v=1.0.0"></script>
     </body>
 </html>
