@@ -3,7 +3,7 @@
     <script src="{{ asset('public/backend/js/vendor/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('public/backend/js/vendor/jquery-jvectormap-1.2.2.min.js') }}"></script>
     <script src="{{ asset('public/backend/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <script src="{{ asset(public/'backend/js/pages/demo.dashboard.js') }}"></script>
+    <script src="{{ asset('public/backend/js/pages/demo.dashboard.js') }}"></script>
     <script src="{{ asset('public/backend/js/vendor/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('public/backend/js/vendor/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ asset('public/backend/js/vendor/dataTables.responsive.min.js') }}"></script>
