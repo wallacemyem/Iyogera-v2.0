@@ -101,6 +101,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('profile', 'ProfileController');
 
     Route::resource('report' , 'ReportController');
+    Route::post('report_print' , 'ReportController@print')->name('report.print');
     Route::get('report_print' , 'ReportController@print')->name('report.print');
     Route::post('report_list', 'ReportController@list')->name('report.list');
     Route::post('report_generate', 'ReportController@generate')->name('report.generate');

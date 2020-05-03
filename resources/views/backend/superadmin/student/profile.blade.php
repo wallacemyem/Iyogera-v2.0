@@ -16,6 +16,7 @@
                 @endif
                 <div> <span style="font-weight: bold;">{{ translate('name') }}: </span> {{ $student_details->user->name }} </div>
                 <div> <span style="font-weight: bold;">{{ translate('student_code') }}: </span> {{ $student_details->code }} </div>
+                <div> <span style="font-weight: bold;">{{ translate('student_email') }}: </span> {{ $student_details->user->email }} </div>
             </div>
         </div>
         <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">

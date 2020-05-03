@@ -161,6 +161,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         KingFlamez\Rave\RaveServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Emotality\TawkTo\TawkToServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -225,6 +226,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Rave' => KingFlamez\Rave\Facades\Rave::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'TawkTo' => Emotality\TawkTo\Facades\TawkTo::class,
 
 
     ],

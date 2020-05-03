@@ -11,7 +11,7 @@
                 <th>{{ translate('mark_from') }}</th>
                 <th>{{ translate('mark_upto') }}</th>
                 <th>{{ translate('comment') }}</th>
-                <th>{{ translate('option') }}</th>
+                
             </tr>
             </thead>
             <tbody>
@@ -22,13 +22,7 @@
                     <td>{{ $grade->mark_from }}</td>
                     <td>{{ $grade->mark_upto }}</td>
                     <td>{{ $grade->comment }}</td>
-                    <td>
-                        <div class="btn-group mb-2">
-                            <button type="button" class="btn btn-icon btn-secondary btn-sm" style="margin-right:5px;" onclick="showAjaxModal('{{ route('grade.edit', $grade->id) }}', '{{ translate('update_grade') }}')" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('update_grade_info') }}"> <i class="mdi mdi-wrench"></i> </button>
-                            
-                            <button type="button" class="btn btn-icon btn-dark btn-sm" style="margin-right:5px;" onclick="confirm_modal('{{ route('grade.destroy', $grade->id) }}', showAllGrades )" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('delete_grade') }}"> <i class="mdi mdi-window-close"></i> </button>
-                        </div>
-                    </td>
+                    
                 </tr>
             @endforeach
             </tbody>

@@ -5,8 +5,7 @@
         <div class="col-12">
             <div class="page-title-box">
                 <h4 class="page-title"> <i class="mdi mdi-file-document-box title_icon"></i> {{ translate('student_fee_manager') }}
-                    <button type="button" class="btn btn-icon btn-success btn-rounded alignToTitle" onclick="showAjaxModal('{{ route('invoice.single.create') }}', '{{ translate('create_single_invoice') }}')"> <i class="mdi mdi-plus"></i> {{ translate('add_single_invoice') }}</button>
-                    <button type="button" class="btn btn-icon btn-primary btn-rounded alignToTitle" style="margin-right: 10px;" onclick="showAjaxModal('{{ route('invoice.mass.create') }}', '{{ translate('create_mass_invoices_for_a_section') }}')"> <i class="mdi mdi-plus"></i> {{ translate('add_mass_invoice') }}</button>
+                    
                 </h4>
             </div>
         </div>
@@ -16,7 +15,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title mt-3">{{ translate('student_fee_report') }}</h4>
+                    <h4 class="header-title mt-3">{{ translate('fee_report') }}</h4>
 
                     <div class="row justify-content-md-center" style="margin-bottom: 10px;">
                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-3 mb-lg-0">

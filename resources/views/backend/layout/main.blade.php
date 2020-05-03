@@ -64,6 +64,6 @@ function switchLanguage(language_code) {
     });
 }
 </script>
-
+    {{ TawkTo::widgetCode() }}
 </body>
 </html>

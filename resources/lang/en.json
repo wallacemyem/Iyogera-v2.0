@@ -134,7 +134,7 @@
     "parent": "Parent",
     "librarian": "Librarian",
     "alumni": "Alumni",
-    "class_routine": "Class routine",
+    "class_routine": "Class Timetable",
     "syllabus": "Syllabus",
     "class_room": "Class room",
     "department": "Department",
@@ -591,5 +591,15 @@
     "amount_to_pay": "Amount to pay",
     "reg_NO": "Reg NO",
     "total": "Total",
-    "position": "Position"
+    "position": "Position",
+    "provide_admin_email": "Provide admin email",
+    "provide_admin_password": "Provide admin password",
+    "provide_admin_name": "Provide admin name",
+    "fee_report": "Fee report",
+    "select_session": "Select session",
+    "class_timetable": "Class timetable",
+    "student_email": "Student email",
+    "total_number_of_books": "Total number of books",
+    "books_issued": "Books issued",
+    "total_number_of_books_issued": "Total number of books issued"
 }

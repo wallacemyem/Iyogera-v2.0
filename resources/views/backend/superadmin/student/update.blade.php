@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('student.update', $student->id) }}">
+<form method="POST" action="{{ route('student.update', $student->id) }} " enctype = 'multipart/form-data'>
     @csrf
     @method('PATCH')
     <div class="col-12">
@@ -7,7 +7,7 @@
             <label class="col-md-3 col-form-label" for="name"> {{ translate('student_profile_image') }}</label>
             
             @if (file_exists('https://localhost/dev/backend/images/student_image/'.$student->profile_pix.'.jpg'))
-                <img src="{{'https://localhost/dev/backend/images/student_image/'.$student->profile_pix.'.jpg'}}" alt="{{$student->name}}" height="100" width="100">
+                <img src="https://localhost/dev/backend/images/student_image/'.{{$student->profile_pix}}.'.jpg" alt="{{$student->name}}" height="100" width="100">
             @else
                 <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="100">
             @endif
@@ -15,7 +15,7 @@
         <div class="form-group row mb-3">
             <label class="col-md-3 col-form-label" for="example-fileinput"> {{ translate('student_profile_image') }}</label>
             <div class="col-md-9">
-                <input type="file" id="example-fileinput" name="student_image" class="form-control-file">
+                <input type="file" id="example-fileinput" name="image" class="form-control-file" >
             </div>
         </div>
 
@@ -23,6 +23,12 @@
             <label class="col-md-3 col-form-label" for="name"> {{ translate('name') }}</label>
             <div class="col-md-9">
                 <input type="text" id="name" name="name" class="form-control"  value="{{ $student->user->name }}" required>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label class="col-md-3 col-form-label" for="email">{{ translate('email') }}</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="kiss" name="kiss" value="{{ $student->user->email }}" required>
             </div>
         </div>
 

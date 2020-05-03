@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="page-title-box">
                 <h4 class="page-title"> <i class="mdi mdi-spellcheck title_icon"></i> {{ translate('grade') }}
-                <button type="button" class="btn btn-icon btn-success btn-rounded mb-1 alignToTitle" onclick="showAjaxModal('{{ route('grade.create') }}', 'Create New Grade')"> <i class="mdi mdi-plus"></i> {{ translate('add_grade') }}</button></h4>
+                </h4>
             </div>
         </div>
     </div>

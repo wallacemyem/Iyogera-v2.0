@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Student;
 use App\School;
 use App\Setting;
@@ -12,6 +13,7 @@ use App\Mark;
 use Hash;
 use Auth;
 use Session;
+//suse App\Http\Requests;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -100,7 +102,7 @@ class StudentController extends Controller
                 $student_image = $request->file('student_image');
                 $student_image->move($dir, $file_name_path.".jpg");
             }
-            //dd($dir);
+            //dd($request->hasFile('student_image'));
 
         if(count(User::where('email', $request->email)->get()) == 0) {
             $user = new User;
@@ -167,7 +169,8 @@ class StudentController extends Controller
                     $user->email = $rad_code.$email;
                     $user->password = Hash::make($std_code);
                     $user->role = "student";
-                    //$user->phone = $request->phone[$key];
+                    $user->phone = $selected_branch->phone;
+                    $user->address = $selected_branch->address;
                     $user->gender = $request->gender[$key];
                     $user->school_id = school_id();
                     $user->save();
@@ -275,7 +278,7 @@ class StudentController extends Controller
             $data = array(
                 'status' => false,
                 'view' => "",
-                'notification' => translate('you_must_have_to_select_class_and_section')
+                'notification' => translate('you_must_select_class_and_section')
             );
         }
         return $data;
@@ -326,22 +329,26 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $student = Student::find($id);
         $std_code = $student->profile_pix;
         //dd($std_code);
+        
         $user    = User::find($student->user_id);
         $query   = Enroll::where(array('student_id' => $id, 'session' => get_schools()))->first();
         $enroll  = Enroll::find($query->id);
-        if(count(User::where('email', $request->email)->where('id', '!=', $student->user->id)->get()) == 0) {
+        
+        if(count(User::where('email', $request->name)->where('id', '!=', $student->user->id)->get()) == 0) {
 
-            if ($request->hasFile('student_image')) {
+            if ($request->hasFile('image')) {
                 $dir  = 'backend/images/student_image';
-                $student_image = $request->file('student_image');
+                $student_image = $request->file('image');
                 $student_image->move($dir, $std_code.".jpg");
             }
+            //dd($request->kiss);
 
             $user->name = $request->name;
-            //$user->email = $request->email;
+            $user->email = $request->kiss;
             $user->role = "student";
             $user->address = $request->address;
             $user->phone = $request->phone;
@@ -360,19 +367,19 @@ class StudentController extends Controller
             $enroll->session = get_schools();
             $enroll->save();
 
-            //$student = Student::find($id);
-            $data = array(
+            return array(
                 'status' => true,
                 'notification' => translate('student_updated_successfully')
             );
-        }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+
         }
-        flash(translate('student_updated_successfully'))->success();
-        return redirect ('student/'.$id.'/edit');
+
+            //$student = Student::find($id);
+            
+        //dd($);
+        //return $data;
+        //return redirect ('student/'.$id.'/edit')->with($data);
+        //;
     }
 
     /**
@@ -388,12 +395,8 @@ class StudentController extends Controller
         $student->delete();
         $user = User::find($student->user->id);
         $user->delete();
-        $mark = Mark::where(array('student_id' => $id, 'session' => get_schools()))->first();
-        $mark->delete();
         $enroll = Enroll::where(array('student_id' => $id, 'session' => get_schools()))->first();
         $enroll->delete();
-        $invoice = Invoice::where(array('student_id' => $id, 'session' => get_schools()))->first();
-        $invoice->delete();
         return array(
             'status' => true,
             'notification' => translate('student_has_been_deleted_successfully')

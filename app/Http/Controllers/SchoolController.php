@@ -8,6 +8,7 @@ use Hash;
 use App\Pin;
 use DB;
 use App\School;
+use App\Role;
 
 use Illuminate\Http\Request;
 
@@ -81,7 +82,17 @@ class SchoolController extends Controller
         $role = new Role;
         $role->school_id = $school_id;
         $role->save();
-        
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = "superadmin";
+        $user->address = $request->address;
+        $user->school_id = $school_id;
+        $user->phone = $request->phone;
+        $user->save();
+
         $data = array(
             'status' => true,
             'notification' => translate('saved successfully')

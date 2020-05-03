@@ -236,16 +236,42 @@ class ReportController extends Controller
     public function print( Request $request)
     {
     	$exam_id 			= $request->exam_id;   
-        $section_id 		= $request->section_id;
-        $section  			= Section::find($section_id);
-        $class_id 			= $section->class_id;
+        $session_id 		= $request->session_id;
+        //$section  			= Section::find($section_id);
+        //$class_id 			= $section->class_id;
     	$id = Auth::user()->id;
     	$student = Student::where(['user_id' => $id])->get();
     	foreach ( $student as $key ) {
     		# code...
     	}
     	$student_id = $key->id;
-    	$allresult_data = Result::where(['student_id' => $student_id, 'exam_id' => $exam_id, 'class_id' => $class_id])->orderBy('position', 'asc')->get();
-    	return view('backend.'.Auth::user()->role.'.report.print');
+    	$class = Enroll::where(['student_id' => $student_id])->get();
+    	foreach ($class as $key2) {
+    		# code...
+    	}
+    	$class_id 	= $key2->class_id;
+    	$section_id = $key2->section_id;
+    	$section  	= Section::find($section_id);
+    	//$section_name = $section->name;
+    	//$subject_id = 
+    	//dd($section_name);
+    	$subject = Subject::where(['class_id' => $class_id, 'session' => $session_id, 'school_id' => school_id()])->get();
+    	foreach ($subject as $key3) {
+    		# code...
+    	}
+    	//dd($key3->id);
+    	$subject_id = $key3->id;
+
+    	$result = Mark::where(['subject_id' => $subject_id, 'section_id' => $section_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->get();
+
+    	
+
+    	$allresult_data = Result::where(['student_id' => $student_id, 'session' => $session_id, 'exam_id' => $exam_id, 'class_id' => $class_id])->orderBy('position', 'asc')->get();
+    	foreach ($allresult_data as $key4) {
+    		# code...
+    	}
+    	//dd($subject);
+    	
+    	return view('backend.'.Auth::user()->role.'.report.list', compact('allresult_data', 'result', 'subject', 'class_id', 'subject_id', 'student_id', 'exam_id', 'session_id', 'section', 'section_id', 'key4', 'key3'))->render();
     }
 }

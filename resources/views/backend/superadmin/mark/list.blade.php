@@ -38,13 +38,13 @@
                         <tr>
                             <td>{{ $mark->student->user->name }}</td>
                             <td>
-                                <input type="text" class="form-control" name="objectives" id="objectives_{{ $mark->id }}" value="{{ $mark->objectives }}">
+                                <input type="text" size= "200" class="form-control" name="objectives" id="objectives_{{ $mark->id }}" value="{{ $mark->objectives }}">
                             </td>
                             <td align="center">
-                                <input type="text" class="form-control" name="practicals" id="practicals_{{ $mark->id }}" value="{{ $mark->practicals }}">
+                                <input type="text" size= "200" class="form-control" name="practicals" id="practicals_{{ $mark->id }}" value="{{ $mark->practicals }}">
                             </td>
                             <td>
-                                <input type="text" class="form-control" name="theory" id="theory_{{ $mark->id }}" value="{{ $mark->theory }}">
+                                <input type="text" size= "250" class="form-control" name="theory" id="theory_{{ $mark->id }}" value="{{ $mark->theory }}">
                             </td>
                             
                             <td style="text-align: center;">

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Teacher;
+use App\Mark;
 
 class Subject extends Model
 {

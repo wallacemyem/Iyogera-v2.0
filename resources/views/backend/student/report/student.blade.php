@@ -15,7 +15,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-md-center d-print-none" style="margin-bottom: 10px;">
-                    <span class="text-warning font-weight-bold"><small>Please generate result first or ask principal to generate result</small></span>
+                    <span class="text-warning font-weight-bold"><small>Confirm that results are available before contacting support</small></span>
                 </div>
                     <div class="row justify-content-md-center d-print-none" style="margin-bottom: 10px;">
                         <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
@@ -28,17 +28,11 @@
                         </div>
 
                         <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
-                            <select class="form-control" name="class_id" id="class_id" onchange="classWiseSection(this.value)">
-                                <option value="all">{{ translate('select_a_class') }}</option>
-                                @foreach (App\Classes::where('school_id', school_id())->get() as $class)
-                                    <option value="{{ $class->id }}">{{ $class->name }}</option>
+                            <select class="form-control" name="session_id" id="session_id">
+                                <option value="all">{{ translate('select_session') }}</option>
+                                @foreach (App\Session::where('school_id', school_id())->get() as $session)
+                                    <option value="{{ $session->id }}">{{ $session->name }}</option>
                                 @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0" id = "section_content">
-                            <select class="form-control" name="section_id" id="section_id">
-                                <option value="all">{{ translate('select_a_section') }}</option>
                             </select>
                         </div>
 
@@ -58,7 +52,7 @@
                     </div>
 
                     <div class="table-responsive-sm" id = "marks_content">
-                        
+                        @include('backend.'.Auth::user()->role.'.report.list')
                     </div>
                 </div> <!-- end card body-->
             </div> <!-- end card -->
@@ -99,21 +93,20 @@
         }
 
         var manageMarks = function () {
-            var section_id = $("#section_id").val();
+            var session_id = $("#session_id").val();
             var exam_id    = $("#exam_id").val();
             
-            if(section_id > 0 && exam_id > 0) {
-                var url = '{{ route("report.list") }}';
+            if(session_id > 0 && exam_id > 0) {
+                var url = '{{ route("report.print") }}';
                 var month = $('#month').val();
                 var year = $('#year').val();
 
                 $.ajax({
                     type : 'POST',
                     url: url,
-                    data : { section_id : section_id, exam_id : exam_id, _token : '{{ @csrf_token() }}' },
+                    data : { session_id : session_id, exam_id : exam_id, _token : '{{ @csrf_token() }}' },
                     success : function(response) {
-                        
-                        window.open('{{ route("report.print") }}');
+                        $('#marks_content').html(response);
                     }
                 });
             }else {

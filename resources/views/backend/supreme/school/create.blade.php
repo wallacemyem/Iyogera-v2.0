@@ -8,6 +8,24 @@
         </div>
 
         <div class="form-group col-md-12">
+            <label for="email">{{ translate('name') }}</label>
+            <input type="text" class="form-control" id="phone" name = "name" required>
+            <small id="author_help" class="form-text text-muted">{{ translate('provide_admin_name') }}.</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="email">{{ translate('email') }}</label>
+            <input type="text" class="form-control" id="phone" name = "email" required>
+            <small id="author_help" class="form-text text-muted">{{ translate('provide_admin_email') }}.</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="phone">{{ translate('password') }}</label>
+            <input type="password" class="form-control" id="phone" name = "password" required>
+            <small id="author_help" class="form-text text-muted">{{ translate('provide_admin_password') }}.</small>
+        </div>
+
+        <div class="form-group col-md-12">
             <label for="phone">{{ translate('phone') }}</label>
             <input type="text" class="form-control" id="phone" name = "phone" required>
             <small id="author_help" class="form-text text-muted">{{ translate('provide phone number') }}.</small>
