@@ -63,6 +63,13 @@ function switchLanguage(language_code) {
         location.reload();
     });
 }
+<script>
+ jQuery(document).ready(function(){
+     @if(Session::has('success') && !empty(session('success')))
+         jQuery('.toast').toast('show');
+     @endif
+ });
+ </script>
 </script>
     {{ TawkTo::widgetCode() }}
 </body>
