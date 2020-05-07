@@ -11,7 +11,7 @@
         "fideloper/proxy": "^4.0",
         "kingflamez/laravelrave": "^2.0",
         "laracasts/flash": "^3.0",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "6.18.*",
         "laravel/tinker": "^1.0",
         "livewire/livewire": "^1.0",
         "maatwebsite/excel": "^3.1",
