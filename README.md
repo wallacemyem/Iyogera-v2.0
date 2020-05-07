@@ -8,3 +8,6 @@
   </a>
 <p>
 Update for Iyogera school ERP, v2.0
+  
+  run composer install
+  edit .env and you will be up and running
