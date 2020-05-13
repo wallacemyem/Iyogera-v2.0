@@ -5,8 +5,8 @@
     <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
             <thead class="thead-dark">
                     <tr>
-                        <th>{{ translate('code') }}</th>
                         <th>{{ translate('photo') }}</th>
+                        <th>{{ translate('code') }}</th>
                         <th>{{ translate('name') }}</th>
                         <th>{{ translate('option') }}</th>
                     </tr>
@@ -14,11 +14,13 @@
             <tbody>
                 @foreach ($students as $student)
                     <tr>
-                            <td>{{ $student->student->code }}</td>
-                            <td>
+                        <td>
+
                             <img src="{{ asset('backend/images/student_image/'.$student->profile_pix.'.jpg') }}" alt="{{$student->name}}">
             
-                                </td>
+                        </td>
+                        <td>{{ $student->student->code }}</td>
+                            
                         <td>{{ $student->student->user->name }}</td>
                         <td>
                             <div class="btn-group mb-2">
