@@ -16,8 +16,8 @@
                     <tr>
                             <td>{{ $student->student->code }}</td>
                             <td>
-                                @if (file_exists('backend/images/student_image/'.$student->profile_pix.'.jpg'))
-                                    <img src="{{'backend/images/student_image/'.$student->profile_pix.'.jpg'}}" alt="$student->name" height="50" width="50" class="rounded-circe">
+                                @if (file_exists(asset('backend/images/student_image/'.$student->profile_pix.'.jpg')))
+                                    <img src="{{asset('backend/images/student_image/'.$student->profile_pix.'.jpg')}}" alt="$student->name" height="50" width="50" class="rounded-circe">
                                 @else
                                     <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="50">
                                 @endif
