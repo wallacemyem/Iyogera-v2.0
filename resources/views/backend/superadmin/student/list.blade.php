@@ -16,8 +16,9 @@
                     <tr>
                             <td>{{ $student->student->code }}</td>
                             <td>
-                                <img src="{{ asset('backend/images/student_image/'.$student->profile_pix.'.jpg') }}" alt="{{$student->name}}" height="100" width="100">
-                            </td>
+                            <img src="{{ asset('backend/images/student_image/'.$student->profile_pix.'.jpg') }}" alt="{{$student->name}}" height="100" width="100">
+            
+                                </td>
                         <td>{{ $student->student->user->name }}</td>
                         <td>
                             <div class="btn-group mb-2">
