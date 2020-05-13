@@ -16,7 +16,7 @@
                     <tr>
                             <td>{{ $student->student->code }}</td>
                             <td>
-                                {{ asset('backend/images/student_image/'.$student->profile_pix.'.jpg') }}
+                                <img src="{{ asset('backend/images/student_image/'.$student->profile_pix.'.jpg') }}" alt="{{$student->name}}" height="100" width="100">
                             </td>
                         <td>{{ $student->student->user->name }}</td>
                         <td>
