@@ -7,7 +7,20 @@
             <div class="card-body">
                 <div class="toll-free-box text-center">
                     <h4> <i class="mdi mdi-border-left"></i> {{ translate('result_sheet_for') }} {{ $key->user->name }}</h4>
-                    <h5>{{ translate('position_in_class') }}: {{ $key4->position }} {{ translate('out_of') }} {{ $count_s }}</h5>
+                    <h5>{{ translate('position_in_class') }}: 
+                        <?php
+                        if ($position == 1){
+                                echo '1st';
+                            }elseif ($position == 2) {
+                                echo '2nd';
+                            }elseif ($position == 3) {
+                                echo '3rd';
+                                # code...
+                            }else{
+                                echo $position.'th';
+                            }
+                        ?> 
+                        {{ translate('out_of') }} {{ $count_s }}</h5>
                     <h5>{{ translate('average') }}: {{ $key4->average }}</h5>
                 </div>
             </div>
