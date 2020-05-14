@@ -13,7 +13,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('backend/images/logo-dark.png')}}">
     @include('backend.layout.styles')
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 </head>
 
