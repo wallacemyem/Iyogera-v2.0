@@ -270,12 +270,13 @@ class ReportController extends Controller
     	$allresult_data = Result::where(['student_id' => $student_id, 'session' => $session_id, 'exam_id' => $exam_id, 'class_id' => $class_id])->orderBy('position', 'asc')->get();
     	foreach ($allresult_data as $key4) {
     		# code...
-    		//dd($key4->position);
+    		$position = $key4->position;
+    		
     	}
     	//dd($subject);
     	$students = Enroll::where(['section_id' => $section_id, 'class_id' => $class_id, 'session' => $session_id, 'school_id' => school_id()])->get();
     	$count_s = $students->count();
     	
-    	return view('backend.'.Auth::user()->role.'.report.list', compact('allresult_data', 'result_students', 'result', 'subject', 'class_id', 'subject_id', 'student_id', 'exam_id', 'session_id', 'section', 'count_s', 'section_id', 'key', 'key4', 'key3'))->render();
+    	return view('backend.'.Auth::user()->role.'.report.list', compact('allresult_data', 'result_students', 'result', 'subject', 'class_id', 'subject_id', 'position', 'student_id', 'exam_id', 'session_id', 'section', 'count_s', 'section_id', 'key', 'key4', 'key3'))->render();
     }
 }
