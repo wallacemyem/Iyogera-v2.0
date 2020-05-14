@@ -14,6 +14,9 @@
         </div>
         <div class="col-md-8 font-weight-bold h4 d-none d-md-block" id = "school_name">
             @php
+                $login = Auth::user()->id;
+                $student = \App\Student::where('user_id', $login)->first();
+                
                 $selected_branch_id = school_id();
                 $selected_branch = \App\School::find($selected_branch_id);
                 echo $selected_branch->name;
@@ -52,8 +55,10 @@
                     <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                         aria-expanded="false">
                         <span class="account-user-avatar">
-                            @if (file_exists('backend/images/user_image/'.Auth::user()->id.'.jpg'))
-                                <img src="{{ asset('backend/images/user_image/'.Auth::user()->id.'.jpg') }}" alt="user-image" class="rounded-circle">
+                            @if (Auth::user()->role == 'student')
+                                <img src="{{ 'backend/images/student_image/'.$student->profile_pix.'.jpg' }}" alt="{{$student->name}}" class="rounded-circle">
+                            @elseif(Auth::user()->role != 'student')
+                                <img src="{{ asset('backend/images/user_image/'.Auth::user()->id.'.jpg') }}" alt="{{Auth::user()->name}}" class="rounded-circle">
                             @else
                                 <img src="{{ asset('backend/images/avatar.jpg') }}" alt="user-image" class="rounded-circle">
                             @endif
