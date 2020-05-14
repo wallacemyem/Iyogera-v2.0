@@ -82,10 +82,12 @@ class ProfileController extends Controller
                 $user->phone = $request->phone;
                 $user->address = $request->address;
                 if ($request->hasFile('user_image')) {
+                    $id = $user->id;
                     $dir  = 'backend/images/user_image';
                     $user_image = $request->file('user_image');
-                    $user_image->move($dir, $id.".jpg");
+                    //$user_image->move($dir, $id.".jpg");
                 }
+                $user_image->move($dir, $id.".jpg");
                 $user->save();
                 $data = array(
                     'status' => true,
@@ -115,7 +117,7 @@ class ProfileController extends Controller
             }
         }
 
-        return $data;
+        return redirect()->back();
     }
 
     /**
