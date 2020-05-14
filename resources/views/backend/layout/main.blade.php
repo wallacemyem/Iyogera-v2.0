@@ -13,6 +13,8 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('backend/images/logo-dark.png')}}">
     @include('backend.layout.styles')
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 </head>
 
 <body @if(Request::route()->getName() == 'daily_attendance.index' || Request::route()->getName() == 'student.create' || Request::route()->getName() == 'report.index' || Request::route()->getName() == 'student.bulk' || Request::route()->getName() == 'student.excel') class="enlarged" data-keep-enlarged="true" @endif >
@@ -63,13 +65,28 @@ function switchLanguage(language_code) {
         location.reload();
     });
 }
+</script>
 <script>
- jQuery(document).ready(function(){
-     @if(Session::has('success') && !empty(session('success')))
-         jQuery('.toast').toast('show');
-     @endif
- });
- </script>
+  @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+        
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
 </script>
     {{ TawkTo::widgetCode() }}
 </body>
