@@ -58,7 +58,7 @@
                             @if (Auth::user()->role == 'student')
                                 <img src="{{ 'backend/images/student_image/'.$student->profile_pix.'.jpg' }}" alt="{{$student->name}}" class="rounded-circle">
                             @elseif(Auth::user()->role != 'student')
-                                <img src="{{ 'backend/images/user_image/'.Auth::user()->id.'.jpg' }}" alt="{{Auth::user()->name}}" class="rounded-circle">
+                                <img src="{{ asset('backend/images/user_image/'.Auth::user()->id.'.jpg') }}" alt="{{Auth::user()->name}}" class="rounded-circle">
                             @else
                                 <img src="{{ asset('backend/images/avatar.jpg') }}" alt="user-image" class="rounded-circle">
                             @endif
