@@ -4,7 +4,7 @@
         <div class="slimscroll-menu">
 
             <!-- LOGO -->
-            <a href="index.html" class="logo text-center">
+            <a href="" class="logo text-center">
                 <span class="logo-lg">
                 <img src="{{asset('backend/images/logo-dark.png')}}" alt="" height="16">
                 </span>
