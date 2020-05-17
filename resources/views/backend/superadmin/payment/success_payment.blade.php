@@ -220,7 +220,7 @@
 							</tr>
 							<tr>
 								<td class="text-16" style="font-size:16px; line-height:20px; color:#6e6e6e; font-family:'PT Sans', Arial, sans-serif; text-align:left; min-width:auto !important;">
-									{{ date('D d/m/Y G:ia'), $get_pay->time_stamp}}
+									{{ date('D d/m/Y G:ia', $get_pay->time_stamp)}}
 								</td>
 							</tr>
 						</table>
@@ -255,7 +255,7 @@
 							</tr>
 							<tr>
 								<td class="text-16 lh-26 pb-15" style="font-size:16px; color:#6e6e6e; font-family:'PT Sans', Arial, sans-serif; text-align:left; min-width:auto !important; line-height: 26px; padding-bottom: 15px;">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+									
 								</td>
 							</tr>
 							<tr>
