@@ -12,7 +12,7 @@
 */
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
+    Route::get('/dash', function () {
         $title = "Dashboard";
         return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
     })->name('dashboard');
@@ -112,9 +112,17 @@ Route::group(['middleware' => ['auth']], function () {
 
     #rave flutterwave
     Route::post('/pay', 'RaveController@initialize')->name('pay');
-    //Route::post('/rave/callback', 'RaveController@callback')->name('callback');
+    Route::post('/rave/callback', 'RaveController@callback')->name('callback');
     Route::get('/rave/callback', 'RaveController@callback')->name('callback');
     Route::post('/receivepayment', 'RaveController@webhook')->name('webhook');
+    //Route::get('/receivepayment', 'RaveController@webhook')->name('webhook');
+    Route::post('/verify', 'RaveController@verify')->name('verify');
+    //Route::get('/verify', 'RaveController@verify')->name('verify');
+
+    //jinx
+    Route::resource('payment' , 'PaymentController');
+    Route::get('/success', 'PaymentController@success')->name('success');
+    Route::get('/fail', 'PaymentController@fail')->name('fail');
 
 });
 
