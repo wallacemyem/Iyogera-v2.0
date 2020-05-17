@@ -79,7 +79,7 @@
                             <tbody>
                                 @foreach ( $get_payments as $payment)
                                     <tr>
-                                        <td> {{ date('d/m/Y G:i' , $payment->time_stamp) }} </td>
+                                        <td> {{ $payment->time_stamp }} </td>
                                         <td> {{ $payment->amount }} </td>
                                         <td> {{ $payment->tranx_id }} </td>
                                         <td> {{ $payment->status }} </td>

@@ -220,7 +220,7 @@
 							</tr>
 							<tr>
 								<td class="text-16" style="font-size:16px; line-height:20px; color:#6e6e6e; font-family:'PT Sans', Arial, sans-serif; text-align:left; min-width:auto !important;">
-									{{ date('D d/m/Y G:ia', $get_pay->time_stamp)}}
+									{{ $get_pay->time_stamp}}
 								</td>
 							</tr>
 						</table>
