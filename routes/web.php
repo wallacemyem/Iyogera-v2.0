@@ -17,6 +17,11 @@ Route::group(['middleware' => ['auth']], function () {
         return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
     })->name('dashboard');
 
+    Route::get('/dash', function () {
+        $title = "Dashboard";
+        return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
+    })->name('dashboard');
+
     Route::resource('session_manager', 'SessionManagerController');
     Route::get('session_activate/{id}', 'SessionManagerController@active')->name('session.active');
     Route::get('session_list', 'SessionManagerController@list')->name('session.list');
