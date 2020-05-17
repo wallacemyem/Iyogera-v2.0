@@ -136,7 +136,7 @@
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<td class="img-center p-30 px-15" style="font-size:0pt; line-height:0pt; text-align:center; padding: 30px; padding-left: 15px; padding-right: 15px;">
-									<a href="#" target="_blank"><img src="{{asset('backend/images/logo-dark.png')}}" width="350" height="175" border="0" alt="" /></a>
+									<a href="#" target="_blank"><img src="{{asset('backend/images/logo-dark.png')}}" width="200" height="79" border="0" alt="" /></a>
 								</td>
 							</tr>
 						</table>
@@ -153,7 +153,7 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td class="fluid-img img-center pb-50" style="font-size:0pt; line-height:0pt; text-align:center; padding-bottom: 50px;">
-						<img src="https://www.psd2newsletters.com/templates/purple/images/img_intro_13.png" width="200" height="80" border="0" alt="" />
+						<img src="https://www.psd2newsletters.com/templates/purple/images/img_intro_13.png" width="300" height="252" border="0" alt="" />
 					</td>
 				</tr>
 				<tr>
