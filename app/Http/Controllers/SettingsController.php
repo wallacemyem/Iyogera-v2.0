@@ -105,7 +105,7 @@ class SettingsController extends Controller
         $email = Auth::user()->email;
         $phone = Auth::user()->phone;
 
-        $trnx_id = Str::slug($school_name).'_'.str_random(10);
+        $trnx_id = Str::slug($school_name).'_'.Str::random(10);
         //dd($trnx_id);
 
         $ref_tx = new Reference;
