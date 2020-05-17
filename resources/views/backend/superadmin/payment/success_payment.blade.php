@@ -416,7 +416,7 @@
 </td>
 </tr>
 </table>											
-<!-- END Footer -->
+<!-- ENDFooter -->
 </td>
 </tr>
 </table>
