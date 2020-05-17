@@ -12,7 +12,7 @@
 */
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dash', function () {
+    Route::get('/', function () {
         $title = "Dashboard";
         return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
     })->name('dashboard');
