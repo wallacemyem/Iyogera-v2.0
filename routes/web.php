@@ -112,7 +112,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     #rave flutterwave
     Route::post('/pay', 'RaveController@initialize')->name('pay');
-    Route::post('/rave/callback', 'RaveController@callback')->name('callback');
+    //Route::post('/rave/callback', 'RaveController@callback')->name('callback');
     Route::get('/rave/callback', 'RaveController@callback')->name('callback');
     Route::post('/receivepayment', 'RaveController@webhook')->name('webhook');
 

@@ -9,12 +9,12 @@
     <title>{{ $title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Best school ERP" name="description" />
-    <meta content="Iyogera" name="author" />
+    <meta content="Iyogera NG" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('backend/images/logo-dark.png')}}">
     @include('backend.layout.styles')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 </head>
 
 <body @if(Request::route()->getName() == 'daily_attendance.index' || Request::route()->getName() == 'student.create' || Request::route()->getName() == 'report.index' || Request::route()->getName() == 'student.bulk' || Request::route()->getName() == 'student.excel') class="enlarged" data-keep-enlarged="true" @endif >
@@ -54,7 +54,6 @@
 </div>
 <!-- END wrapper -->
 
-@include('backend.'.Auth::user()->role.'.navigation.right_navigation')
 @include('backend.layout.scripts')
 @include('backend.layout.modal')
 @include('backend.layout.ajax_form')
@@ -67,7 +66,7 @@ function switchLanguage(language_code) {
 }
 </script>
 <script>
-  @if(Session::has('message'))
+  if (Session::has('message'))
     var type = "{{ Session::get('alert-type', 'info') }}";
     switch(type){
         case 'info':
@@ -86,7 +85,7 @@ function switchLanguage(language_code) {
             toastr.error("{{ Session::get('message') }}");
             break;
     }
-  @endif
+  endif
 </script>
     {{ TawkTo::widgetCode() }}
 </body>

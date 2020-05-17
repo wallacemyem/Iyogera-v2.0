@@ -8,7 +8,7 @@
                         <th>{{ translate('photo') }}</th>
                         <th>{{ translate('code') }}</th>
                         <th>{{ translate('name') }}</th>
-                        <th>{{ translate('option') }}</th>
+                        
                     </tr>
             </thead>
             <tbody>
@@ -22,16 +22,7 @@
                         <td>{{ $student->student->code }}</td>
                             
                         <td>{{ $student->student->user->name }}</td>
-                        <td>
-                            <div class="btn-group mb-2">
-
-                                <button type="button" class="btn btn-icon btn-secondary btn-sm" style="margin-right:5px;" onclick="showLargeAjaxModal('{{ route('student.profile', $student->student->id) }}')" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('student_profile') }}"> <i class="dripicons-checklist"></i> </button>
-
-                                <a href="{{ route('student.edit', $student->id) }}" class="btn btn-icon btn-secondary btn-sm" style="margin-right:5px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('update_student') }}"> <i class="mdi mdi-wrench"></i> </a>
-
-                                <button type="button" class="btn btn-icon btn-dark btn-sm" style="margin-right:5px;" onclick="confirm_modal('{{ route('student.destroy', $student->id) }}', classAndSectionWiseStudents )" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('delete_student') }}"> <i class="mdi mdi-window-close"></i> </button>
-                            </div>
-                        </td>
+                        
                     </tr>
                 @endforeach
             </tbody>
