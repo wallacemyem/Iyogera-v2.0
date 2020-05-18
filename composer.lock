@@ -1137,16 +1137,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v1.0.14",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "a6b43843c89304fe96f9f98fcb3f1e2660b0deae"
+                "reference": "ee22192220ca7b4f50dec2b0b6ea4da9e49ccf11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/a6b43843c89304fe96f9f98fcb3f1e2660b0deae",
-                "reference": "a6b43843c89304fe96f9f98fcb3f1e2660b0deae",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/ee22192220ca7b4f50dec2b0b6ea4da9e49ccf11",
+                "reference": "ee22192220ca7b4f50dec2b0b6ea4da9e49ccf11",
                 "shasum": ""
             },
             "require": {
@@ -1190,7 +1190,7 @@
                 }
             ],
             "description": "A front-end framework for Laravel.",
-            "time": "2020-04-27T13:47:28+00:00"
+            "time": "2020-05-13T15:22:11+00:00"
         },
         {
             "name": "maatwebsite/excel",
