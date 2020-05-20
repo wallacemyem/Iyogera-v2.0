@@ -243,6 +243,7 @@ class ReportController extends Controller
     	$student = Student::where(['user_id' => $id])->get();
     	foreach ( $student as $key ) {
     		# code...
+
     	}
     	$student_id = $key->id;
     	$class = Enroll::where(['student_id' => $student_id])->get();
@@ -264,14 +265,18 @@ class ReportController extends Controller
 
     	$result = Mark::where(['subject_id' => $subject_id, 'section_id' => $section_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->get();
 
-    	
+    	$result_students = Mark::where(['student_id' => $student_id, 'section_id' => $section_id, 'exam_id' => $exam_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->get();
 
     	$allresult_data = Result::where(['student_id' => $student_id, 'session' => $session_id, 'exam_id' => $exam_id, 'class_id' => $class_id])->orderBy('position', 'asc')->get();
     	foreach ($allresult_data as $key4) {
     		# code...
+    		$position = $key4->position;
+    		
     	}
     	//dd($subject);
+    	$students = Enroll::where(['section_id' => $section_id, 'class_id' => $class_id, 'session' => $session_id, 'school_id' => school_id()])->get();
+    	$count_s = $students->count();
     	
-    	return view('backend.'.Auth::user()->role.'.report.list', compact('allresult_data', 'result', 'subject', 'class_id', 'subject_id', 'student_id', 'exam_id', 'session_id', 'section', 'section_id', 'key4', 'key3'))->render();
+    	return view('backend.'.Auth::user()->role.'.report.list', compact('allresult_data', 'result_students', 'result', 'subject', 'class_id', 'subject_id', 'position', 'student_id', 'exam_id', 'session_id', 'section', 'count_s', 'section_id', 'key', 'key4', 'key3'))->render();
     }
 }

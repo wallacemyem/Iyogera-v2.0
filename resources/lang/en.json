@@ -601,5 +601,21 @@
     "student_email": "Student email",
     "total_number_of_books": "Total number of books",
     "books_issued": "Books issued",
-    "total_number_of_books_issued": "Total number of books issued"
+    "total_number_of_books_issued": "Total number of books issued",
+    "position_in_class": "Position in class",
+    "average": "Average",
+    "out_of": "Out of",
+    "payment_of_subscription": "Payment of subscription",
+    "payments": "Payments",
+    "assign_permission_for_payments": "Assign permission for payments",
+    "pay": "Pay",
+    "Payment successful": "Payment successful",
+    "payment_successful": "Payment successful",
+    "thank_you_for_your_payment": "Thank you for your payment",
+    "transaction_ID": "Transaction ID",
+    "payment_details": "Payment details",
+    "date_and_Time": "Date and Time",
+    "details": "Details",
+    "stamp_duty": "Stamp duty",
+    "receipt": "Receipt"
 }

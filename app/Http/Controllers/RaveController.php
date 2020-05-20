@@ -2,6 +2,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Reference;
+use App\School;
+use App\Payment;
 
 //use the Rave Facade
 use Rave;
@@ -24,22 +28,100 @@ class RaveController extends Controller
    * Obtain Rave callback information
    * @return void
    */
-  public function callback()
+  public function callback(Request $request)
   {
 
-    $data = Rave::verifyTransaction(request()->txref);
+          $school_id = school_id();
+          $current_session = get_settings('running_session');
+              //dd($school_id);
+              $schools = School::where(['id' => $school_id])->get();
+              foreach ($schools as $value) {
+                  # code...
+                  $school_name = $value->name;
+                  //$value->id;
+              }
+              $trnx_id = Str::slug($school_name).'_'.Str::random(10);
+              $get_ref = Reference::where(['school_id' => $school_id, 'session' => $current_session])->latest()->first();
 
-    dd($data);
-        // Get the transaction from your DB using the transaction reference (txref)
-        // Check if you have previously given value for the transaction. If you have, redirect to your successpage else, continue
-        // Comfirm that the transaction is successful
-        // Confirm that the chargecode is 00 or 0
-        // Confirm that the currency on your db transaction is equal to the returned currency
-        // Confirm that the db transaction amount is equal to the returned amount
-        // Update the db transaction record (includeing parameters that didn't exist before the transaction is completed. for audit purpose)
-        // Give value for the transaction
-        // Update the transaction to note that you have given value for the transaction
-        // You can also redirect to your success page from here
+          //$txref = $request->ref;
+          //dd($get_ref);
+          $data = Rave::verifyTransaction($get_ref->tx_ref_id);
 
+          $chargeResponsecode = $data->data->chargecode;
+          $chargeAmount = $data->data->chargedamount;
+          $chargeCurrency = $data->data->currency;
+          $amount = $data->data->amount;
+          $currency = $data->data->currency;
+
+          $pay = new payment;
+          $pay->amount = $amount;
+          $pay->school_id = $school_id;
+          $pay->time_stamp = $data->data->created;
+          $pay->amount_paid = $data->data->chargedamount;
+          $pay->tranx_id = $data->data->txref;
+          $pay->ip_address = $data->data->ip;
+          $pay->currency = $currency;
+          $pay->tx_id = $data->data->txid;
+          $pay->last_digits = $data->data->card->last4digits;
+          $pay->card_type = $data->data->card->type;
+          $pay->status = 'Paid';
+          $pay->save();
+
+          if (($chargeResponsecode == "00" || $chargeResponsecode == "0") && ($chargeAmount == $amount)  && ($chargeCurrency == $currency)) {
+            // transaction was successful...
+            // please check other things like whether you already gave value for this ref
+            // if the email matches the customer who owns the product etc
+            //Give Value and return to Success page
+            
+        return redirect('/success');
+            
+            } else {
+                //Dont Give Value and return to Failure page
+            
+                return redirect('/failed');
+            }
+
+  }
+
+  /**
+   * Receives Rave webhook
+   * @return void
+   */
+  public function webhook()
+  {
+    //This receives the webhook
+    $data = Rave::receiveWebhook();
+    Log::info(json_encode($data, true));
+  }
+
+  /**
+   * Receives Rave webhook
+   * @return void
+   */
+  public function verify()
+  {
+    $txref = "rave_12345";
+    
+    $data = Rave::verifyTransaction($txref);
+
+    $chargeResponsecode = $data->data->chargecode;
+    $chargeAmount = $data->data->amount;
+    $chargeCurrency = $data->data->currency;
+    
+    $amount = 4500;
+    $currency = "NGN";
+    if (($chargeResponsecode == "00" || $chargeResponsecode == "0") && ($chargeAmount == $amount)  && ($chargeCurrency == $currency)) {
+    // transaction was successful...
+    // please check other things like whether you already gave value for this ref
+    // if the email matches the customer who owns the product etc
+    //Give Value and return to Success page
+    
+        return redirect('/success');
+    
+    } else {
+        //Dont Give Value and return to Failure page
+    
+        return redirect('/failed');
+    }
   }
 }

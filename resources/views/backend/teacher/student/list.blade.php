@@ -5,26 +5,23 @@
     <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
             <thead class="thead-dark">
                     <tr>
-                        
                         <th>{{ translate('photo') }}</th>
-                        <th>{{ translate('name') }}</th>
                         <th>{{ translate('code') }}</th>
+                        <th>{{ translate('name') }}</th>
                         
                     </tr>
             </thead>
             <tbody>
                 @foreach ($students as $student)
                     <tr>
-                            
-                            <td>
-                                @if (file_exists('https://localhost/dev/backend/images/student_image/'.$student->profile_pix.'.jpg'))
-                                    <img src="{{'https://localhost/dev/backend/images/student_image/'.$student->profile_pix.'.jpg'}}" alt="$student->name" height="50" width="50" class="rounded-circe">
-                                @else
-                                    <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="50">
-                                @endif
-                            </td>
-                        <td>{{ $student->student->user->name }}</td>
+                        <td>
+
+                            <img src="{{ asset('backend/images/student_image/'.$student->student->profile_pix.'.jpg') }}" alt="{{$student->name}}" height="50" width="50">
+            
+                        </td>
                         <td>{{ $student->student->code }}</td>
+                            
+                        <td>{{ $student->student->user->name }}</td>
                         
                     </tr>
                 @endforeach

@@ -85,9 +85,9 @@ class ProfileController extends Controller
                     $id = $user->id;
                     $dir  = 'backend/images/user_image';
                     $user_image = $request->file('user_image');
-                    //$user_image->move($dir, $id.".jpg");
+                    $user_image->move($dir, $id.".jpg");
                 }
-                $user_image->move($dir, $id.".jpg");
+                
                 $user->save();
                 $data = array(
                     'status' => true,
@@ -117,7 +117,7 @@ class ProfileController extends Controller
             }
         }
 
-        return redirect()->back();
+        return $data;//redirect()->back()->with($data);
     }
 
     /**

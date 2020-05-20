@@ -6,9 +6,22 @@
         <div class="card text-white bg-secondary">
             <div class="card-body">
                 <div class="toll-free-box text-center">
-                    <h4> <i class="mdi mdi-border-left"></i> {{ translate('result_sheet_for') }}</h4>
-                    <h5>{{ translate('class') }}: {{ $section->class->name }}</h5>
-                    <h5>{{ translate('section') }}: {{ $section->name }}</h5>
+                    <h4> <i class="mdi mdi-border-left"></i> {{ translate('result_sheet_for') }} {{ $key->user->name }}</h4>
+                    <h5>{{ translate('position_in_class') }}: 
+                        <?php
+                        if ($position == 1){
+                                echo '1st';
+                            }elseif ($position == 2) {
+                                echo '2nd';
+                            }elseif ($position == 3) {
+                                echo '3rd';
+                                # code...
+                            }else{
+                                echo $position.'th';
+                            }
+                        ?> 
+                        {{ translate('out_of') }} {{ $count_s }}</h5>
+                    <h5>{{ translate('average') }}: {{ $key4->average }}</h5>
                 </div>
             </div>
         </div>
@@ -39,31 +52,24 @@
                        
                     </thead>
                     <tbody>
-                            
-                    @php $markslist = explode(',',$key4->subjects);@endphp
-                                @foreach($markslist as $mark)
+                            @foreach($result_students as $mark)
                         <tr>
                             
                             <td>
-                                {{$mark}}
+                                {{$mark->subject->name}}
                             </td>
-                               
-                        
-
+                             
                             <td>
-                                
+                               {{$mark->ca_total}} 
                             </td>
                             <td>
-                                
+                               {{$mark->theory}} 
                             </td> 
                             
-                        
-                            @php $markslists = explode(',',$key4->marks_string);@endphp
-                                @foreach($markslists as $total)
                             <td>
-                               {{$total}}
+                               {{$mark->mark_total}}
                             </td>
-                            @endforeach
+                            
                         </tr>
                         @endforeach
                     </tbody>
