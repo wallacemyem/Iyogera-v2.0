@@ -8,8 +8,15 @@
   </a>
 <p>
 Update for Iyogera school ERP, v2.0
-  
+  <br>
   run `composer create-project iyogera/iyogera-erp`
+  <br>
   run `composer install`
+  <br>
   run `npm install`
+  <br>
   edit `.env` and you will be up and running
+  <br>
+  Open an issue when you have one.
+  <br>
+  No database are supplied, its upon request or a sponsor.
