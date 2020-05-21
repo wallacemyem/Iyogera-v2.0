@@ -10,19 +10,19 @@ Update for Iyogera school ERP, v2.0
   <br>
   run 
   
-  ```
+  ```php
   composer create-project iyogera/iyogera-erp
   ```
   <br>
   run 
   
-  ```
+  ```php
   composer install
   ```
   <br>
   run 
   
-  ```
+  ```php
   npm install
   ```
   <br>
