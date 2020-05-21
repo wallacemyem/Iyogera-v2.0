@@ -1,5 +1,6 @@
 @php
-    $pym = App\Pin::where(['school_id' => school_id(), 'session' => get_settings('running_session')])->get();
+    $session = get_schools();
+    $pym = App\Pin::where(['school_id' => school_id(), 'session' => $session])->get();
 @endphp
 @if (sizeof($pym) > 0)
     <div class="table-responsive-sm">
@@ -29,7 +30,7 @@
     </div> <!-- end table-responsive-->
 @else
     <div style="text-align: center;">
-            <img src="{{ asset('backend/images/empty_box.png') }}" alt="" class="empty-box">
+            <img src="{{ asset('backend/images/no-data.png') }}" alt="" class="empty-box">
             <p>{{ translate('no_data_found') }}</p>
     </div>
 @endif

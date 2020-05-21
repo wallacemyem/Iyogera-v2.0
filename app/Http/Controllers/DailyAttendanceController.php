@@ -10,6 +10,10 @@ use App\Enroll;
 
 class DailyAttendanceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -75,7 +79,7 @@ class DailyAttendanceController extends Controller
         $section_id = $request->section_id;
         $section  = Section::find($section_id);
         $class_id = $section->class->id;
-        $running_session = get_school();
+        $running_session = get_schools();
         $school_id = school_id();
         $students = Enroll::where(['section_id' => $section_id, 'class_id' => $class_id, 'session' => $running_session, 'school_id' => $school_id])->get();
         $month = $request->month;
@@ -89,7 +93,7 @@ class DailyAttendanceController extends Controller
         $section_id = $request->section_id;
         $section  = Section::find($section_id);
         $class_id = $section->class->id;
-        $running_session = get_school();
+        $running_session = get_schools();
         $school_id = school_id();
         $date = strtotime($request->date);
 

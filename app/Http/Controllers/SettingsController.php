@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Reference;
+use App\Payment;
+use App\Session;
 use App\Setting;
 use App\School;
+use App\Enroll;
+use App\User;
 use Auth;
 
 class SettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +44,7 @@ class SettingsController extends Controller
         $settings->system_email = $request->system_email;
         $settings->system_title = $request->system_title;
         $settings->phone = $request->phone;
-        $settings->purchase_code = $request->purchase_code;
+        //$settings->purchase_code = $request->purchase_code;
         $settings->address = $request->address;
         $settings_type = "system";
         $settings->save();
@@ -71,9 +81,48 @@ class SettingsController extends Controller
 
     public function payment()
     {
-        $title = translate('payment_settings');
+        $title = translate('payment_of_subscription');
         $settings_type = "payment";
-        return view('backend.'.Auth::user()->role.'.settings.index', compact('settings_type', 'title'));
+        $school_id = school_id();
+        //dd($school_id);
+        $schools = School::where(['id' => $school_id])->get();
+        foreach ($schools as $value) {
+            # code...
+            $school_name = $value->name;
+            $country = $value->country;
+            $currency = $value->currency;
+            //$value->id;
+        }
+        $current_session = get_settings('running_session');
+        $session_active = Session::where(['status' => '1'])->get();
+
+        $students = Enroll::where(['school_id' => $school_id])->get();
+        $students_count = count($students);
+
+        $cost = $students_count * 250;
+        //dd($school_name);
+
+        $email = Auth::user()->email;
+        $phone = Auth::user()->phone;
+
+        $trnx_id = Str::slug($school_name).'_'.Str::random(10);
+        //dd($trnx_id);
+
+        $ref_tx = new Reference;
+        $ref_tx->school_id = $school_id;
+        $ref_tx->session = $current_session;
+        $ref_tx->tx_ref_id = $trnx_id;
+        $ref_tx->save();
+
+        $get_ref = Reference::where(['school_id' => $school_id, 'session' => $current_session])->latest()->first();
+        //dd($get_ref);
+
+        $get_payments = Payment::where(['school_id' => $school_id])->get();
+
+        $desc = $get_ref->tx_ref_id.' '.$email.' paid '.$currency.$cost.' as subscription '.$settings_type;
+        //dd($desc);
+
+        return view('backend.'.Auth::user()->role.'.settings.index', compact('settings_type', 'title', 'school_name', 'email', 'students_count', 'cost', 'trnx_id', 'get_ref', 'get_payments', 'current_session', 'country', 'currency', 'desc', 'phone'));
     }
 
     public function payment_update(Request $request, $type)

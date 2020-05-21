@@ -1,5 +1,5 @@
 @php
-    $enroll_details = \App\Enroll::where(['student_id' => $student_details->id, 'session' => get_settings('running_session'), 'school_id' => school_id()])->get();
+    $enroll_details = \App\Enroll::where(['student_id' => $student_details->id, 'session' => get_schools(), 'school_id' => school_id()])->get();
     $class_details = \App\Classes::find($enroll_details[0]->class_id);
     $section_details = \App\Section::find($enroll_details[0]->section_id);
     $parent_info = \App\User::find($student_details->parent_id);
@@ -9,13 +9,14 @@
     <div class="row align-items-center h-100">
         <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
             <div class="text-center">
-                @if (file_exists('backend/images/student_image/'.$student_details->id.'.jpg'))
-                    <img src="{{'backend/images/student_image/'.$student_details->id.'.jpg'}}" alt="" height="150" width="150">
+                @if (file_exists('backend/images/student_image/'.$student_details->profile_pix.'.jpg'))
+                    <img src="{{'backend/images/student_image/'.$student_details->profile_pix.'.jpg'}}" alt="" height="150" width="150">
                 @else
-                    <img src="{{ asset('backend/images/student_image/preview.jpg') }}" alt="" height="150" width="150">
+                    <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="150" width="150">
                 @endif
                 <div> <span style="font-weight: bold;">{{ translate('name') }}: </span> {{ $student_details->user->name }} </div>
                 <div> <span style="font-weight: bold;">{{ translate('student_code') }}: </span> {{ $student_details->code }} </div>
+                <div> <span style="font-weight: bold;">{{ translate('student_email') }}: </span> {{ $student_details->user->email }} </div>
             </div>
         </div>
         <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">

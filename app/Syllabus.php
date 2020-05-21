@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Classes;
+use App\Section;
+use App\Subject;
 
 class Syllabus extends Model
 {
     protected $table = "syllabuses";
+    
     public function class() {
         return $this->belongsTo(Classes::class);
     }

@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +60,7 @@ class InvoiceController extends Controller
         $invoice->student_id = $request->student_id;
         $invoice->status = $request->status;
         $invoice->school_id = school_id();
-        $invoice->session = get_school();
+        $invoice->session = get_schools();
         if($invoice->save()){
             $data = array(
                 'status' => true,
@@ -75,7 +79,7 @@ class InvoiceController extends Controller
     {
         $section_id  = $request->section_id;
         $class_id = $request->class_id;
-        $running_session = get_settings('running_session');
+        $running_session = get_schools();
         $school_id = school_id();
         $students = Enroll::where(['section_id' => $section_id, 'class_id' => $class_id, 'session' => $running_session, 'school_id' => $school_id])->get();
         foreach($students as $student) {
@@ -87,7 +91,7 @@ class InvoiceController extends Controller
             $invoice->student_id = $student->student_id;
             $invoice->status = $request->status;
             $invoice->school_id = school_id();
-            $invoice->session = get_school();
+            $invoice->session = get_schools();
             $invoice->save();
         }
 
@@ -95,7 +99,7 @@ class InvoiceController extends Controller
             'status' => true,
             'notification' => translate('invoice_added_successfully')
         );
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -133,7 +137,7 @@ class InvoiceController extends Controller
         $invoice->student_id = $request->student_id;
         $invoice->status = $request->status;
         $invoice->school_id = school_id();
-        $invoice->session = get_school();
+        $invoice->session = get_schools();
         if($invoice->save()){
             $data = array(
                 'status' => true,

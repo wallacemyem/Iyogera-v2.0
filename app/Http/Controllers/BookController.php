@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +46,7 @@ class BookController extends Controller
         $book->author = $request->author;
         $book->copies = $request->copies;
         $book->school_id = school_id();
-        $book->session = get_school();
+        $book->session = get_schools();
 
         if($book->save()){
             $data = array(
@@ -100,7 +104,7 @@ class BookController extends Controller
         $book->author = $request->author;
         $book->copies = $request->copies;
         $book->school_id = school_id();
-        $book->session = get_school();
+        $book->session = get_schools();
 
         if($book->save()){
             $data = array(

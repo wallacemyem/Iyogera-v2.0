@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class SyllabusController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *

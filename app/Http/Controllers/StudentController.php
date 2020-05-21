@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -8,13 +7,21 @@ use App\School;
 use App\Setting;
 use App\Section;
 use App\Enroll;
+use App\Invoice;
 use App\User;
+use App\Mark;
 use Hash;
 use Auth;
+use Session;
+//suse App\Http\Requests;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +32,7 @@ class StudentController extends Controller
         //$auth = school_id(); //Auth::user()->school_id;
         //dd($auth);
 
-        $title = translate('student_list');
+        $title = translate('👩‍🎓');
         return view('backend.'.Auth::user()->role.'.student.index', compact('title' ));
     }
 
@@ -88,7 +95,14 @@ class StudentController extends Controller
         $email = "@iyogera.com";
         $rad_code = str_pad(mt_rand(1,99999),5,'0',STR_PAD_LEFT);
         $std_code = $short."/".$year."/".$rad_code;
+        $file_name_path = $short."".$year."".$rad_code;
         //dd($std_code);
+        if ($request->hasFile('student_image')) {
+                $dir  = 'backend/images/student_image';
+                $student_image = $request->file('student_image');
+                $student_image->move($dir, $file_name_path.".jpg");
+            }
+            //dd($request->hasFile('student_image'));
 
         if(count(User::where('email', $request->email)->get()) == 0) {
             $user = new User;
@@ -108,6 +122,7 @@ class StudentController extends Controller
             $student->user_id = $user_id;
             $student->code = $std_code;
             //$student->parent_id = $request->parent_id;
+            $student->profile_pix = $file_name_path;
             $student->school_id = school_id();
             $student->save();
             $student_id = $student->id;
@@ -120,11 +135,7 @@ class StudentController extends Controller
             $enroll->session = get_schools();
             $enroll->save();
 
-            if ($request->hasFile('student_image')) {
-                $dir  = 'backend/images/student_image';
-                $student_image = $request->file('student_image');
-                $student_image->move($dir, $student_id.".jpg");
-            }
+            
 
             $data = array(
                 'status' => true,
@@ -150,6 +161,7 @@ class StudentController extends Controller
             $email = "@iyogera.com";
             $rad_code = str_pad(mt_rand(1,99999),5,'0',STR_PAD_LEFT);
             $std_code = $short."/".$year."/".$rad_code;
+            $file_name_path = $short."".$year."".$rad_code;
             if($row != ""){
                 if(count(User::where('email', $request->email[$key])->get()) == 0) {
                     $user = new User;
@@ -157,7 +169,8 @@ class StudentController extends Controller
                     $user->email = $rad_code.$email;
                     $user->password = Hash::make($std_code);
                     $user->role = "student";
-                    //$user->phone = $request->phone[$key];
+                    $user->phone = $selected_branch->phone;
+                    $user->address = $selected_branch->address;
                     $user->gender = $request->gender[$key];
                     $user->school_id = school_id();
                     $user->save();
@@ -166,7 +179,7 @@ class StudentController extends Controller
                     $student = new Student;
                     $student->user_id = $user_id;
                     $student->code = $std_code;
-                    //$student->parent_id = $request->parent_id[$key];
+                    $student->profile_pix = $file_name_path;
                     $student->school_id = school_id();
                     $student->save();
                     $student_id = $student->id;
@@ -203,18 +216,26 @@ class StudentController extends Controller
                 $array_size = sizeof($csv);
 
              foreach ($csv as $row) {
+                $selected_branch_id = school_id();
+                $selected_branch = \App\School::find($selected_branch_id);
+                $short = $selected_branch->short;
+                $year = date('Y');
+                $email = "@iyogera.com";
+                $rad_code = str_pad(mt_rand(1,99999),5,'0',STR_PAD_LEFT);
+                $std_code = $short."/".$year."/".$rad_code;
+                $file_name_path = $short."".$year."".$rad_code;
                   if ($count == 1) {
                       $count++;
                       continue;
                   }
-                  $password = $row[3];
+                  $password = $std_code;
 
                   $name      = $row[0];
-                  $email     = $row[1];
-                  $password  = Hash::make($row[2]);
-                  $phone     = $row[3];
-                  $parent_id = $row[4];
-                  $gender    = strtolower($row[5]);
+                  $email     = $rad_code.$email;
+                  //$password  = Hash::make($row[2]);
+                  $phone     = $row[1];
+                  //$parent_id = $row[4];
+                  $gender    = strtolower($row[2]);
 
                   if(count(User::where('email', $email)->get()) == 0) {
                     $user = new User;
@@ -230,8 +251,8 @@ class StudentController extends Controller
                     $user_id = $user->id;
                     $student = new Student;
                     $student->user_id = $user_id;
-                    $student->code = substr(md5(uniqid(rand(), true)), 0, 7);
-                    $student->parent_id = $parent_id;
+                    $student->code = $std_code;
+                    $student->profile_pix = $file_name_path;
                     $student->school_id = school_id();
                     $student->save();
                     $student_id = $student->id;
@@ -257,7 +278,7 @@ class StudentController extends Controller
             $data = array(
                 'status' => false,
                 'view' => "",
-                'notification' => translate('you_must_have_to_select_class_and_section')
+                'notification' => translate('you_must_select_class_and_section')
             );
         }
         return $data;
@@ -266,7 +287,7 @@ class StudentController extends Controller
 
     public function generate_csv_file() {
         $file   = fopen("csv/bulk_student.csv", "w");
-        $line   = array('StudentName', 'Email', 'Password', 'Phone', 'ParentID', 'Gender');
+        $line   = array('StudentName', 'Phone', 'Gender');
         fputcsv($file, $line, ',');
         echo $file_path = asset('csv/bulk_student.csv');
     }
@@ -281,7 +302,7 @@ class StudentController extends Controller
     {
         $section  = Section::find($section_id);
         $class_id = $section->class_id;
-        $running_session = get_settings('running_session');
+        $running_session = get_schools();
         $school_id = school_id();
         $students = Enroll::where(['section_id' => $section_id, 'class_id' => $class_id, 'session' => $running_session, 'school_id' => $school_id])->get();
         return view('backend.'.Auth::user()->role.'.student.list', compact('students'));
@@ -308,16 +329,26 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $student = Student::find($id);
-        $std_code = $student->id;
+        $std_code = $student->profile_pix;
         //dd($std_code);
+        
         $user    = User::find($student->user_id);
         $query   = Enroll::where(array('student_id' => $id, 'session' => get_schools()))->first();
         $enroll  = Enroll::find($query->id);
-        if(count(User::where('email', $request->email)->where('id', '!=', $student->user->id)->get()) == 0) {
+        
+        if(count(User::where('email', $request->name)->where('id', '!=', $student->user->id)->get()) == 0) {
+
+            if ($request->hasFile('image')) {
+                $dir  = 'backend/images/student_image';
+                $student_image = $request->file('image');
+                $student_image->move($dir, $std_code.".jpg");
+            }
+            //dd($request->kiss);
 
             $user->name = $request->name;
-            //$user->email = $request->email;
+            $user->email = $request->kiss;
             $user->role = "student";
             $user->address = $request->address;
             $user->phone = $request->phone;
@@ -326,7 +357,7 @@ class StudentController extends Controller
             $user->school_id = school_id();
             $user->save();
 
-            //$student->parent_id = $request->parent_id;
+            $student->profile_pix = $std_code;
             $student->school_id = school_id();
             $student->save();
 
@@ -336,28 +367,23 @@ class StudentController extends Controller
             $enroll->session = get_schools();
             $enroll->save();
 
-            if ($request->hasFile('student_image')) {
-                $dir  = 'backend/images/student_image';
-                $student_image = $request->file('student_image');
-                $student_image->move($dir, $std_code.".jpg");
-            }
-
-            $student = Student::find($id);
-            $data = array(
+            return array(
                 'status' => true,
                 'notification' => translate('student_updated_successfully')
             );
-        }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+
         }
 
-        return redirect ('student/'.$id.'/edit')->with($data);
+            //$student = Student::find($id);
+            
+        //dd($);
+        //return $data;
+        //return redirect ('student/'.$id.'/edit')->with($data);
+        //;
     }
 
     /**
+    flash(translate('welcome_back').' '.$user->name)->success();
      * Remove the specified resource from storage.
      *
      * @param  \App\Student  $student
@@ -369,7 +395,7 @@ class StudentController extends Controller
         $student->delete();
         $user = User::find($student->user->id);
         $user->delete();
-        $enroll = Enroll::where(array('student_id' => $id, 'session' => get_settings('running_session')))->first();
+        $enroll = Enroll::where(array('student_id' => $id, 'session' => get_schools()))->first();
         $enroll->delete();
         return array(
             'status' => true,

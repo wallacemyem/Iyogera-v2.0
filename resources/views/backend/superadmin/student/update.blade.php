@@ -1,12 +1,18 @@
-<form method="POST" action="{{ route('student.update', $student->id) }}">
+<form method="POST" action="{{ route('student.update', $student->id) }} " enctype = 'multipart/form-data'>
     @csrf
     @method('PATCH')
     <div class="col-12">
 
         <div class="form-group row mb-3">
+            <label class="col-md-3 col-form-label" for="name"> {{ translate('student_profile_image') }}</label>
+       
+                <img src="{{ asset('backend/images/student_image/'.$student->profile_pix.'.jpg') }}" alt="{{$student->name}}" height="100" width="100">
+            
+        </div>
+        <div class="form-group row mb-3">
             <label class="col-md-3 col-form-label" for="example-fileinput"> {{ translate('student_profile_image') }}</label>
             <div class="col-md-9">
-                <input type="file" id="example-fileinput" name="student_image" class="form-control-file">
+                <input type="file" id="example-fileinput" name="image" class="form-control-file" >
             </div>
         </div>
 
@@ -16,9 +22,15 @@
                 <input type="text" id="name" name="name" class="form-control"  value="{{ $student->user->name }}" required>
             </div>
         </div>
+        <div class="form-group row mb-3">
+            <label class="col-md-3 col-form-label" for="email">{{ translate('email') }}</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" id="kiss" name="kiss" value="{{ $student->user->email }}" required>
+            </div>
+        </div>
 
 @php
-    $query = \App\Enroll::where(array('student_id' => $student->id, "session" => get_settings('running_session')))->first();
+    $query = \App\Enroll::where(array('student_id' => $student->id, "session" => get_schools()))->first();
     $class_id   = $query->class_id;
     $section_id = $query->section_id;
 @endphp

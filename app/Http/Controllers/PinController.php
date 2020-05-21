@@ -5,11 +5,18 @@ use Auth;
 use App\User;
 use Hash;
 use App\Pin;
+use App\Student;
+use App\School;
+use App\Setting;
 //use Illuminate\Http\Request;
 use Illuminate\Http\Request;
 
 class PinController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
 	 public function index()
     {
@@ -41,12 +48,11 @@ class PinController extends Controller
 
             $uq = str_pad(mt_rand(1,99999999),8,'0',STR_PAD_LEFT);
 
-        	$data = new Pin;
-            
+        	$data = new Pin;            
             $data->number = $uq;
             $data->used = 0;
             $data->school_id = school_id();
-            $data->session = get_school();
+            $data->session = get_schools();
             $data->save();
         //dd($data);
         }
@@ -64,7 +70,9 @@ class PinController extends Controller
                 'notification' => translate('an_error_occured_when_generating_pin')
             );
         }
-        return $data;*/
+        return $data;
+        make pins for admision of students
+        */
     }
 
      public function gpin()

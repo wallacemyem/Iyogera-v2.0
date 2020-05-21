@@ -14,6 +14,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>{{ translate('name') }}</th>
+                    <th>{{ translate('subject_teacher') }}</th>
                     <th>{{ translate('option') }}</th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@
                 @foreach ( $subjects as $subject)
                     <tr>
                         <td> {{ $subject->name }} </td>
+                        <td> {{ $subject->teacher->user->name }} </td>
                         <td>
                             <div class="btn-group mb-2">
                                 <button type="button" class="btn btn-icon btn-secondary btn-sm" style="margin-right:5px;" onclick="showAjaxModal('{{ route('subject.edit', $subject->id) }}', '{{ translate('update_subject') }}')"
@@ -36,7 +38,7 @@
     </div>
 @else
     <div style="text-align: center;">
-            <img src="{{ asset('backend/images/empty_box.png') }}" alt="" class="empty-box">
+            <img src="{{ asset('backend/images/no-data.png') }}" alt="" class="empty-box">
             <p>{{ translate('no_data_found') }}</p>
     </div>
 @endif

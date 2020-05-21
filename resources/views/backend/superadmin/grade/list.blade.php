@@ -1,5 +1,5 @@
 @php
-    $grades = App\Grade::where(['school_id' => school_id(), 'session' => get_settings('running_session')])->get();
+    $grades = App\Grade::where(['school_id' => school_id(), 'session' => get_schools()])->get();
 @endphp
 @if (count($grades) > 0)
     <div class="table-responsive-sm">
@@ -36,7 +36,7 @@
     </div>
 @else
     <div style="text-align: center;">
-            <img src="{{ asset('backend/images/empty_box.png') }}" alt="" class="empty-box">
+            <img src="{{ asset('backend/images/no-data.png') }}" alt="" class="empty-box">
             <p>{{ translate('no_data_found') }}</p>
     </div>
 @endif

@@ -5,8 +5,8 @@
     <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
             <thead class="thead-dark">
                     <tr>
-                        <th>{{ translate('code') }}</th>
                         <th>{{ translate('photo') }}</th>
+                        <th>{{ translate('code') }}</th>
                         <th>{{ translate('name') }}</th>
                         <th>{{ translate('option') }}</th>
                     </tr>
@@ -14,14 +14,13 @@
             <tbody>
                 @foreach ($students as $student)
                     <tr>
-                            <td>{{ $student->student->code }}</td>
-                            <td>
-                                @if (file_exists('backend/images/student_image/'.$student->id.'.jpg'))
-                                    <img src="{{'backend/images/student_image/'.$student->id.'.jpg'}}" alt="$student->name" height="50" width="50" class="rounded-circe">
-                                @else
-                                    <img src="{{ asset('backend/images/student_image/preview.jpg') }}" alt="" height="50">
-                                @endif
-                            </td>
+                        <td>
+
+                            <img src="{{ asset('backend/images/student_image/'.$student->student->profile_pix.'.jpg') }}" alt="{{$student->name}}" height="50" width="50">
+            
+                        </td>
+                        <td>{{ $student->student->code }}</td>
+                            
                         <td>{{ $student->student->user->name }}</td>
                         <td>
                             <div class="btn-group mb-2">
@@ -40,7 +39,7 @@
     </div>
 @else
     <div style="text-align: center;">
-        <img src="{{ asset('backend/images/empty_box.png') }}" alt="" class="empty-box">
+        <img src="{{ asset('backend/images/no-data.png') }}" alt="" class="empty-box">
         <p>{{ translate('no_data_found') }}</p>
     </div>
 @endif

@@ -13,4 +13,8 @@ class Enroll extends Model
     public function section() {
         return $this->belongsTo(Section::class);
     }
+
+    public function result() {
+        return $this->belongsTo(Result::class);
+    }
 }

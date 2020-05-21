@@ -10,7 +10,7 @@
                 <img src="{{'backend/images/logo-dark.png'}}" alt="" height="50">
                 </span>
                 <span class="logo-sm">
-                <img src="{{asset('backend/images/logo-sm.png')}}" alt="" height="16">
+                <img src="{{asset('backend/images/logo-dark.png')}}" alt="" height="16">
                 </span>
             </a>
             <!--- Sidemenu -->

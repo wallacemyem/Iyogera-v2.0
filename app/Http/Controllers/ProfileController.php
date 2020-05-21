@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -75,14 +79,15 @@ class ProfileController extends Controller
         if($type == 'profile') {
             
                 $user->name = $request->name;
-                $user->email = $request->email;
                 $user->phone = $request->phone;
                 $user->address = $request->address;
                 if ($request->hasFile('user_image')) {
+                    $id = $user->id;
                     $dir  = 'backend/images/user_image';
                     $user_image = $request->file('user_image');
                     $user_image->move($dir, $id.".jpg");
                 }
+                
                 $user->save();
                 $data = array(
                     'status' => true,
@@ -112,7 +117,7 @@ class ProfileController extends Controller
             }
         }
 
-        return $data;
+        return $data;//redirect()->back()->with($data);
     }
 
     /**

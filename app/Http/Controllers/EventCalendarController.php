@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class EventCalendarController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,7 @@ class EventCalendarController extends Controller
      */
     public function index()
     {
-        $title = translate('event_calendar');
+        $title = translate('📆');
         return view('backend.'.Auth::user()->role.'.event_calendar.index', compact('title'));
     }
 
@@ -44,7 +45,7 @@ class EventCalendarController extends Controller
         $ending_date = strtotime($request->ending_date);
         $event->ending_date = date('Y-m-d', $ending_date).' 23:59:59';
         $event->school_id = school_id();
-        $event->session = get_school();
+        $event->session = get_schools();
         if($event->save()) {
             $data = array(
                 'status' => true,
@@ -93,7 +94,7 @@ class EventCalendarController extends Controller
         $ending_date = strtotime($request->ending_date);
         $event->ending_date = date('Y-m-d', $ending_date).' 23:59:59';
         $event->school_id = school_id();
-        $event->session = get_school();
+        $event->session = get_schools();
         if($event->save()) {
             $data = array(
                 'status' => true,
@@ -126,7 +127,7 @@ class EventCalendarController extends Controller
 
     public function all()
     {   
-        $query = EventCalendar::where('school_id', school_id())->where('session', get_settings('running_session'))->get();
+        $query = EventCalendar::where('school_id', school_id())->where('session', get_schools())->get();
         return $query;
     }
 }

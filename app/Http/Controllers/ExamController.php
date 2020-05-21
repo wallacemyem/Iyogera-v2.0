@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ExamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +46,7 @@ class ExamController extends Controller
         $exam->starting_date = strtotime($request->starting_date);
         $exam->ending_date = strtotime($request->ending_date);
         $exam->school_id = school_id();
-        $exam->session = get_school();
+        $exam->session = get_schools();
 
         if($exam->save()){
             $data = array(
@@ -100,7 +104,7 @@ class ExamController extends Controller
         $exam->starting_date = strtotime($request->starting_date);
         $exam->ending_date = strtotime($request->ending_date);
         $exam->school_id = school_id();
-        $exam->session = get_school();
+        $exam->session = get_schools();
         if($exam->save()){
             $data = array(
                 'status' => true,

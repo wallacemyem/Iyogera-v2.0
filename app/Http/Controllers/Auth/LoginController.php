@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Symfony\Component\HttpFoundation\Request;
+use App\User; 
+use Auth;
+use Session;
 class LoginController extends Controller
 {
     /*
@@ -38,9 +41,24 @@ class LoginController extends Controller
             //return redirect('login');
     }
 
+    public function signon()
+    {
+        # code...
+        return view('signon.dooyum_ternam');
+    }
+
     protected function authenticated(Request $request, $user)
     {
         flash(translate('welcome_back').' '.$user->name)->success();
-        return redirect()->route('dashboard');
+        return redirect()->intended('/');
+    }
+
+    public function logout(Request $request)
+    {
+        # code...
+        Auth::logout(); 
+        session(['role' => '']); 
+        Session::flush(); 
+        return redirect('/login'); 
     }
 }

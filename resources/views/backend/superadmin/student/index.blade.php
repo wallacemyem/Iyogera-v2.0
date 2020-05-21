@@ -76,8 +76,14 @@
                         $('#student_content').html(response);
                         initDataTable("basic-datatable");
                     }
+                    
                 });
-              }
+            }else{
+               new Toast({
+                        message: 'Select all fields and Try again',
+                        type: 'danger'
+                        });            
+            }
         }
     </script>
 @endsection

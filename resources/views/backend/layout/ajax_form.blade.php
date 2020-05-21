@@ -24,7 +24,10 @@
                 }
             });
         }else {
-            toastr.error('Please make sure to fill all the necessary fields');
+            new Toast({
+                        message: 'Select all fields and Try again',
+                        type: 'danger'
+                        });
         }
     }
 </script>
