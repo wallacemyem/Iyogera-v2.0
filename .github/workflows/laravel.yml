@@ -19,8 +19,6 @@ jobs:
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
     - name: Install Node vendors
       run: npm install
-    - name: Install Yarn
-      run: yarn install
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
