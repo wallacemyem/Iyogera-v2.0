@@ -45,9 +45,11 @@
                                 Subjects <i class="em em-arrow_down" aria-role="presentation" aria-label="BLACK RIGHTWARDS ARROW"></i>
                             </th>
                          
-                            <th >CA</th>
-                            <th >Exam</th>
+                            <th>Assignm</th>
+                            <th>Test</th>
+                            <th>Exam</th>
                             <th>Total</th>
+                            <th>Grade</th>
                         </tr>
                        
                     </thead>
@@ -60,7 +62,10 @@
                             </td>
                              
                             <td>
-                               {{$mark->ca_total}} 
+                               {{$mark->objectives}} 
+                            </td>
+                            <td>
+                               {{$mark->practicals}} 
                             </td>
                             <td>
                                {{$mark->theory}} 
@@ -69,16 +74,25 @@
                             <td>
                                {{$mark->mark_total}}
                             </td>
+                            <td>
+                                @php
+                                $mark_grade = \App\Grade::where([['mark_from', '<=', $mark->mark_total], ['mark_upto', '>=', $mark->mark_total]])->first();
+                                @endphp
+                               {{$mark_grade->name}}
+                            </td>
                             
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
                 <center>
-                    <a href="#"
-                        class="btn btn-primary">
-                        print
-                    </a>
+                    <form method="POST" action=" {{ route('report.printa') }} " >
+                        @csrf
+                        <input type="hidden" name="exam_id" value="{{$exam_id}}">
+                        <input type="hidden" name="session_id" value="{{$session_id}}">
+                        <button type="submit" formtarget="_blank" class="btn btn-primary"><i class="mdi mdi-printer"></i> Print
+                        </button>
+                    </form>
                 </center>
             </div>
         

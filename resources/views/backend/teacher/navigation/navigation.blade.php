@@ -13,7 +13,7 @@
         <div class="slimscroll-menu">
 
             <!-- LOGO -->
-            <a href="" class="logo text-center">
+            <a href="index.html" class="logo text-center">
                 <span class="logo-lg">
                 <img src="{{asset('backend/images/logo-dark.png')}}" alt="" height="50">
                 </span>

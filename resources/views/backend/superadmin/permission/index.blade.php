@@ -74,7 +74,8 @@
                 }
             });
           }else {
-            toastr.error('{{ translate('select_a_section') }}');
+            var notyf = new Notyf();
+                    notyf.error('{{translate('select_a_section')}}');
           }
         }
 
@@ -89,7 +90,8 @@
             url : url,
             data: {_token: CSRF_TOKEN, class_id : class_id, section_id : section_id, task_teacherId : task_teacherId, isChecked : isChecked},
             success : function(response) {
-              toastr.success('{{ translate('permission_updated_successfully') }}');
+                var notyf = new Notyf();
+                    notyf.success('{{translate('permission_updated_successfully')}}');
             }
           });
         }

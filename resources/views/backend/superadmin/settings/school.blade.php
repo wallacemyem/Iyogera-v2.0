@@ -44,4 +44,34 @@
                 </div> <!-- end card body-->
             </div> <!-- end card -->
         </div>
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="header-title">{{ translate('system_logo') }}</h4>    
+                <form method="POST" class="col-12 systemLogoAjaxForm" action="{{ route('logo.update.school') }}" id = "system_settings" enctype="multipart/form-data">
+                    @csrf
+                    <div class="col-12">
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label"> {{ translate('current_logo') }}</label>
+                            @php
+                            $school_id = school_id();
+                            @endphp
+                            <div class="col-md-9">
+                                <img src="{{asset('backend/images/'.$school_id.'.png')}}" alt="" height="50">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label class="col-md-3 col-form-label" for="example-fileinput"> {{ translate('update_system_logo') }}</label>
+                            <div class="col-md-9">
+                                <input type="file" id="example-fileinput" name="logo" class="form-control-file">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-secondary col-xl-4 col-lg-6 col-md-12 col-sm-12" onclick="updateSystemLogo()">{{ translate('update_logo') }}</button>
+                        </div>
+                    </div>
+                </form>     
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div>
     </div>

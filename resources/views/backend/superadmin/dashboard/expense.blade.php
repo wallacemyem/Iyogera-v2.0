@@ -1,7 +1,7 @@
 @php
     $date_from = date('Y-m-01')." 00:00:00"; // hard-coded '01' for first day
     $date_to   = date('Y-m-t')." 23:59:59";
-    $expenses = App\Expense::where('school_id', school_id())->where('session', get_settings('running_session'))->where('date', '>=', strtotime($date_from))->where('date', '<=', strtotime($date_to))->get();
+    $expenses = App\Expense::where('school_id', school_id())->where('session', get_schools())->where('date', '>=', strtotime($date_from))->where('date', '<=', strtotime($date_to))->get();
 @endphp
 
     <div class="table-responsive-sm">

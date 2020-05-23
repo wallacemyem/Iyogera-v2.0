@@ -1,7 +1,7 @@
 <div class="slimscroll" style="max-height: 171px;">
     <div class="timeline-alt pb-0">
         @php
-            $events = \App\EventCalendar::where('session', get_settings('running_session'))->where('school_id', school_id())->get();
+            $events = \App\EventCalendar::where('session', get_schools())->where('school_id', school_id())->get();
             $date_from = date('Y-m-01')." 00:00:00"; // hard-coded '01' for first day
             $date_to   = date('Y-m-t')." 23:59:59";
         @endphp

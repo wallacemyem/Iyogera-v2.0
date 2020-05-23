@@ -122,11 +122,16 @@
                     url: url,
                     data : { section_id : section_id, exam_id : exam_id, _token : '{{ @csrf_token() }}' },
                     success : function(response) {
+                        var notyf = new Notyf();
+                            notyf.success('Generated Successfully');
                         $('#marks_content').html(response);
+
                     }
                 });
             }else {
-                toastr.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                var notyf = new Notyf();
+                    notyf.error('You must fill out the form before moving forward');
+
             }
         }
 

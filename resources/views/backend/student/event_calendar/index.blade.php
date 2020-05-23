@@ -57,7 +57,7 @@
                     $('#calendar').fullCalendar({
                     disableDragging: true,
                     events: event_calendar,
-                    displayEventTime: false
+                    displayEventTime: true
                 });
             }
         });

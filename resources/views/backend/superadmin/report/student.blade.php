@@ -117,7 +117,9 @@
                     }
                 });
             }else {
-                toastr.warning('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                var notyf = new Notyf();
+                    notyf.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                
             }
         }
 
@@ -139,7 +141,7 @@
                     }
                 });
             }else {
-                toastr.warning('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                
             }
         }
 

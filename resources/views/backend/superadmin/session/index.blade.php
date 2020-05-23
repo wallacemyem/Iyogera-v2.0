@@ -34,11 +34,14 @@
                     url: url,
                     success : function(response) {
                         $('#session_content').html(response.view);
-                        (response.status === true) ? toastr.success(response.notification) : toastr.error(response.notification);
+                        var notyf = new Notyf(); 
+                            notyf.success('Active Session Changed Successfully');
                     }
             });
         }else {
-            toastr.error('{{ translate('no_session_has_been_selected') }}');
+            var notyf = new Notyf(); 
+                notyf.error('{{ translate('no_session_has_been_selected') }}');
+            
         }
 
         showAllSessions();
