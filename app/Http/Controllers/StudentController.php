@@ -15,6 +15,7 @@ use Auth;
 use Session;
 //suse App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class StudentController extends Controller
 {
@@ -60,6 +61,7 @@ class StudentController extends Controller
 
     public function excel_student_create()
     {
+        //dd(microtime(true));
         $title = translate('student_admission');
         $type = 'excel';
         return view('backend.'.Auth::user()->role.'.student.create', compact('type', 'title'));
@@ -136,19 +138,14 @@ class StudentController extends Controller
             $enroll->save();
 
             
-
-            $data = array(
-                'status' => true,
-                'notification' => translate('student_added_successfully')
-            );
+            
+            flash(translate('student_added_successfully'))->success();
+            
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+            flash(translate('email_dublication'))->error();
         }
 
-        return $data;
+        return redirect()->back();
     }
 
 
@@ -198,11 +195,8 @@ class StudentController extends Controller
             }
         }
 
-        $data = array(
-            'status' => true,
-            'notification' => translate('student_added_successfully')
-        );
-        return $data;
+        flash(translate('student_added_successfully'))->success();
+        return redirect()->back();
     }
 
     public function excel_student_store(Request $request) {
@@ -214,10 +208,11 @@ class StudentController extends Controller
                 $csv = array_map('str_getcsv', file(asset('csv/bulk_student.csv')));
                 $count = 1;
                 $array_size = sizeof($csv);
+                //dd($count);
 
              foreach ($csv as $row) {
                 $selected_branch_id = school_id();
-                $selected_branch = \App\School::find($selected_branch_id);
+                $selected_branch = School::find($selected_branch_id);
                 $short = $selected_branch->short;
                 $year = date('Y');
                 $email = "@iyogera.com";
@@ -285,7 +280,8 @@ class StudentController extends Controller
 
     }
 
-    public function generate_csv_file() {
+    public function generate_csv_file() 
+    {
         $file   = fopen("csv/bulk_student.csv", "w");
         $line   = array('StudentName', 'Phone', 'Gender');
         fputcsv($file, $line, ',');
@@ -367,18 +363,12 @@ class StudentController extends Controller
             $enroll->session = get_schools();
             $enroll->save();
 
-            return array(
-                'status' => true,
-                'notification' => translate('student_updated_successfully')
-            );
-
         }
 
-            //$student = Student::find($id);
-            
-        //dd($);
-        //return $data;
-        //return redirect ('student/'.$id.'/edit')->with($data);
+        //return view('backend.'.Auth::user()->role.'.student.edit')->with(flash('Generated Successfully')->success());
+        flash('Student Edit Successful')->success();
+        return redirect ('student/'.$id.'/edit');
+        //flash('Generated Successfully')->success();
         //;
     }
 
@@ -397,10 +387,9 @@ class StudentController extends Controller
         $user->delete();
         $enroll = Enroll::where(array('student_id' => $id, 'session' => get_schools()))->first();
         $enroll->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('student_has_been_deleted_successfully')
-        );
+
+        flash(translate('student_has_been_delected_successfully'))->success();
+        return redirect('student');
     }
 
     function profile($student_id) {

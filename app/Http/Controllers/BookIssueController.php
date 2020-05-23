@@ -53,18 +53,15 @@ class BookIssueController extends Controller
         $book_issue->session    = get_schools();
 
         if($book_issue->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('book_issued_successfully')
-            );
+            flash(translate('book_issued_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_issuing_book')
-            );
+            flash('an_error_occured_when_issuing_book')->error();
+            
         }
 
-        return $data;
+        return redirect()->back();
+            
     }
 
     /**
@@ -108,17 +105,15 @@ class BookIssueController extends Controller
         $book_issue->session    = get_schools();
 
         if($book_issue->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('book_issued_successfully')
-            );
+            flash(translate('book_issued_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_issuing_book')
-            );
+            flash('an_error_occured_when_issuing_book')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -130,17 +125,15 @@ class BookIssueController extends Controller
     public function destroy($id)
     {
         if(BookIssue::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('book_issue_info_deleted_successfully')
-            );
+            flash(translate('book_issue_info_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_book_issue_info')
-            );
+            flash('an_error_occured_when_deleting_book_issue_info')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     public function return($id)
@@ -148,17 +141,15 @@ class BookIssueController extends Controller
         $book_issue = BookIssue::find($id);
         $book_issue->status = 1;
         if($book_issue->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('book_returned_successfully')
-            );
+            flash(translate('book_returned_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_returning_book')
-            );
+            flash('an_error_occured_when_returning_book')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     public function student($class_id) {

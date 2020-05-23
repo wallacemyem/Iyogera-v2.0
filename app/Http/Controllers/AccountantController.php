@@ -55,19 +55,15 @@ class AccountantController extends Controller
             $user->gender = $request->gender;
             $user->blood_group = $request->blood_group;
             if($user->save()) {
-                $data = array(
-                    'status' => true,
-                    'notification' => __('accountant_added_successfully')
-                );
+                flash(translate('accountant_added_successfully'))->success();
+               
             }
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => __('email_duplication')
-            );
+            flash('email_duplication')->error();
+            
         }
 
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -117,18 +113,15 @@ class AccountantController extends Controller
             $user->gender = $request->gender;
             $user->blood_group = $request->blood_group;
             if($user->save()) {
-                $data = array(
-                    'status' => true,
-                    'notification' => translate('accountant_updated_successfully')
-                );
+                flash(translate('accountant_updated_successfully'))->success();
+               
             }
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+            flash('email_duplication')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     /**
@@ -141,9 +134,7 @@ class AccountantController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('accountant_has_been_deleted_successfully')
-        );
+        flash(translate('accountant_has_been_deleted_successfully'))->success();
+        return redirect()->back();
     }
 }

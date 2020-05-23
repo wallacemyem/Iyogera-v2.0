@@ -45,17 +45,16 @@ class DepartmentController extends Controller
         $department->name = $request->name;
         $department->school_id = school_id();
         if ($department->save()) {
-            $data = array(
-                'status' => true,
-                'notification' => translate('department_added_successfully'),
-            );
-        } else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occurred_when_adding_department'),
-            );
+
+            flash(translate('department_added_successfully'))->success();
+               
+        }else {
+            flash('an_error_occurred_when_adding_department')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
 /**
@@ -99,17 +98,15 @@ class DepartmentController extends Controller
         $department->name = $request->name;
         $department->school_id = school_id();
         if ($department->save()) {
-            $data = array(
-                'status' => true,
-                'notification' => translate('department_updated_successfully'),
-            );
-        } else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occurred_when_adding_department'),
-            );
+            flash(translate('department_updated_successfully'))->success();
+               
+        }else {
+            flash('an_error_occured_when_updating_department')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
 /**
@@ -121,16 +118,15 @@ class DepartmentController extends Controller
     public function destroy($id)
     {
         if (Department::destroy($id)) {
-            $data = array(
-                'status' => true,
-                'notification' => translate('department_deleted_successfully'),
-            );
-        } else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occurred_when_deleting_department'),
-            );
+
+            flash(translate('an_error_occurred_when_deleting_department'))->success();
+               
+        }else {
+            flash('an_error_occurred_when_deleting_department')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 }

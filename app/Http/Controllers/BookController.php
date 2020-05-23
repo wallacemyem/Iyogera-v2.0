@@ -49,17 +49,16 @@ class BookController extends Controller
         $book->session = get_schools();
 
         if($book->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('book_added_successfully')
-            );
+
+            flash(translate('book_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_book')
-            );
+            flash('an_error_occured_when_adding_book')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -107,17 +106,16 @@ class BookController extends Controller
         $book->session = get_schools();
 
         if($book->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('book_updated_successfully')
-            );
+
+            flash(translate('book_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_book')
-            );
+            flash('an_error_occured_when_updating_book')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -129,16 +127,14 @@ class BookController extends Controller
     public function destroy($id)
     {
         if(Book::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('book_deleted_successfully')
-            );
+            flash(translate('book_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_book')
-            );
+            flash('an_error_occured_when_deleting_book')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 }

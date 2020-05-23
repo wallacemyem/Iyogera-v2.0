@@ -87,10 +87,8 @@ class SectionController extends Controller
             }
         }
 
-        return array(
-            'status' => true,
-            'notification' => translate('section_updated_successfully')
-        );
+        flash('Section Updated successfully')->success();
+        return redirect()->back();
     }
 
     /**
@@ -105,6 +103,7 @@ class SectionController extends Controller
         $class_id = $selected_section->class_id;
         $sections_for_that_class = Section::where('class_id', $class_id)->get();
         if(sizeof($sections_for_that_class) == 1){
+
             return array(
                 'status' => false,
                 'notification' => translate('every_class_should_have_at_least_one_section')

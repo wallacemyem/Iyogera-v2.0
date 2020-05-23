@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Reference;
 use App\Payment;
 use App\Session;
@@ -58,7 +57,7 @@ class SettingsController extends Controller
         }
 
         flash(translate('system_updated_successfully'))->success();
-        return back();
+        return redirect()->back();
     }
 
     public function logo_update(Request $request) {
@@ -66,17 +65,33 @@ class SettingsController extends Controller
             $dir  = 'public/backend/images';
             $logo = $request->file('logo');
             $logo->move($dir, 'logo-dark.png');
-            $data = array(
-                'status' => true,
-                'notification' => translate('please_reload_the_browser_to_load_the_image')
-            );
+
+            flash(translate('please_reload_the_browser_to_load_the_image'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_system')
-            );
+            flash(translate('an_error_occured_when_updating_system'))->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+    }
+
+        public function logo_update_school(Request $request) {
+            $school_id = school_id();
+            //dd($school_id);
+        if ($request->hasFile('logo')) {
+            $dir  = 'public/backend/images';
+            $logo = $request->file('logo');
+            $logo->move($dir, $school_id.'.png');
+
+            flash(translate('please_reload_the_browser_to_load_the_image'))->success();
+               
+        }else {
+            flash(translate('an_error_occured_when_updating_system'))->error();
+            
+        }
+
+        return redirect()->back();
     }
 
     public function payment()
@@ -105,7 +120,7 @@ class SettingsController extends Controller
         $email = Auth::user()->email;
         $phone = Auth::user()->phone;
 
-        $trnx_id = Str::slug($school_name).'_'.Str::random(10);
+        $trnx_id = str_slug($school_name).'_'.str_random(10);
         //dd($trnx_id);
 
         $ref_tx = new Reference;
@@ -204,11 +219,9 @@ class SettingsController extends Controller
                     // ));
                 }
             }
-            $data = array(
-                'status' => true,
-                'notification' => translate('SMTP_settings_updated_successfully')
-            );
-            return $data;
+            flash(translate('SMTP_settings_updated_successfully'))->success();
+        return redirect()->back();
+            
     }
 
     public function school_settings() {
@@ -226,11 +239,10 @@ class SettingsController extends Controller
         $school->address = $request->address;
         
         $school->save();
-        $data = array(
-            'status' => true,
-            'notification' => translate('school_settings_updated_successfully')
-        );
-        return $data;
+
+        flash(translate('school_settings_updated_successfully'))->success();
+        return redirect()->back();
+        
     }
 
     public function writeEnvironmentFile($type, $val) {

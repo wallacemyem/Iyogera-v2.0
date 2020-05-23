@@ -49,17 +49,16 @@ class SessionManagerController extends Controller
             $session->name = $request->session_title;
             $session->school_id = school_id();
             if($session->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('session_added_successfully')
-            );
+
+                flash(translate('session_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_session')
-            );
+            flash('an_error_occured_when_adding_session')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+           
     }
 
     /**
@@ -99,17 +98,14 @@ class SessionManagerController extends Controller
         $session->school_id = school_id();
 
         if($session->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('session_updated_successfully')
-            );
+            flash(translate('session_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_session')
-            );
+            flash('an_error_occured_when_updating_session')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     /**
@@ -121,17 +117,15 @@ class SessionManagerController extends Controller
     public function destroy($id)
     {
         if(Session::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('session_deleted_successfully')
-            );
+            flash(translate('session_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_session')
-            );
+            flash('an_error_occured_when_deleting_session')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     public function active($id)
@@ -142,17 +136,16 @@ class SessionManagerController extends Controller
         $setting->session = $session->id;
 
         if($setting->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('session_activated_successfully')
-            );
+
+            flash(translate('session_activated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_activating_session')
-            );
+            flash('an_error_occured_when_activating_session')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     public function list()

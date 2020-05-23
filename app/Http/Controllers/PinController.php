@@ -20,6 +20,10 @@ class PinController extends Controller
     
 	 public function index()
     {
+        //$country = \Request::ip();
+        //$ctry = Location::get($country);
+        //dd($ctry);
+        //dd($_SERVER['REMOTE_ADDR']);
         $title = translate('pin_generation');
         //$view = view('pin.index');
         //dd($view);
@@ -58,7 +62,8 @@ class PinController extends Controller
         }
         
 
-        return redirect('pin')->with('status', __($copies. ' Pins Generated!'));
+       flash(translate($copies.' PIN_generated_successfully'))->success();
+        return redirect()->back();
         /*if($pin->save()){
             $data = array(
                 'status' => true,

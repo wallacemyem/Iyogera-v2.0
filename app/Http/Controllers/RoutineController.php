@@ -56,17 +56,13 @@ class RoutineController extends Controller
         $routine->session = get_schools();
         $routine->school_id = school_id();
         if($routine->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_routine_added_successfully')
-            );
+            flash(translate('class_routine_added_successfully'))->success();
+            
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_class_routine')
-            );
+            flash(translate(translate('an_error_occured_when_adding_class_routine')))->error();
+            
         }
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -118,18 +114,12 @@ class RoutineController extends Controller
         $routine->teacher_id = $request->teacher_id;
         $routine->school_id = school_id();
         if($routine->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_routine_updated_successfully')
-            );
+
+           flash(translate(translate('class_routine_updated_successfully')))->success();
         }else {
-            $data = array(
-                'status' => false,
-                'view' => view('backend.'.Auth::user()->role.'.routine.list', compact('class_id', 'section_id'))->render(),
-                'notification' => translate('an_error_occured_when_updating_class_routine')
-            );
+            flash(translate(translate('an_error_occured_when_updating_class_routine')))->error();
         }
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -144,17 +134,12 @@ class RoutineController extends Controller
         $class_id  = $routine->class_id;
         $section_id = $routine->section_id;
         if(Routine::destroy($routine_id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_routine_deleted_successfully')
-            );
+            flash(translate(translate('class_routine_deleted_successfully')))->success();
+            
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_class_routine')
-            );
+           flash(translate(translate('an_error_occured_when_delecting_class_routine')))->error();
         }
-        return $data;
+        return redirect()->back();
     }
 
 

@@ -45,17 +45,15 @@ class ClassRoomController extends Controller
         $room->name = $request->name;
         $room->school_id = school_id();
         if($room->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_room_added_successfully')
-            );
+            flash(translate('class_room_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occurred_when_adding_class_room')
-            );
+            flash('an_error_occurred_when_adding_class_room')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+           
     }
 
     /**
@@ -99,17 +97,16 @@ class ClassRoomController extends Controller
         $room->name = $request->name;
         $room->school_id = school_id();
         if($room->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_room_updated_successfully')
-            );
+
+            flash(translate('class_room_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_class_room')
-            );
+            flash('an_error_occured_when_updating_class_room')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -121,16 +118,15 @@ class ClassRoomController extends Controller
     public function destroy($id)
     {
         if(ClassRoom::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_room_deleted_successfully')
-            );
+
+            flash(translate('class_room_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_class_room')
-            );
+            flash('an_error_occured_when_deleting_class_room')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 }

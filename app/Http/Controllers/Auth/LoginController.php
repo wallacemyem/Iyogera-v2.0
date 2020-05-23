@@ -50,7 +50,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         flash(translate('welcome_back').' '.$user->name)->success();
-        return redirect()->intended('/');
+        return redirect()->intended('dash');
     }
 
     public function logout(Request $request)

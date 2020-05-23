@@ -50,17 +50,14 @@ class ClassController extends Controller
 
         if($class->save()){
             $this->createSection($class->id);
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_added_successfully')
-            );
+            flash(translate('class_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_class')
-            );
+            flash('failed to add')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     /**
@@ -106,17 +103,15 @@ class ClassController extends Controller
         $classes->school_id = school_id();
 
         if($classes->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_updated_successfully')
-            );
+            flash(translate('class_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_class')
-            );
+            flash('an_error_occured_when_updating_class')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+        
     }
 
     /**
@@ -128,18 +123,15 @@ class ClassController extends Controller
     public function destroy($id)
     {
         if(Classes::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('class_deleted_successfully')
-            );
+            flash(translate('class_deleted_successfully'))->success();
+               
+            
         }else {
-            $data = array(
-                'status' => false,
-                'view' => view('backend.'.Auth::user()->role.'.class.list')->render(),
-                'notification' => translate('an_error_occured_when_deleting_class')
-            );
+            flash('an_error_occured_when_deleting_class')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     public function createSection($class_id = "") {

@@ -55,20 +55,17 @@ class LibrarianController extends Controller
             $user->gender = $request->gender;
             $user->blood_group = $request->blood_group;
             if($user->save()) {
-                $data = array(
-                    'status' => true,
-                    'notification' => translate('librarian_added_successfully')
-                );
-            }
+                 flash(translate('librarian_added_successfully'))->success();
+               
+            
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+            flash('email_duplication')->error();
+            
         }
 
-        return $data;
+        return redirect()->back();
     }
+}
 
     /**
      * Display the specified resource.
@@ -117,18 +114,15 @@ class LibrarianController extends Controller
             $user->gender = $request->gender;
             $user->blood_group = $request->blood_group;
             if($user->save()) {
-                $data = array(
-                    'status' => true,
-                    'notification' => translate('librarian_updated_successfully')
-                );
+                flash(translate('librarian_updated_successfully'))->success();
+               
             }
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+            flash('email_duplication')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     /**
@@ -141,9 +135,7 @@ class LibrarianController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('librarian_has_been_deleted_successfully')
-        );
+        flash(translate('librarian_deleted_successfully'))->success();
+        return redirect()->back();
     }
 }

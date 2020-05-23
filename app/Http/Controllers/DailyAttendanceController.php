@@ -59,12 +59,9 @@ class DailyAttendanceController extends Controller
             }
         }
 
-        $data = array(
-            'status' => true,
-            'notification' => translate('attendance_updated_successfully')
-        );
+        flash('Attendance Updated Successfully')->success();
 
-        return $data;
+        return redirect()->back();
     }
 
     /**
