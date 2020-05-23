@@ -57,7 +57,13 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">{{ get_settings('system_name') }}</h4>
+                        <h4 class="modal-title" id="myLargeModalLabel">
+                        @php
+                            $selected_branch_id = school_id();
+                            $selected_branch = \App\School::find($selected_branch_id);
+                            echo $selected_branch->name;
+                        @endphp
+                        </h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
