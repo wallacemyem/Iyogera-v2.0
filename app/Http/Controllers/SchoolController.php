@@ -8,6 +8,7 @@ use Hash;
 use App\Pin;
 use DB;
 use App\School;
+use App\Session;
 use App\Role;
 
 use Illuminate\Http\Request;
@@ -37,10 +38,9 @@ class SchoolController extends Controller
     {
     	$user = School::find($id);
         $user->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('accountant_has_been_deleted_successfully')
-        );
+        flash(translate('school_has_been_deleted_successfully'))->success();
+        return redirect()->back();
+        
     }
 
     public function school_settings_update(Request $request, $id) {
@@ -50,11 +50,9 @@ class SchoolController extends Controller
         $school->address = $request->address;
         
         $school->save();
-        $data = array(
-            'status' => true,
-            'notification' => translate('school_settings_updated_successfully')
-        );
-        return $data;
+        flash(translate('school_settings_updated_successfully'))->success();
+        return redirect()->back();
+        
     }
 
     public function edit($id)
@@ -70,6 +68,9 @@ class SchoolController extends Controller
 
     public function store(Request $request)
     {
+        $nextyear = date('Y', strtotime('+1 year'));
+        $currentyear = date('Y');
+
     	$school = new School;
         $school->name = $request->school_name;
         $school->phone = $request->phone;
@@ -78,6 +79,18 @@ class SchoolController extends Controller
         $school->save();
 
         $school_id = $school->id;
+
+        $session = new Session;
+        $session->name = $currentyear.'/'.$nextyear;
+        $session->school_id = $school_id;
+        $session->status = 1;
+        $session->save();
+
+        $session_id = $session->id;
+
+        $sch = School::find($school_id);
+        $sch->session = $session_id;
+        $sch->save();
 
         $role = new Role;
         $role->school_id = $school_id;
@@ -93,11 +106,9 @@ class SchoolController extends Controller
         $user->phone = $request->phone;
         $user->save();
 
-        $data = array(
-            'status' => true,
-            'notification' => translate('saved successfully')
-        );
-        return $data;	
+        flash(translate('saved_successfully'))->success();
+        return redirect()->back();
+	
     }
 }
 

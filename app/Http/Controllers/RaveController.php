@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Reference;
 use App\School;
 use App\Payment;
@@ -40,7 +39,7 @@ class RaveController extends Controller
                   $school_name = $value->name;
                   //$value->id;
               }
-              $trnx_id = Str::slug($school_name).'_'.Str::random(10);
+              $trnx_id = str_slug($school_name).'_'.str_random(10);
               $get_ref = Reference::where(['school_id' => $school_id, 'session' => $current_session])->latest()->first();
 
           //$txref = $request->ref;
@@ -72,7 +71,7 @@ class RaveController extends Controller
             // please check other things like whether you already gave value for this ref
             // if the email matches the customer who owns the product etc
             //Give Value and return to Success page
-            
+            flash(translate('payment_successful'))->success();
         return redirect('/success');
             
             } else {

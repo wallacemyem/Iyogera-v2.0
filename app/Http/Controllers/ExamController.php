@@ -49,17 +49,15 @@ class ExamController extends Controller
         $exam->session = get_schools();
 
         if($exam->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('exam_added_successfully')
-            );
+            flash(translate('exam_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_exam')
-            );
+            flash('an_error_occured_when_adding_exam')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+           
     }
 
     /**
@@ -106,19 +104,16 @@ class ExamController extends Controller
         $exam->school_id = school_id();
         $exam->session = get_schools();
         if($exam->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('exam_updated_successfully')
-            );
+
+            flash(translate('exam_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_exam')
-            );
+            flash('an_error_occured_when_updating_exam')->error();
+            
         }
-        return $data;
-        // flash("Exam Updated Successfully")->success();
-        // return back();
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -130,16 +125,15 @@ class ExamController extends Controller
     public function destroy($id)
     {
         if(Exam::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('exam_deleted_successfully')
-            );
+
+            flash(translate('exam_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_exam')
-            );
+            flash('an_error_occured_when_deleting_exam')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 }

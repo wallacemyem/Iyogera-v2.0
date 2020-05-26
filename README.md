@@ -8,13 +8,30 @@
 <p>
 Update for Iyogera school ERP, v2.0
   <br>
-  run `composer create-project iyogera/iyogera-erp`
+  run 
+  
+  ```php
+  composer create-project iyogera/iyogera-erp
+  ```
   <br>
-  run `composer install`
+  run 
+  
+  ```php
+  composer install
+  ```
   <br>
-  run `npm install`
+  run 
+  
+  ```php
+  npm install
+  ```
   <br>
-  edit `.env` and you will be up and running
+  edit 
+  
+  ```
+  .env
+  ```
+  and you will be up and running
   <br>
   Open an issue when you have one.
   <br>

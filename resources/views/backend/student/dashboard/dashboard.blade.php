@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box ">
-                <h4 class="page-title"> <i class="em em-heart_decoration" aria-role="presentation" aria-label="HEART DECORATION"></i> {{ translate('dashboard') }} </h4>
+                <h4 class="page-title"> <i class="em em-heart_decoration" aria-role="presentation" aria-label="HEART DECORATION"></i> {{ translate('dashboard') }} </h4> <a href="{{ route('report.index') }}" class="btn btn-icon btn-success btn-rounded alignToTitle"> <i class="dripicons-blog"></i> {{ translate('result') }} </a>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
                             $('#calendar').fullCalendar({
                             disableDragging: true,
                             events: event_calendar,
-                            displayEventTime: false
+                            displayEventTime: true
                         });
                     }
                 });

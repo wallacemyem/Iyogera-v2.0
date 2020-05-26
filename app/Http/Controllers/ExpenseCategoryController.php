@@ -47,17 +47,16 @@ class ExpenseCategoryController extends Controller
         $expense_category->school_id = school_id();
         $expense_category->session = get_schools();
         if($expense_category->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('expense_category_added_successfully')
-            );
+
+            flash(translate('expense_category_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_expense_category')
-            );
+            flash('an_error_occured_when_adding_expense_category')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -102,17 +101,15 @@ class ExpenseCategoryController extends Controller
         $expense_category->school_id = school_id();
         $expense_category->session = get_schools();
         if($expense_category->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('expense_category_updated_successfully')
-            );
+
+            flash(translate('expense_category_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_expense_category')
-            );
+            flash('an_error_occured_when_updating_expense_category')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     /**
@@ -124,16 +121,15 @@ class ExpenseCategoryController extends Controller
     public function destroy($id)
     {
         if(ExpenseCategory::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('expense_category_deleted_successfully')
-            );
+
+            flash(translate('expense_category_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_expense_category')
-            );
+            flash('an_error_occured_when_deleting_expense_category')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 }

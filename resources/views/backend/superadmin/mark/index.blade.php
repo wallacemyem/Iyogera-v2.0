@@ -110,7 +110,9 @@
                     }
                 });
             }else {
-                toastr.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                var notyf = new Notyf();
+                    notyf.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                //toastr.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
             }
         }
 
@@ -127,7 +129,9 @@
                 url: url,
                 data : { objectives : objectives, practicals : practicals, theory : theory, comment : comment, _token : '{{ @csrf_token() }}', _method: "PATCH" },
                 success : function(response) {
-                    toastr.success('{{ translate('mark_has_been_updated_successfully') }}');
+                    var notyf = new Notyf();
+                    notyf.success('{{ translate('mark_has_been_updated_successfully') }}');
+                    //toastr.success('{{ translate('mark_has_been_updated_successfully') }}');
                 }
             });
         }

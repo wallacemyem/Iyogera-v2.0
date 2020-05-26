@@ -50,17 +50,16 @@ class ExpenseController extends Controller
         $expense->school_id = school_id();
         $expense->session = get_schools();
         if($expense->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('expense_added_successfully')
-            );
+
+            flash(translate('expense_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_expense')
-            );
+            flash('an_error_occured_when_adding_expense')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+           
     }
 
     /**
@@ -102,17 +101,14 @@ class ExpenseController extends Controller
         $expense->school_id = school_id();
         $expense->session = get_schools();
         if($expense->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('expense_updated_successfully')
-            );
+            flash(translate('expense_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_expense')
-            );
+            flash('an_error_occured_when_updating_expense')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     /**
@@ -124,18 +120,15 @@ class ExpenseController extends Controller
     public function destroy($id)
     {
         if(Expense::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('expense_deleted_successfully')
-            );
+            flash(translate('expense_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'view' => "",
-                'notification' => translate('an_error_occured_when_deleting_expense')
-            );
+            flash('an_error_occured_when_deleting_expense')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     public function list(Request $request)

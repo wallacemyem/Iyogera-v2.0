@@ -136,7 +136,7 @@
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<td class="img-center p-30 px-15" style="font-size:0pt; line-height:0pt; text-align:center; padding: 30px; padding-left: 15px; padding-right: 15px;">
-									<a href="#" target="_blank"><img src="{{asset('backend/images/logo-dark.png')}}" width="200" height="79" border="0" alt="" /></a>
+									<a href="#" target="_blank"><img src="{{asset('backend/images/logo-dark.png')}}" width="350" height="175" border="0" alt="" /></a>
 								</td>
 							</tr>
 						</table>
@@ -220,7 +220,7 @@
 							</tr>
 							<tr>
 								<td class="text-16" style="font-size:16px; line-height:20px; color:#6e6e6e; font-family:'PT Sans', Arial, sans-serif; text-align:left; min-width:auto !important;">
-									{{ $get_pay->time_stamp}}
+									{{ date('D d/m/Y G:ia'), $get_pay->time_stamp}}
 								</td>
 							</tr>
 						</table>
@@ -255,7 +255,7 @@
 							</tr>
 							<tr>
 								<td class="text-16 lh-26 pb-15" style="font-size:16px; color:#6e6e6e; font-family:'PT Sans', Arial, sans-serif; text-align:left; min-width:auto !important; line-height: 26px; padding-bottom: 15px;">
-									
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 								</td>
 							</tr>
 							<tr>
@@ -416,7 +416,7 @@
 </td>
 </tr>
 </table>											
-<!-- ENDFooter -->
+<!-- END Footer -->
 </td>
 </tr>
 </table>

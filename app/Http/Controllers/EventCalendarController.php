@@ -47,12 +47,10 @@ class EventCalendarController extends Controller
         $event->school_id = school_id();
         $event->session = get_schools();
         if($event->save()) {
-            $data = array(
-                'status' => true,
-                'notification' => translate('event_has_been_created_successfully')
-            );
+            flash(translate('event_has_been_created_successfully'))->success();
+            
         }
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -96,12 +94,10 @@ class EventCalendarController extends Controller
         $event->school_id = school_id();
         $event->session = get_schools();
         if($event->save()) {
-            $data = array(
-                'status' => true,
-                'notification' => translate('event_has_been_updated_successfully')
-            );
-        }
-        return $data;
+            flash(translate('event_has_been_updated_successfully'))->success();
+            }
+        
+        return redirect()->back();
     }
 
     /**
@@ -114,10 +110,10 @@ class EventCalendarController extends Controller
     {
         $event = EventCalendar::find($id);
         $event->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('event_has_been_deleted_successfully')
-        );
+        flash(translate('event_has_been_deleted_successfully'))->success();
+            
+        
+        return redirect()->back();
     }
 
     public function list()

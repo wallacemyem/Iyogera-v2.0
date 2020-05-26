@@ -55,18 +55,15 @@ class SyllabusController extends Controller
             $syllabus_to_upload->move($dir, $file_name);
             $syllabus->file = $file_name;
             $syllabus->save();
-            $data = array(
-                'status' => true,
-                'notification' => translate('syllabus_uploaded_successfully')
-            );
+            flash(translate('syllabus_added_successfully'))->success();
+               
+            }
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_uploading_syllabus')
-            );
+            flash('error_occured_while_uploading')->error();
+            
         }
 
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -118,10 +115,9 @@ class SyllabusController extends Controller
     {
         $syllabus = Syllabus::find($id);
         $syllabus->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('syllabus_has_been_deleted_successfully')
-        );
+        flash(translate('syllabus_deleted_successfully'))->success();
+
+        return redirect()->back();
     }
 
     public function download($file) {

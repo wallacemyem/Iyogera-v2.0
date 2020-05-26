@@ -62,17 +62,15 @@ class InvoiceController extends Controller
         $invoice->school_id = school_id();
         $invoice->session = get_schools();
         if($invoice->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('invoice_added_successfully')
-            );
+            flash(translate('invoice_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_invoice')
-            );
+            flash('an_error_occured_when_adding_invoice')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     public function mass_invoice_store(Request $request)
@@ -95,10 +93,7 @@ class InvoiceController extends Controller
             $invoice->save();
         }
 
-        $data = array(
-            'status' => true,
-            'notification' => translate('invoice_added_successfully')
-        );
+        flash(translate('invoice_updated_successfully'))->success();
         return redirect()->back();
     }
 
@@ -139,17 +134,14 @@ class InvoiceController extends Controller
         $invoice->school_id = school_id();
         $invoice->session = get_schools();
         if($invoice->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('invoice_updated_successfully')
-            );
+           flash(translate('invoice_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_invoice')
-            );
+            flash('an_error_occured_when_updating_invoice')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     public function mass_invoice_update(Request $request, $id)
@@ -167,10 +159,9 @@ class InvoiceController extends Controller
     {
         $invoice = Invoice::find($id);
         $invoice->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('invoice_has_been_deleted_successfully')
-        );
+        flash(translate('invoice_deleted_successfully'))->success();
+
+        return redirect()->back();
     }
 
     public function list(Request $request)

@@ -79,10 +79,8 @@
                     
                 });
             }else{
-               new Toast({
-                        message: 'Select all fields and Try again',
-                        type: 'danger'
-                        });            
+              var notyf = new Notyf();
+                    notyf.error('You must fill out the form before moving forward');            
             }
         }
     </script>

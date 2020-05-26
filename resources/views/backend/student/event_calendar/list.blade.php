@@ -12,7 +12,7 @@
                     <div class="card-body">
                     
                         @php
-                            $events = \App\EventCalendar::where('school_id', school_id())->where('session', get_settings('running_session'))->get();
+                            $events = \App\EventCalendar::where('school_id', school_id())->where('session', get_schools())->get();
                         @endphp
             
                         @if (count($events) > 0)

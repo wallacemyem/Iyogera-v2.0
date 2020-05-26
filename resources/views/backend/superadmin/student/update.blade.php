@@ -5,9 +5,12 @@
 
         <div class="form-group row mb-3">
             <label class="col-md-3 col-form-label" for="name"> {{ translate('student_profile_image') }}</label>
-       
-                <img src="{{ asset('backend/images/student_image/'.$student->profile_pix.'.jpg') }}" alt="{{$student->name}}" height="100" width="100">
             
+            @if (file_exists('backend/images/student_image/'.$student->profile_pix.'.jpg'))
+                <img src="backend/images/student_image/'.{{$student->profile_pix}}.'.jpg" alt="{{$student->name}}" height="100" width="100">
+            @else
+                <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="100">
+            @endif
         </div>
         <div class="form-group row mb-3">
             <label class="col-md-3 col-form-label" for="example-fileinput"> {{ translate('student_profile_image') }}</label>

@@ -89,35 +89,29 @@ class ProfileController extends Controller
                 }
                 
                 $user->save();
-                $data = array(
-                    'status' => true,
-                    'notification' => translate('profile_has_been_successfully')
-                );
+                flash(translate('profile_has_been_successfully'))->success();
+                
         }elseif($type == 'password') {
             $hasher = app('hash');
             if ($hasher->check($request->old_password, $user->password)) {
                 if($request->new_password == $request->confirm_password) {
                     $user->password = Hash::make($request->confirm_password);
                     $user->save();
-                    $data = array(
-                        'status' => true,
-                        'notification' => translate('password_has_been_updated_successfully')
-                    );
-                }else {
-                    $data = array(
-                        'status' => false,
-                        'notification' => translate('password_mismatched')
-                    );
-                }
-            }else {
-                $data = array(
-                    'status' => false,
-                    'notification' => translate('password_mismatched')
-                );
-            }
-        }
 
-        return $data;//redirect()->back()->with($data);
+                    flash(translate('password_has_been_updated_successfully'))->success();
+               
+                     }else 
+                     {
+                        flash('password_mismatched')->error();
+                    }
+                        
+                    }else{
+                        flash('password_mismatched')->error();
+                    }
+
+                }
+                    return redirect()->back();
+                    
     }
 
     /**

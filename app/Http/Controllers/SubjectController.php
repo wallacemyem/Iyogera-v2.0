@@ -50,17 +50,15 @@ class SubjectController extends Controller
         $subject->session = get_schools();
 
         if($subject->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('subject_added_successfully')
-            );
+
+            flash(translate('subject_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_adding_subject')
-            );
+            flash('an_error_occured_when_adding_subject')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
 
     }
 
@@ -112,17 +110,16 @@ class SubjectController extends Controller
         $subject->teacher_id = $request->teacher_id;
 
         if($subject->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('subject_updated_successfully')
-            );
+
+            flash(translate('subject_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_subject')
-            );
+            flash('an_error_occured_when_updating_subject')->warning();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -135,16 +132,15 @@ class SubjectController extends Controller
     {
 
         if(Subject::destroy($subject_id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('subject_deleted_successfully')
-            );
+
+            flash(translate('subject_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_subject')
-            );
+            flash('an_error_occured_when_deleting_subject')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 }

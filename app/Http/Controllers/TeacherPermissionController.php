@@ -106,6 +106,7 @@ class TeacherPermissionController extends Controller
       }
 
       $teacher_permission->save();
+      
     }
 
     /**

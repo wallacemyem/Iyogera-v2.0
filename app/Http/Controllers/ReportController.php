@@ -14,10 +14,17 @@ use App\Exam;
 use App\Grade;
 use App\Result;
 use App\Student;
+use App\Session;
+use App\School;
+use PDF;
+use Carbon\Carbon;
+//use App\Exam;
 //use Brian2694\Toastr\Facades\Toastr;
 
 class ReportController extends Controller
 {
+    
+
 	public function __construct()
     {
         $this->middleware('auth');
@@ -122,6 +129,13 @@ class ReportController extends Controller
         $table->timestamps();
     });
     */ 
+
+    public function generateIndex()
+    {
+        $title = 'Generate Result';
+     return view('backend.'.Auth::user()->role.'.report.generate', compact('title')) ;  
+    }
+
     public function generate(Request $request)
     {
     	# code...
@@ -190,9 +204,11 @@ class ReportController extends Controller
 						
 						$full_name          =   $SingleStudent->student->user->name;                 //get name 
 		                $admission_no       =   $SingleStudent->student->code;           //get admission no
-		                
-		        		
 
+                        $allresult = Result::where(['exam_id' => $exam_id, 'class_id' => $class_id, 'section_id' => $section_id])->get();
+                        //dd(!($allresult));
+                        if ( !($allresult) === false){
+                            
 		           			$insert_results                     = new Result;
 			        		$insert_results->student_id       	= $stu_id;
 			                $insert_results->student_name       = $full_name;
@@ -208,20 +224,20 @@ class ReportController extends Controller
 			                $insert_results->school_id          = $school_id;                //if (!$sexy){
 			                $insert_results->save();
 			                
-			                
-		           		
 			                $subject_strings = "";
 			                $marks_string = "";
 			                $total_marks = 0;
 			                $average = 0;
 			                $admission_no = 0;
 			                $full_name = "";
+                        }
+
+                        }
 		            
-		        	}
 		            //end loop eligible_students
         		
-           
-	            $allresult_data = Result::where(['exam_id' => $exam_id, 'class_id' => $class_id])->orderBy('average', 'desc')->get();
+                $allresult_data = Result::where(['exam_id' => $exam_id, 'class_id' => $class_id, 'section_id' => $section_id])->orderBy('average', 'desc')->get();
+	            
 	            //dd($allresult_data);
 	            $merit_serial = 1;
 	            foreach ($allresult_data as $row) {
@@ -230,7 +246,9 @@ class ReportController extends Controller
 	                $D->save();
 	            
 	            	}
-	            	return $data;
+
+                    flash('Generated Successfully')->success();
+	            	//return redirect()->route('generate');
     }
 
     public function print( Request $request)
@@ -266,17 +284,141 @@ class ReportController extends Controller
     	$result = Mark::where(['subject_id' => $subject_id, 'section_id' => $section_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->get();
 
     	$result_students = Mark::where(['student_id' => $student_id, 'section_id' => $section_id, 'exam_id' => $exam_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->get();
+    	foreach ($result_students as $key8) {
+    		# code...
+    		//$position = $key4->position;
+    		$totalMarks = $key8->mark_total;
+    		
+    	}
 
     	$allresult_data = Result::where(['student_id' => $student_id, 'session' => $session_id, 'exam_id' => $exam_id, 'class_id' => $class_id])->orderBy('position', 'asc')->get();
     	foreach ($allresult_data as $key4) {
     		# code...
     		$position = $key4->position;
+    		//$totalMarks = $key4->mark_total;
     		
     	}
-    	//dd($subject);
+    	//dd($totalMarks);
     	$students = Enroll::where(['section_id' => $section_id, 'class_id' => $class_id, 'session' => $session_id, 'school_id' => school_id()])->get();
     	$count_s = $students->count();
+
+		$mark_grade = Grade::where([['mark_from', '<=', $totalMarks], ['mark_upto', '>=', $totalMarks]])->first();
+		//dd($mark_grade);
+
+        //return reponse('success');
+
+        //$request->session()->put('locale', $request->locale);
+        //flash('Generated Successfully')->success();    	
     	
-    	return view('backend.'.Auth::user()->role.'.report.list', compact('allresult_data', 'result_students', 'result', 'subject', 'class_id', 'subject_id', 'position', 'student_id', 'exam_id', 'session_id', 'section', 'count_s', 'section_id', 'key', 'key4', 'key3'))->render();
+    	return view('backend.'.Auth::user()->role.'.report.list', compact('allresult_data', 'result_students', 'result', 'subject', 'class_id', 'subject_id', 'position', 'student_id', 'exam_id', 'session_id', 'section', 'count_s', 'section_id', 'key', 'key4', 'key3', 'totalMarks'))->render();
+    }
+
+    public function printa4( Request $request)
+    {
+    	$exam_id 			= $request->exam_id;   
+        $session_id 		= $request->session_id;
+        //$section  			= Section::find($section_id);
+        //$class_id 			= $section->class_id;
+    	$id = Auth::user()->id;
+    	$student = Student::where(['user_id' => $id])->get();
+    	foreach ( $student as $key ) {
+    		# code...
+
+    	}
+    	$student_id = $key->id;
+    	$class = Enroll::where(['student_id' => $student_id])->get();
+    	foreach ($class as $key2) {
+    		# code...
+    	}
+    	$class_id 	= $key2->class_id;
+    	$section_id = $key2->section_id;
+    	$section  	= Section::find($section_id);
+    	$class_f  	= Classes::find($class_id);
+    	$class_name = $class_f->name;
+    	$section_name = $section->name;
+    	//$subject_id = 
+    	//dd($class_name);
+    	$subject = Subject::where(['class_id' => $class_id, 'session' => $session_id, 'school_id' => school_id()])->get();
+    	foreach ($subject as $key3) {
+    		# code...
+    	}
+    	//dd($subject);
+    	$subject_id = $key3->id;
+
+    	$result = Mark::where(['subject_id' => $subject_id, 'section_id' => $section_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->get();
+
+    	$result_students = Mark::where(['student_id' => $student_id, 'section_id' => $section_id, 'exam_id' => $exam_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->get();
+    	foreach ($result_students as $key8) {
+    		# code...
+    		//$position = $key4->position;
+    		$totalMarks = $key8->mark_total;
+    		
+    	}
+
+    	$exam = Exam::find($exam_id);
+
+    	$school = School::where(['session' => $session_id])->first();
+
+    	$result_min = Mark::where(['subject_id' => $subject_id, 'section_id' => $section_id, 'exam_id' => $exam_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->min('mark_total');
+
+    	$result_max = Mark::where(['subject_id' => $subject_id, 'section_id' => $section_id, 'exam_id' => $exam_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->max('mark_total');
+
+    	$result_average = Mark::where(['subject_id' => $subject_id, 'section_id' => $section_id, 'exam_id' => $exam_id, 'class_id' => $class_id, 'session' => get_schools(), 'school_id' => school_id()])->avg('mark_total');
+    	
+    	$sub_avg = number_format((float)$result_average, 2, '.', '');
+    	//dd($sub_avg);
+
+    	$allresult_data = Result::where(['student_id' => $student_id, 'session' => $session_id, 'exam_id' => $exam_id, 'class_id' => $class_id])->orderBy('position', 'asc')->get();
+    	foreach ($allresult_data as $key4) {
+    		# code...
+    		$position = $key4->position;
+    		//$totalM = count($position);
+    		
+    	}
+    	//dd($totalM);
+    	$students = Enroll::where(['section_id' => $section_id, 'class_id' => $class_id, 'session' => $session_id, 'school_id' => school_id()])->get();
+    	$count_s = $students->count();
+
+		$mark_grade = Grade::where([['mark_from', '<=', $totalMarks], ['mark_upto', '>=', $totalMarks]])->first();
+		$session_name = Session::find($session_id);
+		//dd($session_name);
+
+        $filename = "Result for ".$key->user->name.' '.$exam->name.' '.$session_name->name.".pdf";
+        //dd($filename);
+
+        
+        $data = [
+            'allresult_data' => $allresult_data,
+            'result_students' => $result_students, 
+            'result' => $result, 
+            'subject' => $subject, 
+            'class_id' => $class_id, 
+            'subject_id' => $subject_id, 
+            'position' => $position, 
+            'student_id' => $student_id, 
+            'exam_id' => $exam_id, 
+            'session_id' => $session_id, 
+            'section' => $section, 
+            'count_s' => $count_s, 
+            'section_id' => $section_id, 
+            'key' => $key, 
+            'key2' => $key2, 
+            'key4' => $key4, 
+            'key3' => $key3, 
+            'totalMarks' => $totalMarks, 
+            'class_name' => $class_name, 
+            'section_name' => $section_name, 
+            'session_name' => $session_name, 
+            'result_min' => $result_min, 
+            'result_max' => $result_max, 
+            'sub_avg' => $sub_avg, 
+            'school' => $school, 
+            'exam' => $exam
+        ];
+        $pdf = PDF::loadView('backend.'.Auth::user()->role.'.report.print', $data);
+        return $pdf->stream($filename);
+                        	
+    	
+    	//return view('backend.'.Auth::user()->role.'.report.print', compact('allresult_data', 'result_students', 'result', 'subject', 'class_id', 'subject_id', 'position', 'student_id', 'exam_id', 'session_id', 'section', 'count_s', 'section_id', 'key', 'key2', 'key4', 'key3', 'totalMarks', 'class_name', 'section_name', 'session_name', 'result_min', 'result_max', 'sub_avg', 'school', 'exam'))->render();
     }
 }

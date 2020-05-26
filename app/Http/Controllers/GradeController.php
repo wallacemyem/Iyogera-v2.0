@@ -48,20 +48,17 @@ class GradeController extends Controller
         $grade->mark_upto = $request->mark_upto;
         $grade->comment = $request->comment;
         $grade->school_id = school_id();
-        $grade->session = get_school();
+        $grade->session = get_schools();
         if($grade->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('grade_added_successfully')
-            );
+            flash(translate('grade_added_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'view' => view('backend.'.Auth::user()->role.'.grade.list')->render(),
-                'notification' => translate('an_error_occured_when_adding_grade')
-            );
+            flash('an_error_occured_when_adding_grade')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 
     /**
@@ -108,19 +105,16 @@ class GradeController extends Controller
         $grade->mark_upto = $request->mark_upto;
         $grade->comment = $request->comment;
         $grade->school_id = school_id();
-        $grade->session = get_school();
+        $grade->session = get_schools();
         if($grade->save()){
-            $data = array(
-                'status' => true,
-                'notification' => translate('grade_updated_successfully')
-            );
+           flash(translate('grade_updated_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_updating_grade')
-            );
+            flash('an_error_occured_when_updating_grade')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
     }
 
     /**
@@ -132,16 +126,14 @@ class GradeController extends Controller
     public function destroy($id)
     {
         if(Grade::destroy($id)){
-            $data = array(
-                'status' => true,
-                'notification' => translate('grade_deleted_successfully')
-            );
+            flash(translate('grade_deleted_successfully'))->success();
+               
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('an_error_occured_when_deleting_grade')
-            );
+            flash('an_error_occured_when_deleting_grade')->error();
+            
         }
-        return $data;
+
+        return redirect()->back();
+            
     }
 }

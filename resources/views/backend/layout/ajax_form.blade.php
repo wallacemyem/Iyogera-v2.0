@@ -16,7 +16,9 @@
                 data: data,
                 success: function(response)
                 {
-                    (response.status === true) ? toastr.success(response.notification) : toastr.error(response.notification);
+                    (response.status === true) ? var notyf = new Notyf();
+            notyf.success(response.notification) : var notyf = new Notyf();
+            notyf.error(response.notification);
                     callBackFunction();
                     if(form.attr('id') != 'paypal_settings' && form.attr('id') != 'stripe_settings') {
                         form.trigger("reset");
@@ -24,10 +26,8 @@
                 }
             });
         }else {
-            new Toast({
-                        message: 'Select all fields and Try again',
-                        type: 'danger'
-                        });
+           var notyf = new Notyf();
+            notyf.error('You must fill out the form before moving forward');
         }
     }
 </script>

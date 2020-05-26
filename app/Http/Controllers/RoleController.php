@@ -96,6 +96,7 @@ class RoleController extends Controller
     public function updateAccessibility(Request $request, $role) {
         $row = Role::where('school_id', school_id())->first();
         $accessibilites = Role::find($row->id);
+        //dd($role);
 
         if($request->accessibility != null){
             $accessibilites->$role = json_encode($request->accessibility);
@@ -104,11 +105,7 @@ class RoleController extends Controller
             $accessibilites->$role = json_encode(array());
         }
         $accessibilites->save();
-        $data = array(
-            'status' => true,
-            'view' => view('backend.'.Auth::user()->role.'.role.list')->render(),
-            'notification' =>"Successfully updated user role accessibilities"
-        );
-        return $data;
+        flash(ucfirst($role).' User Role List Saved Successfully')->success();
+        return redirect()->back();
     }
 }

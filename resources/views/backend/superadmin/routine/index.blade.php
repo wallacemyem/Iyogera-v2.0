@@ -76,7 +76,11 @@
                         $('#routine_content').html(response);
                     }
                 });
-              }
+              }else {
+                var notyf = new Notyf();
+                    notyf.error('You must fill out the form before moving forward');
+
+            }
         }
     </script>
 @endsection
