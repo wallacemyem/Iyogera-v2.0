@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'name' => 'De Mode',
+                'first_name' => 'De Mode',
                 'email' => 'admin@iyogera.com',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'name' => 'Aboiyar Iorrumun',
+                'first_name' => 'Aboiyar Iorrumun',
                 'email' => 'aboiyariorrumun2@gmail.com',
                 'password' => '$2y$10$8qcISvHTRl3PeC8ILD6gVO1.HgBJINdCMVVKFovghLBArJAx2ACRO',
                 'profile_pix' => NULL,
@@ -58,7 +58,7 @@ class UsersTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 4,
-                'name' => 'Precious Audu',
+                'first_name' => 'Precious Audu',
                 'email' => 'tor.phil@cdmportal.org',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -77,7 +77,7 @@ class UsersTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 5,
-                'name' => 'Precious Audu',
+                'first_name' => 'Precious Audu',
                 'email' => 'prudentgps@gmail.com',
                 'password' => '$2y$10$yJNGK5TZK.UHqu.BjtqJoerTgWBJ83DCZglj/XsHF.7M1.qfRSjz2',
                 'profile_pix' => NULL,
@@ -96,7 +96,7 @@ class UsersTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 6,
-                'name' => 'Wallace Myem',
+                'first_name' => 'Wallace Myem',
                 'email' => 'wallace@gmail.com',
                 'password' => '$2y$10$otbLw2.iX8e4yBs.Fmsc6eLu8cNdD7sWf4tv8wDOD4vHTHMI/P4rW',
                 'profile_pix' => NULL,
@@ -115,7 +115,7 @@ class UsersTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 7,
-                'name' => 'Akor Jordan',
+                'first_name' => 'Akor Jordan',
                 'email' => 'audu@gmail.com',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -134,7 +134,7 @@ class UsersTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 9,
-                'name' => 'Nice  Student',
+                'first_name' => 'Nice  Student',
                 'email' => '08645@iyogera.com',
                 'password' => '$2y$10$hX28kpRYDO7THLgu28Cl1uoRAtBMrzSVhTIz.iLp62gQZi4J/z1fC',
                 'profile_pix' => NULL,
@@ -153,7 +153,7 @@ class UsersTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 10,
-                'name' => 'Ab Stu',
+                'first_name' => 'Ab Stu',
                 'email' => '5@iyogera.com',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -172,7 +172,7 @@ class UsersTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 13,
-                'name' => 'Stewie',
+                'first_name' => 'Stewie',
                 'email' => '44032@iyogera.com',
                 'password' => '$2y$10$SVxXtw8mCjQJi7uaBIK7cePMaGBfxitiMmd/jywcnjbkxXXY59.Xi',
                 'profile_pix' => NULL,
@@ -191,7 +191,7 @@ class UsersTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 14,
-                'name' => 'Wallace Myem Aboiyar',
+                'first_name' => 'Wallace Myem Aboiyar',
                 'email' => '73968@iyogera.com',
                 'password' => '$2y$10$uB17QLvgr4M8jnUu7eItS.p4gIbXPDA41jRFVJPJDvekt5QmS3u0q',
                 'profile_pix' => NULL,
@@ -211,7 +211,7 @@ Mq',
             10 => 
             array (
                 'id' => 15,
-                'name' => 'Sabon Wayo',
+                'first_name' => 'Sabon Wayo',
                 'email' => '39974@iyogera.com',
                 'password' => '$2y$10$y6c.kVJeNWWjdwCNVG9wSuX1Ola/IXm4wq4Am94LJbDBNmMLC5Rvy',
                 'profile_pix' => NULL,
@@ -230,7 +230,7 @@ Mq',
             11 => 
             array (
                 'id' => 16,
-                'name' => 'Adamu Musa',
+                'first_name' => 'Adamu Musa',
                 'email' => 'adamu@iyogera.com',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -249,7 +249,7 @@ Mq',
             12 => 
             array (
                 'id' => 17,
-                'name' => 'Azarah Mohammad',
+                'first_name' => 'Azarah Mohammad',
                 'email' => 'azarah@iyogera.com',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -268,7 +268,7 @@ Mq',
             13 => 
             array (
                 'id' => 18,
-                'name' => 'Azarah Kuduni',
+                'first_name' => 'Azarah Kuduni',
                 'email' => '75833@iyogera.com',
                 'password' => '$2y$10$ZbHpNlh/tAWkHuIq8Xm17.bu/sLP75pTZmQ.svw3d1y0ZGhvapJnC',
                 'profile_pix' => NULL,
@@ -287,7 +287,7 @@ Mq',
             14 => 
             array (
                 'id' => 19,
-                'name' => 'Agbo Sonia',
+                'first_name' => 'Agbo Sonia',
                 'email' => 'noah@gmail.com',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -306,7 +306,7 @@ Mq',
             15 => 
             array (
                 'id' => 20,
-                'name' => 'De Mode Child',
+                'first_name' => 'De Mode Child',
                 'email' => '95074@iyogera.com',
                 'password' => '$2y$10$tT1t.e1qhgtF14bhtbY.9Oq7aD0hgl2/PoRojGMMdN/vQEwZaSJcu',
                 'profile_pix' => NULL,
@@ -326,7 +326,7 @@ Mq 9',
             16 => 
             array (
                 'id' => 21,
-                'name' => 'De Mode other child',
+                'first_name' => 'De Mode other child',
                 'email' => '38088@iyogera.com',
                 'password' => '$2y$10$DVFi48774C08cb5QbdTx7.e1WBHAfTZ5bInQvn0Uv0YAYyCtT854O',
                 'profile_pix' => NULL,
@@ -346,7 +346,7 @@ Mq 9',
             17 => 
             array (
                 'id' => 23,
-                'name' => 'De Mode',
+                'first_name' => 'De Mode',
                 'email' => 'wallace2@gmail.com',
                 'password' => '$2y$10$ox3h44AV5XDg9MeEjXLXWO7Lvzv3NM66571DD57nAXePzut6X1TWu',
                 'profile_pix' => NULL,
@@ -366,7 +366,7 @@ Mq 9',
             18 => 
             array (
                 'id' => 24,
-                'name' => 'Akase Aondohemba',
+                'first_name' => 'Akase Aondohemba',
                 'email' => '06814@iyogera.com',
                 'password' => '$2y$10$vmsgcKFtyTpiwpETUMtYOO9XnS.k8CiXKE/Ud7gVOe6JIMMLqpXJW',
                 'profile_pix' => NULL,
@@ -385,7 +385,7 @@ Mq 9',
             19 => 
             array (
                 'id' => 25,
-                'name' => 'Calvin Sedoo',
+                'first_name' => 'Calvin Sedoo',
                 'email' => '61566@iyogera.com',
                 'password' => '$2y$10$wveAwujhbF6yrpXf/cG.6.PM5fp6.QSaBpUXOdLEeUoFqMI/33h2O',
                 'profile_pix' => NULL,
@@ -404,7 +404,7 @@ Mq 9',
             20 => 
             array (
                 'id' => 26,
-                'name' => 'Tsegba Rita',
+                'first_name' => 'Tsegba Rita',
                 'email' => '70906@iyogera.com',
                 'password' => '$2y$10$3btptKG0lAb7.H7o2Vq/3OLPcH.M08w40maKb97syLKDxFzK..WWS',
                 'profile_pix' => NULL,
@@ -423,7 +423,7 @@ Mq 9',
             21 => 
             array (
                 'id' => 27,
-                'name' => 'Cherish Iyuadoo',
+                'first_name' => 'Cherish Iyuadoo',
                 'email' => '85503@iyogera.com',
                 'password' => '$2y$10$AygfA69Bc396Cky4goB8dePSlXPWObrd1XQzSDyiBviVA7PKRBQtS',
                 'profile_pix' => NULL,
@@ -442,7 +442,7 @@ Mq 9',
             22 => 
             array (
                 'id' => 28,
-                'name' => 'Aboiyar Noah',
+                'first_name' => 'Aboiyar Noah',
                 'email' => 'noah@iyogera.com',
                 'password' => '$2y$10$XxWGnU/StyEaHPn.7R2bZOIkFKaBtMqHkOcCrbrwLwfqs99ZSXimi',
                 'profile_pix' => NULL,
@@ -461,7 +461,7 @@ Mq 9',
             23 => 
             array (
                 'id' => 29,
-                'name' => 'Mr. Nongu',
+                'first_name' => 'Mr. Nongu',
                 'email' => 'nongu@yahoo.com',
                 'password' => '$2y$10$XxWGnU/StyEaHPn.7R2bZOIkFKaBtMqHkOcCrbrwLwfqs99ZSXimi',
                 'profile_pix' => NULL,
@@ -480,7 +480,7 @@ Mq 9',
             24 => 
             array (
                 'id' => 30,
-                'name' => 'Wallace Myem Aboiyar',
+                'first_name' => 'Wallace Myem Aboiyar',
                 'email' => '97599@iyogera.com',
                 'password' => '$2y$10$lTMiX33JU5rhy3.t5Sv/iuWWl1wt/9wG2XiD1WlmGzo7SKQoqnNra',
                 'profile_pix' => NULL,
@@ -500,7 +500,7 @@ Mq 9',
             25 => 
             array (
                 'id' => 31,
-                'name' => 'Ternam Wallace',
+                'first_name' => 'Ternam Wallace',
                 'email' => '80046@iyogera.com',
                 'password' => '$2y$10$cPYDpMDPYzEbwzcCq/EFqug0ju2TK8Trrvxe9KQhStAimcyARSNpG',
                 'profile_pix' => NULL,
@@ -520,7 +520,7 @@ Mq 9',
             26 => 
             array (
                 'id' => 32,
-                'name' => 'Orduen Ortyo',
+                'first_name' => 'Orduen Ortyo',
                 'email' => '91487@iyogera.com',
                 'password' => '$2y$10$.LzeCwNKNr74K9JElvbb2.ayX/ELPNRZp3mJkuOgFDrqg5G8Tz032',
                 'profile_pix' => NULL,
@@ -539,7 +539,7 @@ Mq 9',
             27 => 
             array (
                 'id' => 33,
-                'name' => 'Ternam',
+                'first_name' => 'Ternam',
                 'email' => '81967@iyogera.com',
                 'password' => '$2y$10$KKrTYGBF52jzwPyjbzCJjO/dz5H4F3gpDavy9FMnAgsP52DSc3YqG',
                 'profile_pix' => NULL,
@@ -558,7 +558,7 @@ Mq 9',
             28 => 
             array (
                 'id' => 34,
-                'name' => 'Myem',
+                'first_name' => 'Myem',
                 'email' => '39673@iyogera.com',
                 'password' => '$2y$10$RRhCN0othyIH155cGnvmh.i5bwtOTdrx.m/sac1D.9COovtwm50Nq',
                 'profile_pix' => NULL,
@@ -577,7 +577,7 @@ Mq 9',
             29 => 
             array (
                 'id' => 38,
-                'name' => 'flight mode',
+                'first_name' => 'flight mode',
                 'email' => '22221@iyogera.com',
                 'password' => '$2y$10$Hy.EhvsCJOeeQbSgcv8e7en0NKQjwV4eBICswNdC0cKbkJkZtnOv.',
                 'profile_pix' => NULL,
@@ -596,7 +596,7 @@ Mq 9',
             30 => 
             array (
                 'id' => 43,
-                'name' => 'Agwaza Sonnen',
+                'first_name' => 'Agwaza Sonnen',
                 'email' => '58436@iyogera.com',
                 'password' => '$2y$10$ZOUqRTIjrx79zNuacFT0PuXq/Wdz6k9i2jErQrXHV2Rulf0qhOj96',
                 'profile_pix' => NULL,
@@ -615,7 +615,7 @@ Mq 9',
             31 => 
             array (
                 'id' => 46,
-                'name' => 'Wallace Aboiyar',
+                'first_name' => 'Wallace Aboiyar',
                 'email' => 'wallacemyem@hotmail.com',
                 'password' => '$2y$10$Y39rQ2vAwtL/RQuxuEbo1usnWe4uDfuE79ui33STc.A3Icy63jzTe',
                 'profile_pix' => NULL,
@@ -635,7 +635,7 @@ Mq 9',
             32 => 
             array (
                 'id' => 47,
-                'name' => 'marketer here',
+                'first_name' => 'marketer here',
                 'email' => '23968@iyogera.com',
                 'password' => '$2y$10$YxiwnDHs8t.CLbcmj04QcuXayqfIKSURWRnR1ZfRyY6eVrYUQj3sK',
                 'profile_pix' => NULL,
@@ -654,7 +654,7 @@ Mq 9',
             33 => 
             array (
                 'id' => 48,
-                'name' => 'De Mode',
+                'first_name' => 'De Mode',
                 'email' => '60329@iyogera.com',
                 'password' => '$2y$10$DZV/1HFNWBkr/.icO07m7OFCXiglsbHaECmIXCpGJQPVHqDFuGMRW',
                 'profile_pix' => NULL,
@@ -673,7 +673,7 @@ Mq 9',
             34 => 
             array (
                 'id' => 49,
-                'name' => 'Precious Audu',
+                'first_name' => 'Precious Audu',
                 'email' => '88354@iyogera.com',
                 'password' => '$2y$10$FidbaQWtsU8DcOn9RLsag.kU.CL.ZhoOZU0T35u44dEWCfP5k7VOi',
                 'profile_pix' => NULL,
@@ -692,7 +692,7 @@ Mq 9',
             35 => 
             array (
                 'id' => 51,
-                'name' => 'Az',
+                'first_name' => 'Az',
                 'email' => 'az@iyogera.com',
                 'password' => '$2y$10$K3NymfdZTnw4H1OypvVYHOFD77Dn262g4RYGY0Mw/4Q43jQ82SikW',
                 'profile_pix' => NULL,
@@ -711,7 +711,7 @@ Mq 9',
             36 => 
             array (
                 'id' => 52,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '05370@iyogera.com',
                 'password' => '$2y$10$9rFb84EakbqDZGyw3w9iyOOD0OZpsPl7YvGkmceKT5H9TzjjyL2u2',
                 'profile_pix' => NULL,
@@ -731,7 +731,7 @@ Mq 9',
             37 => 
             array (
                 'id' => 53,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '01820@iyogera.com',
                 'password' => '$2y$10$4x45.W9/tq58e6PRqnwp4usF.uu.IvZlgFVCJpXGzTx9MaJ4WBcI2',
                 'profile_pix' => NULL,
@@ -751,7 +751,7 @@ Mq 9',
             38 => 
             array (
                 'id' => 54,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '68219@iyogera.com',
                 'password' => '$2y$10$/TsVGii2/5oIKsu05Rh0pOF0O7Zm29UVh/ztOCD31PYkMt2Za4I6O',
                 'profile_pix' => NULL,
@@ -771,7 +771,7 @@ Mq 9',
             39 => 
             array (
                 'id' => 55,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '90409@iyogera.com',
                 'password' => '$2y$10$LS0hH8kXOw/go68bH9wH6ukmfutAoE8DyhH9gkBXQvmzGzJEHhaqi',
                 'profile_pix' => NULL,
@@ -791,7 +791,7 @@ Mq 9',
             40 => 
             array (
                 'id' => 56,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '57477@iyogera.com',
                 'password' => '$2y$10$zC8b9zzRmi8qoQLMbbf/EuXaIgUuX7bn1us7x9O9RnzCwm9UtuMwi',
                 'profile_pix' => NULL,
@@ -811,7 +811,7 @@ Mq 9',
             41 => 
             array (
                 'id' => 58,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '86431@iyogera.com',
                 'password' => '$2y$10$o/1RdSNIDQb3aL5xIySJ4e6e0YjarW5SMBJ2FoxLrzkN87wf45H7i',
                 'profile_pix' => NULL,
@@ -831,7 +831,7 @@ Mq 9',
             42 => 
             array (
                 'id' => 59,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '98565@iyogera.com',
                 'password' => '$2y$10$wgoPJW1N3/CME9n9WSGnHOPQf8wzWs2Qja9QmuuBji2vsH2tyTCru',
                 'profile_pix' => NULL,
@@ -851,7 +851,7 @@ Mq 9',
             43 => 
             array (
                 'id' => 60,
-                'name' => 'Soonenter Aboiyar',
+                'first_name' => 'Soonenter Aboiyar',
                 'email' => '13450@iyogera.com',
                 'password' => '$2y$10$x39oU0O7ULZBEvB3uYAI6e7ZoYye0hCmGeMotrtCKWh.wkMZCUyWu',
                 'profile_pix' => NULL,

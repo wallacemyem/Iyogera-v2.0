@@ -45,7 +45,7 @@ class RaveController extends Controller
           //$txref = $request->ref;
           //dd($get_ref);
           $data = Rave::verifyTransaction($get_ref->tx_ref_id);
-
+          //dd($data);
           $chargeResponsecode = $data->data->chargecode;
           $chargeAmount = $data->data->chargedamount;
           $chargeCurrency = $data->data->currency;

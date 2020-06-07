@@ -7,7 +7,7 @@
             <!-- LOGO -->
             <a href="{{ route('dashboard') }}" class="logo text-center">
                 <span class="logo-lg">
-                <img src="{{'backend/images/logo-dark.png'}}" alt="" height="50">
+                <img src="{{asset('backend/images/logo-dark.png')}}" alt="" height="50">
                 </span>
                 <span class="logo-sm">
                 <img src="{{asset('backend/images/logo-dark.png')}}" alt="" height="16">

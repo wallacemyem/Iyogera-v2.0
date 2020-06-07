@@ -108,7 +108,9 @@ class StudentController extends Controller
 
         if(count(User::where('email', $request->email)->get()) == 0) {
             $user = new User;
-            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->other_name = $request->other_name;
+            $user->middle_name = $request->middle_name;
             $user->email = $rad_code.$email;
             $user->password = Hash::make($std_code);
             $user->role = "student";
@@ -120,6 +122,7 @@ class StudentController extends Controller
             $user->save();
 
             $user_id = $user->id;
+
             $student = new Student;
             $student->user_id = $user_id;
             $student->code = $std_code;
@@ -127,6 +130,7 @@ class StudentController extends Controller
             $student->profile_pix = $file_name_path;
             $student->school_id = school_id();
             $student->save();
+
             $student_id = $student->id;
 
             $enroll = new Enroll;
@@ -150,7 +154,7 @@ class StudentController extends Controller
 
 
     public function bulk_student_store(Request $request) {
-        foreach($request->name as $key=> $row) {
+        foreach($request->first_name as $key=> $row) {
             $selected_branch_id = school_id();
             $selected_branch = \App\School::find($selected_branch_id);
             $short = $selected_branch->short;
@@ -162,7 +166,9 @@ class StudentController extends Controller
             if($row != ""){
                 if(count(User::where('email', $request->email[$key])->get()) == 0) {
                     $user = new User;
-                    $user->name = $request->name[$key];
+                    $user->first_name = $request->first_name[$key];
+                    $user->other_name = $request->other_name[$key];
+                    $user->middle_name = $request->middle_name[$key];
                     $user->email = $rad_code.$email;
                     $user->password = Hash::make($std_code);
                     $user->role = "student";
@@ -343,7 +349,9 @@ class StudentController extends Controller
             }
             //dd($request->kiss);
 
-            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->other_name = $request->other_name;
+            $user->middle_name = $request->middle_name;
             $user->email = $request->kiss;
             $user->role = "student";
             $user->address = $request->address;
@@ -386,6 +394,7 @@ class StudentController extends Controller
         $user = User::find($student->user->id);
         $user->delete();
         $enroll = Enroll::where(array('student_id' => $id, 'session' => get_schools()))->first();
+        $section_id = $enroll->section_id;
         $enroll->delete();
 
         flash(translate('student_has_been_delected_successfully'))->success();

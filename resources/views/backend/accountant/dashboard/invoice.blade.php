@@ -16,12 +16,12 @@
         </thead>
         <tbody>
             @php
-            $invoices = App\Invoice::where(['school_id'=> school_id(), 'session' => get_settings('running_session')])->where('created_at', '>=', $date_from)->where('created_at', '<=', $date_to)->get();
+            $invoices = App\Invoice::where(['school_id'=> school_id(), 'session' => get_schools()])->where('created_at', '>=', $date_from)->where('created_at', '<=', $date_to)->get();
             @endphp
         @foreach ($invoices as $invoice)
             {{-- @if (strtotime($invoice->created_at) >= $date_from && strtotime($invoice->created_at) <= $date_to) --}}
                 <tr>
-                    <td>{{ $invoice->student->user->name }}</td>
+                    <td>{{ $invoice->student->user->other_name }} {{ $invoice->student->user->first_name }} {{ $invoice->student->user->middle_name }}</td>
                     <td>
                         {{ $invoice->class->name }}
                     </td>
@@ -43,7 +43,7 @@
                 </tr>
             {{-- @endif --}}
         @endforeach
-        @if (sizeof(App\Invoice::where(['school_id'=> school_id(), 'session' => get_settings('running_session')])->get()) == 0)
+        @if (sizeof(App\Invoice::where(['school_id'=> school_id(), 'session' => get_schools()])->get()) == 0)
             <tr>
                 <td colspan="8"> No Data Found</td>
             </tr>

@@ -13,6 +13,7 @@
     Route::get('system_settings', 'SettingsController@system')->name('system.settings');
     Route::patch('system_update', 'SettingsController@system_update')->name('system.update');
     Route::post('logo_update', 'SettingsController@logo_update')->name('logo.update');
+    Route::post('logo_update_school', 'SettingsController@logo_update_school')->name('logo.update.school');
     Route::get('sms_settings', 'SettingsController@sms')->name('sms.settings');
     Route::get('payment_settings', 'SettingsController@payment')->name('payment.settings');
     Route::patch('payment_update/{type}', 'SettingsController@payment_update')->name('payment.update');

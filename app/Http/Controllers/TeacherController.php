@@ -47,7 +47,9 @@ class TeacherController extends Controller
 
         if(count(User::where('email', $request->email)->get()) == 0) {
             $user = new User;
-            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->other_name = $request->other_name;
+            $user->middle_name = $request->middle_name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->role = "teacher";

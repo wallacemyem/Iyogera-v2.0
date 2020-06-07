@@ -32,4 +32,20 @@ class User extends Authenticatable
     public function school() {
         return $this->belongsTo(School::class);
     }
+
+    public function role()
+    {
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+
+    public function isAdmin()
+    {
+        return $this->role()->where('role_id', 1)->first();
+    }
+
+    public function lessons()
+    {
+        return $this->belongsToMany('App\Lesson', 'lesson_student');
+    }
 }

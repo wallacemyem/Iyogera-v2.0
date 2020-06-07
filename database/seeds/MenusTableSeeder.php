@@ -27,7 +27,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-user',
                 'created_at' => '2020-04-30 03:05:19',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             1 => 
             array (
@@ -39,7 +39,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-user',
                 'created_at' => '2020-04-16 04:44:46',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             2 => 
             array (
@@ -50,8 +50,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 90,
                 'status' => 0,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             3 => 
             array (
@@ -63,7 +63,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-blog',
                 'created_at' => '2020-05-18 21:04:38',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             4 => 
             array (
@@ -74,8 +74,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 30,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             5 => 
             array (
@@ -87,7 +87,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2020-04-07 21:46:50',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             6 => 
             array (
@@ -98,8 +98,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 70,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             7 => 
             array (
@@ -110,8 +110,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 60,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             8 => 
             array (
@@ -123,7 +123,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2020-04-05 08:28:48',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             9 => 
             array (
@@ -135,7 +135,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-store',
                 'created_at' => '2019-01-30 06:57:16',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             10 => 
             array (
@@ -146,8 +146,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 40,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             11 => 
             array (
@@ -158,8 +158,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 50,
                 'status' => 0,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             12 => 
             array (
@@ -170,8 +170,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 60,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             13 => 
             array (
@@ -183,7 +183,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2019-01-16 19:16:55',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             14 => 
             array (
@@ -194,8 +194,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 80,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             15 => 
             array (
@@ -207,7 +207,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-04-30 19:12:18',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             16 => 
             array (
@@ -218,8 +218,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 10,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             17 => 
             array (
@@ -230,8 +230,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 110,
                 'status' => 0,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             18 => 
             array (
@@ -243,7 +243,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-04-07 21:46:35',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             19 => 
             array (
@@ -255,7 +255,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-to-do',
                 'created_at' => '2019-01-30 06:59:13',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             20 => 
             array (
@@ -266,8 +266,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 20,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             21 => 
             array (
@@ -278,8 +278,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 30,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             22 => 
             array (
@@ -291,7 +291,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2019-01-20 13:45:11',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             23 => 
             array (
@@ -303,7 +303,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-20 13:47:21',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             24 => 
             array (
@@ -315,7 +315,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-suitcase',
                 'created_at' => '2019-01-30 06:58:34',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             25 => 
             array (
@@ -326,8 +326,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 10,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             26 => 
             array (
@@ -339,7 +339,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-17 06:44:11',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             27 => 
             array (
@@ -351,7 +351,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2019-01-19 08:38:15',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             28 => 
             array (
@@ -363,7 +363,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-archive',
                 'created_at' => '2019-01-30 06:55:31',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             29 => 
             array (
@@ -375,7 +375,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-blog',
                 'created_at' => '2020-05-02 16:38:24',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             30 => 
             array (
@@ -387,7 +387,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-16 15:40:26',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             31 => 
             array (
@@ -399,7 +399,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-16 15:40:29',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             32 => 
             array (
@@ -411,7 +411,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-16 15:40:32',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             33 => 
             array (
@@ -423,7 +423,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-gear',
                 'created_at' => '2020-05-01 20:17:31',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             34 => 
             array (
@@ -435,7 +435,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2020-04-27 18:57:19',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             35 => 
             array (
@@ -447,7 +447,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2020-04-27 18:58:55',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             36 => 
             array (
@@ -459,7 +459,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-05-16 07:29:12',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             37 => 
             array (
@@ -471,7 +471,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2020-05-01 20:12:38',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             38 => 
             array (
@@ -482,8 +482,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             39 => 
             array (
@@ -494,8 +494,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 70,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             40 => 
             array (
@@ -506,8 +506,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 20,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             41 => 
             array (
@@ -519,7 +519,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2020-04-07 22:31:04',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             42 => 
             array (
@@ -531,7 +531,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-16 14:45:09',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             43 => 
             array (
@@ -543,7 +543,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2019-01-21 09:51:47',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             44 => 
             array (
@@ -555,7 +555,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-20 13:48:01',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             45 => 
             array (
@@ -567,7 +567,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-20 13:48:04',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             46 => 
             array (
@@ -578,8 +578,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 40,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             47 => 
             array (
@@ -590,8 +590,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 110,
                 'status' => 0,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             48 => 
             array (
@@ -603,7 +603,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-04-27 19:06:20',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             49 => 
             array (
@@ -614,8 +614,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             50 => 
             array (
@@ -626,8 +626,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             51 => 
             array (
@@ -638,8 +638,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             52 => 
             array (
@@ -650,8 +650,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             53 => 
             array (
@@ -662,8 +662,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             54 => 
             array (
@@ -675,7 +675,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2019-01-24 11:37:50',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             55 => 
             array (
@@ -686,8 +686,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             56 => 
             array (
@@ -698,8 +698,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 0,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             57 => 
             array (
@@ -710,8 +710,8 @@ class MenusTableSeeder extends Seeder
                 'sort_order' => 30,
                 'status' => 1,
                 'icon' => NULL,
-                'created_at' => '0000-00-00 00:00:00',
-                'updated_at' => '0000-00-00 00:00:00',
+                'created_at' => '2020-04-16 04:44:46',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             58 => 
             array (
@@ -747,7 +747,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-pin',
                 'created_at' => '2020-04-07 15:25:45',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             61 => 
             array (
@@ -759,7 +759,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-04-05 08:38:02',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             62 => 
             array (
@@ -771,7 +771,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-04-05 08:44:59',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             63 => 
             array (
@@ -783,7 +783,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 0,
                 'icon' => NULL,
                 'created_at' => '2020-04-27 18:59:43',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             64 => 
             array (
@@ -795,7 +795,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-04-29 19:15:32',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             65 => 
             array (
@@ -807,7 +807,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => NULL,
                 'created_at' => '2020-04-29 19:15:32',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
             66 => 
             array (
@@ -819,7 +819,7 @@ class MenusTableSeeder extends Seeder
                 'status' => 1,
                 'icon' => 'dripicons-store',
                 'created_at' => '2020-05-25 19:16:50',
-                'updated_at' => '0000-00-00 00:00:00',
+                'updated_at' => '2020-04-16 04:44:46',
             ),
         ));
         

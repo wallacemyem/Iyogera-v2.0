@@ -49,7 +49,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        flash(translate('welcome_back').' '.$user->name)->success();
+        flash(translate('welcome_back').' '.$user->other_name.' '.$user->first_name.' '.$user->middle_name)->success();
         return redirect()->intended('dash');
     }
 
@@ -59,6 +59,7 @@ class LoginController extends Controller
         Auth::logout(); 
         session(['role' => '']); 
         Session::flush(); 
+        flash(translate('you_are_logged_out'))->success();
         return redirect('/login'); 
     }
 }

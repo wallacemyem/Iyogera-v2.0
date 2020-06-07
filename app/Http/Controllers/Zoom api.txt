@@ -1,0 +1,8 @@
+SDK key: treUq28Xja9GyEQlq8Svkht7ffjZelGmS1l8
+SDK secret: pGeNe2Z68M53cohLfpNyrQPOa5Pzt4tiFyT6
+
+iyogera
+rexsexy@
+
+.ideas
+-make that exam result thing a once view, and only use generate exam when allowed by database.

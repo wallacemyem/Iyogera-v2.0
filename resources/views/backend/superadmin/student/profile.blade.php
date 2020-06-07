@@ -14,7 +14,7 @@
                 @else
                     <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="150" width="150">
                 @endif
-                <div> <span style="font-weight: bold;">{{ translate('name') }}: </span> {{ $student_details->user->name }} </div>
+                <div> <span style="font-weight: bold;">{{ translate('name') }}: </span> {{ $student_details->user->other_name }} {{ $student_details->user->first_name }} {{ $student_details->user->middle_name }} </div>
                 <div> <span style="font-weight: bold;">{{ translate('student_code') }}: </span> {{ $student_details->code }} </div>
                 <div> <span style="font-weight: bold;">{{ translate('student_email') }}: </span> {{ $student_details->user->email }} </div>
             </div>
@@ -32,7 +32,7 @@
                         <tbody>
                             <tr>
                                 <td style="font-weight: bold;">{{ translate('name') }}:</td>
-                                <td>{{ $student_details->user->name }}</td>
+                                <td>{{ $student_details->user->other_name }} {{ $student_details->user->first_name }} {{ $student_details->user->middle_name }}</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;">{{ translate('class') }}:</td>

@@ -110,7 +110,7 @@ class ReportController extends Controller
 		                //dd($average_Mark);
 						$average_mark = number_format($average_Mark, 2, '.', '');
 						
-						$full_name          =   $SingleStudent->student->user->name;                 //get name 
+						$full_name          =   $SingleStudent->student->user->other_name.' '.$SingleStudent->student->user->first_name.' '.$SingleStudent->student->user->middle_name;                 //get name 
 		                $admission_no       =   $SingleStudent->student->code;           //get admission no
 		        		
 		            
@@ -119,7 +119,15 @@ class ReportController extends Controller
         		
            
 	            $allresult_data = Result::where(['student_id' => $stu_id, 'session' => $running_session, 'school_id' => $school_id, 'exam_id' => $exam_id, 'class_id' => $class_id, 'section_id' => $section_id])->orderBy('position', 'asc')->get();
-	          
+			
+				$merit_serial = 1;
+	            foreach ($allresult_data as $row) {
+	                $D = Result::find($row->id);
+	                $D->position = $merit_serial++;
+	                $D->save();
+	            
+	            	}
+
         return view('backend.'.Auth::user()->role.'.report.list', compact('students', 'stu_id', 'exam_id', 'subject', 'subjects', 'section_id', 'class_id', 'running_session', 'school_id', 'marks', 'section', 'total_marks', 'marks_count', 'allresult_data'))->render();
     } 
     /*

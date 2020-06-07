@@ -57,8 +57,8 @@ class SyllabusController extends Controller
             $syllabus->save();
             flash(translate('syllabus_added_successfully'))->success();
                
-            }
-        }else {
+            
+            }else {
             flash('error_occured_while_uploading')->error();
             
         }
@@ -124,3 +124,4 @@ class SyllabusController extends Controller
         return Storage::download(asset('backend/files/syllabus/'.$file));
     }
 }
+

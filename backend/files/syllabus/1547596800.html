@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue</title>
+
+  </head>
+  <body>
+    <div id="app">
+      <p title = "dasdadsa">{{ message }}</p>
+    </div>
+
+    <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+    </div>
+
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          <span>{{ todo }}</span>
+        </li>
+      </ol>
+      <button type="button" name="button" @click = "call">Click</button>
+    </div>
+
+    <div id="app-7">
+      <ol>
+        <!--
+          Now we provide each todo-item with the todo object
+          it's representing, so that its content can be dynamic.
+          We also need to provide each component with a "key",
+          which will be explained later.
+        -->
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"></todo-item>
+      </ol>
+
+      <p>Using mustaches: {{ rawHtml }}</p>
+      <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+      <div v-bind:id="dynamicId">Dynamic Div ID</div>
+    </div>
+
+    
+
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: "helllo"
+      }
+    })
+
+    Vue.component('todo-item', {
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    })
+
+    var app7 = new Vue({
+      el: '#app-7',
+      data: {
+        groceryList: [
+          { id: 0, text: 'Vegetables' },
+          { id: 1, text: 'Cheese' },
+          { id: 2, text: 'Whatever else humans are supposed to eat' }
+        ],
+        rawHtml : '<span style = "color: red;">RawHTML</span>',
+        dynamicId : 5
+      }
+    })
+
+    var app3 = new Vue({
+      el: '#app-3',
+      data: {
+        seen: false
+      }
+    })
+
+    var app4 = new Vue({
+      el : '#app-4',
+      data : {
+        todos : [1, 2, 3, 4, 5, 6, 7]
+      },
+      methods: {
+        call : function() {
+          app4.todos.push(app4.todos[app4.todos.length - 1] + 1);
+        }
+      },
+    });
+
+    </script>
+  </body>
+</html>

@@ -22,15 +22,23 @@
                 <div class="col-xl-11 col-lg-11 col-md-12 col-sm-12 mb-3 mb-lg-0">
                     <div class="row justify-content-md-center">
                         <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
-                            <input type="text" name="name[]" class="form-control"  value="" placeholder="Name" required>
+                            <input type="text" name="first_name[]" class="form-control"  value="" placeholder="First Name" required>
+                        </div>
+
+                        <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
+                            <input type="text" name="other_name[]" class="form-control"  value="" placeholder="Last Name" required>
+                        </div>
+
+                        <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
+                            <input type="text" name="middle_name[]" class="form-control"  value="" placeholder="Other Name">
                         </div>
             
                         <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
                             <select name="gender[]" class="form-control" required>
-                                <option value="">{{ translate('select_gender') }}</option>
+                                <option value="others">{{ translate('others') }}</option>
                                 <option value="male">{{ translate('male') }}</option>
                                 <option value="female">{{ translate('female') }}</option>
-                                <option value="others">{{ translate('others') }}</option>
+                                
                             </select>
                         </div>
 
@@ -54,16 +62,24 @@
             <div class="row student-row">
                 <div class="col-xl-11 col-lg-11 col-md-12 col-sm-12 mb-3 mb-lg-0">
                     <div class="row justify-content-md-center">
+                    <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
+                            <input type="text" name="first_name[]" class="form-control"  value="" placeholder="First Name" required>
+                        </div>
+
                         <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
-                            <input type="text" name="name[]" class="form-control"  value="" placeholder="Name">
+                            <input type="text" name="other_name[]" class="form-control"  value="" placeholder="Last Name" required>
+                        </div>
+
+                        <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
+                            <input type="text" name="middle_name[]" class="form-control"  value="" placeholder="Other Name">
                         </div>
 
                         <div class="form-group col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-1 mb-lg-0">
                             <select name="gender[]" class="form-control">
-                                <option value="">{{ translate('select_gender') }}</option>
+                                <option value="others">{{ translate('others') }}</option>
                                 <option value="male">{{ translate('male') }}</option>
                                 <option value="female">{{ translate('female') }}</option>
-                                <option value="others">{{ translate('others') }}</option>
+                                
                             </select>
                         </div>
 

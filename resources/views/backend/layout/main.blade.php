@@ -11,7 +11,7 @@
     <meta content="Best school ERP" name="description" />
     <meta content="Iyogera NG" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('backend/images/logo-dark.png')}}">
+    <link rel="shortcut icon" href="{{asset('backend/images/student_image/preview.png')}}">
     @include('backend.layout.styles')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
