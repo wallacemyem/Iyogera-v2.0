@@ -5254,16 +5254,16 @@
         },
         {
             "name": "stevebauman/location",
-            "version": "v5.0.2",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stevebauman/location.git",
-                "reference": "9858b9a5bb1d2a4005daa5c84a644e0934433a59"
+                "reference": "38dedeb028cdc8f7d5c55f92c04b04ca5fffccff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stevebauman/location/zipball/9858b9a5bb1d2a4005daa5c84a644e0934433a59",
-                "reference": "9858b9a5bb1d2a4005daa5c84a644e0934433a59",
+                "url": "https://api.github.com/repos/stevebauman/location/zipball/38dedeb028cdc8f7d5c55f92c04b04ca5fffccff",
+                "reference": "38dedeb028cdc8f7d5c55f92c04b04ca5fffccff",
                 "shasum": ""
             },
             "require": {
@@ -5313,7 +5313,7 @@
                 "location",
                 "php"
             ],
-            "time": "2020-03-03T18:20:29+00:00"
+            "time": "2020-06-08T17:26:20+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
