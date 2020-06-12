@@ -4672,16 +4672,16 @@
         },
         {
             "name": "realrashid/sweet-alert",
-            "version": "v3.1.4",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realrashid/sweet-alert.git",
-                "reference": "d78f0ff7a9e065da2c79fa1c35a5fe243ae9bb02"
+                "reference": "b72e2b41b5295be5bae5c54dbab851696fef196a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/d78f0ff7a9e065da2c79fa1c35a5fe243ae9bb02",
-                "reference": "d78f0ff7a9e065da2c79fa1c35a5fe243ae9bb02",
+                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/b72e2b41b5295be5bae5c54dbab851696fef196a",
+                "reference": "b72e2b41b5295be5bae5c54dbab851696fef196a",
                 "shasum": ""
             },
             "require": {
@@ -4734,7 +4734,7 @@
                 "sweet-alert2",
                 "toast"
             ],
-            "time": "2020-03-31T15:40:35+00:00"
+            "time": "2020-06-11T19:38:31+00:00"
         },
         {
             "name": "setasign/fpdi",
