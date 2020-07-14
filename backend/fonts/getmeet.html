@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src='https://meet.jit.si/external_api.js'></script>
+</head>
+<body>
+<h1>Hello</h1>
+<button id="start" type="button">Start</button>
+<div id="jitsi-container">
+</div>
+
+<script>
+var button = document.querySelector('#start');
+var container = document.querySelector('#jitsi-container');
+var api = null;
+
+button.addEventListener('click', () => {
+    var domain = "meet.jit.si";
+    var options = {
+        "roomName": "foo-bar-c8cfdb0d-135a-4462-a05b-36575c3ef591",
+        "parentNode": container,
+        "width": 600,
+        "height": 200,
+    };
+    api = new JitsiMeetExternalAPI(domain, options);
+});
+
+</script>
+</body>
+</html>
