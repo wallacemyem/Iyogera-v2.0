@@ -26,7 +26,7 @@
 
         button.addEventListener('click', () => {
             
-            var domain = "xl2r.iyogera.com";
+            var domain = "https://54.157.188.210";
             var options = {
                 "roomName": live_url,
                 "parentNode": container,
