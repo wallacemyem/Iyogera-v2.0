@@ -162,6 +162,7 @@ return [
         KingFlamez\Rave\RaveServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Emotality\TawkTo\TawkToServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
         /*
          * Package Service Providers...
