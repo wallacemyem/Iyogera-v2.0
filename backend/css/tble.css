@@ -1,5 +1,15 @@
 @charset "utf-8";
+@import url("http://localhost/dev/backend/fonts/Peace-Maker-Alt.woff");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 /* CSS Document */
+
+@font-face{
+	font-family: "Peace-Maker-Alt";
+	src: url("http://localhost/dev/backend/fonts/Peace-Maker-Alt.woff") format("woff"),
+	url("http://localhost/dev/backend/fonts/Peace-Maker-Alt.woff") format("opentype");
+}
+
+
 .button{font-size: 0.75em;
 padding: 0.833em; /* 10/12 */
 	
@@ -26,7 +36,7 @@ padding: 0.833em; /* 10/12 */
 }	
 .ic-print { background-image: url("../../images/icons/ic_print.png"); }
 .text-upper { text-transform: uppercase; }
-.tbheadr{ background-color: #2069b4; color:#FFFFFF}
+.tbheadr{ background-color: #2069b4; color: #FFFFFF}
 .information-box {
 	background: #e5f5f9;/* url('../../images/icons/message-boxes/information.png') no-repeat 0.833em center;*/
 	border: 1px solid #cae0e5;

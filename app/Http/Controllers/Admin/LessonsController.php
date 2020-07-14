@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreLessonsRequest;
 use App\Http\Requests\Admin\UpdateLessonsRequest;
 use App\Http\Controllers\Traits\FileUploadTrait;
+use Optix\Media\MediaUploader;
 
 class LessonsController extends Controller
 {
@@ -48,10 +49,12 @@ class LessonsController extends Controller
      */
     public function create()
     {
+        $title = translate('create_lesson');
         
         $courses = \App\Classes::where(['school_id' => school_id()])->get()->pluck('name', 'id')->prepend('Please select', '');
+        //dd($courses);
 
-        return view('backend.'.Auth::user()->role.'.lessons.lessons.create', compact('courses'));
+        return view('backend.'.Auth::user()->role.'.lessons.lessons.create', compact('courses', 'title'));
     }
 
     /**
@@ -62,19 +65,23 @@ class LessonsController extends Controller
      */
     public function store(StoreLessonsRequest $request)
     {
-        
+        $slug = $request->title;
+        $slugb = str_slug($slug);
+
+        $section = $request->section_id;
+        //dd($request->input('downloadable_files_id', []));
+
         $request = $this->saveFiles($request);
         $lesson = Lesson::create($request->all()
-            + ['position' => Lesson::where('classes_id', $request->classes_id)->max('position') + 1]);
+            + ['position' => Lesson::where('classes_id', $request->classes_id)->max('position') + 1] + ['slug' => $slugb] + ['section_id' => 8]);
 
         foreach ($request->input('downloadable_files_id', []) as $index => $id) {
-            $model          = config('laravel-medialibrary.media_model');
-            $file           = $model::find($id);
-            $file->model_id = $lesson->id;
-            $file->save();
+            $media = MediaUploader::fromFile($id)->upload();
+            $media->save();
         }
+        dd($lesson);
 
-        return redirect()->route('lessons.index', ['classes_id' => $request->classes_id]);
+        return redirect()->route('lessons.index', ['lesson' => $lesson->id]);
     }
 
 
@@ -111,14 +118,15 @@ class LessonsController extends Controller
         //dd($lesson);
 
         $media = [];
+        dd($request->input('downloadable_files_id'));
         foreach ($request->input('downloadable_files_id', []) as $index => $id) {
-            $model          = config('laravel-medialibrary.media_model');
+            $model          = config('medialibrary.media_model');
             $file           = $model::find($id);
             $file->model_id = $lesson->id;
             $file->save();
             $media[] = $file;
         }
-        $lesson->updateMedia($media, 'downloadable_files');
+        //dd($lesson->updateMedia($media, 'downloadable_files'));
 
         return redirect()->route('lessons.index', ['course_id' => $request->course_id]);
     }
@@ -126,7 +134,7 @@ class LessonsController extends Controller
 
     /**
      * Display Lesson.
-     *
+     * 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -136,8 +144,10 @@ class LessonsController extends Controller
         $courses = \App\Course::get()->pluck('title', 'id')->prepend('Please select', '');$tests = \App\Test::where('lesson_id', $id)->get();
 
         $lesson = Lesson::findOrFail($id);
+        $title = $lesson->title;
+        //dd($lesson->getMedia('downloadable_files'));
 
-        return view('backend.'.Auth::user()->role.'.lessons.lessons.show', compact('lesson', 'tests'));
+        return view('backend.'.Auth::user()->role.'.lessons.lessons.show', compact('lesson', 'tests', 'title'));
     }
 
 

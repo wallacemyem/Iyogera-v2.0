@@ -14,6 +14,7 @@ class SpatieMediaController extends Controller
      */
     public function create(Request $request)
     {
+        
         if (! $request->has('model_name') && ! $request->has('file_key') && ! $request->has('bucket')) {
             return abort(500);
         }

@@ -26,7 +26,9 @@
     <script src="{{ asset('backend/js/main.js') }}"></script>
     <script src="{{ asset('backend/js/toast.js') }}"></script>
     <script src="{{ asset('backend/js/notyf.min.js') }}"></script>
+    <script src="https://meet.jit.si/external_api.js"></script>
     {{--<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>--}}
+    
     
 
 

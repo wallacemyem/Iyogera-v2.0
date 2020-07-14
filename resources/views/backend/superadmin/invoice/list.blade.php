@@ -18,7 +18,7 @@
     @foreach ($invoices as $invoice)
         {{-- @if (strtotime($invoice->created_at) >= $date_from && strtotime($invoice->created_at) <= $date_to) --}}
             <tr>
-                <td>{{ $invoice->student->user->name }}</td>
+                <td>{{ $invoice->student->user->other_name }} {{ $invoice->student->user->first_name }} {{ $invoice->student->user->middle_name }}</td>
                 <td>
                     {{ $invoice->class->name }}
                 </td>
@@ -32,7 +32,12 @@
                     {{ $invoice->paid_amount }}
                 </td>
                 <td>
-                    {{ ucfirst($invoice->status) }}
+                    @if( $invoice->status === 'paid' )
+                    <i class="fas fa-circle" style="color: green; font-size: 10px;"></i> {{ ucfirst($invoice->status) }}
+                    @else
+                    <i class="fas fa-circle" style="color: red; font-size: 10px;"></i> {{ ucfirst($invoice->status) }}
+                    @endif
+
                 </td>
                 <td>
                     {{ date('D, d-M-Y', strtotime($invoice->created_at)) }}

@@ -1,6 +1,9 @@
+@inject('request', 'Illuminate\Http\Request')
 @extends('backend.layout.main')
 @section('content')
     <!-- start page title -->
+
+   
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
@@ -39,9 +42,9 @@
                                 <option value="all">{{ translate('select_a_section') }}</option>
                             </select>
                         </div>
-
+                        
                         <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 mb-3 mb-lg-0">
-                            <button type="button" class="btn btn-icon btn-primary form-control" onclick="generateReport()">{{ translate('generate_report') }}</button>
+                            <button type="button" class="btn btn-icon btn-primary form-control" onclick="generateReport()">{{ translate('generate_report') }} </button>
                         </div>
                     </div>
 
@@ -56,6 +59,8 @@
 
 @section('scripts')
     <script>
+
+
         function classWiseSection(class_id) {
             var url = '{{ route("section.show", "class_id") }}';
             url = url.replace('class_id', class_id);
@@ -121,11 +126,17 @@
                     type : 'POST',
                     url: url,
                     data : { section_id : section_id, exam_id : exam_id, _token : '{{ @csrf_token() }}' },
-                    success : function(response) {
-                        var notyf = new Notyf();
-                            notyf.success('Generated Successfully');
-                        $('#marks_content').html(response);
 
+                    success : function(response) {
+
+                        //var success = response;
+                        if(response == "success"){
+                            var notyf = new Notyf();
+                                notyf.success('Generated Successfully');
+                        }else{
+                            var notyf = new Notyf();
+                                notyf.error('Class and Section already Generated');
+                        }
                     }
                 });
             }else {

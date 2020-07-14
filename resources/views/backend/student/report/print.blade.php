@@ -7,13 +7,23 @@ $school_id = school_id();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Result sheet for {{ strtoupper($key->user->name) }}</title>
+<title>Result sheet for {{ strtoupper($key->user->other_name) }} {{ strtoupper($key->user->first_name) }} {{ strtoupper($key->user->middle_name) }}</title>
 	<link href="{{ asset('backend/css/toast.css') }}" rel="stylesheet" type="text/css" />
-	<link rel="shortcut icon" href="{{asset('backend/images/logo-dark.png')}}">  
+  <link href="{{ asset('backend/css/tble.css') }}" rel="stylesheet" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+
 
 <style type="text/css">
 body{font-family:"trebuchet MS"; font-size:14px;
 height: 642px;
+}
+
+.signature{
+  font: 'Arizonia', Helvetica, sans-serif;
+  color: #2b2b2b;
+  text-align: right;
+  font-weight: 1em;
+
 }
 
 .rot{
@@ -24,6 +34,7 @@ display:block;
 writing-mode: tb-rl;*/
 font-size:9px;
 }
+
 #bod{
 border:solid; border:1px solid #000;
 }
@@ -42,11 +53,11 @@ border:solid; border:1px solid #000;
 <thead>
    
   <tr>
-    <td height="20" colspan="18" align="center" style="color:#CC3300"><strong>{{strtoupper($exam->name)}} RESULT FOR {{ strtoupper($key->user->name) }}</strong></td>
+    <td height="20" colspan="18" align="center" style="color:#CC3300"><strong>{{strtoupper($exam->name)}} RESULT FOR {{ strtoupper($key->user->other_name) }} {{ strtoupper($key->user->first_name) }} {{ strtoupper($key->user->middle_name) }}</strong></td>
   </tr>  
   <tr>
     <td height="93" colspan="2"  style="padding-left:8px;border:1px solid #000; border-right:0px; border-bottom:0px; padding-top:3px; padding-bottom:3px" align="left">
-      <div style="float:left; padding-left:20px"><img src="{{asset('backend/images/'.$school_id.'.png')}}" alt="{{strtoupper($school->name)}}" width="150" height="99" />
+      <div style="float:left; padding-left:20px"><img src="{{ 'backend/images/'.$school_id.'.png' }}" alt="{{strtoupper($school->name)}}" width="114" height="101" />
       </div>
     </td>
     <td height="93" colspan="10"  style="padding-left:10px;border:1px solid #000; border-right:0px; border-left:0px; border-bottom:0px; padding-top:3px; padding-bottom:3px" align="center">
@@ -56,7 +67,7 @@ border:solid; border:1px solid #000;
     </font>
     </td>
       <td height="93" colspan="1"  style="padding-left:8px;border:1px solid #000; border-left:0px; border-bottom:0px; padding-top:3px; padding-bottom:3px" align="right">
-    <div style="float:right; padding-left:20px"><img src="{{'backend/images/student_image/'.$key->profile_pix.'.jpg'}}" alt="{{ strtoupper($key->user->name) }}" width="114" height="101" />
+    <div style="float:right; padding-left:20px"><img src="{{'backend/images/student_image/'.$key->profile_pix.'.jpg'}}" alt="{{ strtoupper($key->user->other_name) }} {{ strtoupper($key->user->first_name) }} {{ strtoupper($key->user->middle_name) }}" width="114" height="101" />
     </div>
   </td>
   
@@ -65,7 +76,7 @@ border:solid; border:1px solid #000;
     <td height="20"  colspan="13"  align="center" class="tbheadr" id="bod">STUDENT'S INFORMATION</td>
   </tr>
   <tr>
-    <td height="22" colspan="5" id="bod">&nbsp;&nbsp;Name :&nbsp;&nbsp;<strong>{{ strtoupper($key->user->name) }}</strong></td>
+    <td height="22" colspan="5" id="bod">&nbsp;&nbsp;Name :&nbsp;&nbsp;<strong>{{ strtoupper($key->user->other_name) }} {{ strtoupper($key->user->first_name) }} {{ strtoupper($key->user->middle_name) }}</strong></td>
     <td colspan="3" id="bod">&nbsp;Class:&nbsp;<strong>{{$class_name}}{{$section_name}}</strong></td>    
     <td colspan="3" id="bod">&nbsp;No. in class:&nbsp;<strong>{{$count_s}}</strong></td>    
     <td colspan="2" id="bod">&nbsp;Next Term Begins:&nbsp;&nbsp;<strong></strong></td>                
@@ -405,18 +416,7 @@ CLASS</span></td>
   </tr>
   <tr>
     <td height="20" colspan="8" style="border:1px solid #000; border-bottom:0px;border-right:0px; padding-left:4px">&nbsp;Position in Class: <strong>
-      <?php
-        if ($position == 1){
-                echo '1st';
-            }elseif ($position == 2) {
-                echo '2nd';
-            }elseif ($position == 3) {
-                echo '3rd';
-                # code...
-            }else{
-                echo $position.'th';
-            }
-        ?> 
+      {{ studentPosition($position) }}
     </strong></td>
     <td colspan="5" style="border:1px solid #000; border-bottom:0px; border-left:0px;">Out of:&nbsp;<strong>{{$count_s}}</strong></td>
   </tr>
@@ -424,15 +424,14 @@ CLASS</span></td>
     <td height="20" colspan="13"  style="border:1px solid #000; border-bottom:0px; padding-left:4px">&nbsp;Form Teacher's Remarks:&nbsp;&nbsp;&nbsp;<strong>An encouraging performance</strong>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="8" style="border:1px solid #000; border-bottom:0px;border-right:0px;padding-left:4px">&nbsp;Name:&nbsp;<strong>JOHN DOE</strong></td>
-    <td colspan="5" style="border:1px solid #000; border-bottom:0px; border-left:0px"><div style="position:relative">Signature<div style="position:absolute; left: 72px; top: -10px;"><img src='../images/sig/80.png' title='Class Teacher`s Signature' height='36' width='86' /></div>
-    </div></td>
+    <td colspan="8" style="border:1px solid #000; border-bottom:0px;border-right:0px;padding-left:4px">&nbsp;Name:&nbsp;<strong>JOHN DOE T</strong></td>
+    <td colspan="5" style="border:1px solid #000; border-bottom:0px; border-left:0px"><div style="position:relative">Signature <div class="signature"> jane doe t</div></td>
   </tr>  
   <tr>
     <td height="20" colspan="13"  style="border:1px solid #000; border-bottom:0px; padding-left:4px">&nbsp;Principal's Remarks:&nbsp;<strong>A good result! You can do better</strong></td>
   </tr>  
   <tr>
-    <td colspan="8" style="border:1px solid #000; border-bottom:0px;border-right:0px;padding-left:4px">&nbsp;Name:&nbsp;<strong>JANE DOE</strong></td>
+    <td colspan="8" style="border:1px solid #000; border-bottom:0px;border-right:0px;padding-left:4px">&nbsp;Name:&nbsp;<strong>JANE DOE P</strong></td>
     <td colspan="5" style="border:1px solid #000; border-bottom:0px; border-left:0px"><div style="position:relative"><!--<div style="position:absolute; left: 154px; top: -83px;"><img src="../images/chart.png" width="150" height="92"></div>-->
     Signature<div style="position:absolute; left: 70px; top: -6px;"><img src='../images/sig/0.png' title='Principal`s Signature' height='36' width='86' /></div>
     </div></td>

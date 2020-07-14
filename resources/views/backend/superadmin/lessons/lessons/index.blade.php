@@ -27,14 +27,14 @@
             <table class="table table-bordered table-striped {{ count($lessons) > 0 ? 'datatable' : '' }} ('lesson_delete') @if ( request('show_deleted') != 1 ) dt-select @endif">
                 <thead>
                     <tr>
-                        @can('lesson_delete')
+                        
                             @if ( request('show_deleted') != 1 )<th style="text-align:center;"><input type="checkbox" id="select-all" /></th>@endif
-                        @endcan
+                        
 
                         <th>@lang('global.lessons.fields.course')</th>
+                        <th>{{ translate('section')}}</th>
                         <th>@lang('global.lessons.fields.title')</th>
                         <th>@lang('global.lessons.fields.position')</th>
-                        <th>@lang('global.lessons.fields.free-lesson')</th>
                         <th>@lang('global.lessons.fields.published')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
@@ -48,14 +48,14 @@
                     @if (count($lessons) > 0)
                         @foreach ($lessons as $lesson)
                             <tr data-entry-id="{{ $lesson->id }}">
-                                @can('lesson_delete')
+                                
                                     @if ( request('show_deleted') != 1 )<td></td>@endif
-                                @endcan
+                                
                                 
                                 <td>{{ $lesson->course->name }}</td>
+                                <td>{{ $lesson->section->name }}</td>
                                 <td>{{ $lesson->title }}</td>
                                 <td>{{ $lesson->position }}</td>
-                                <td>{{ Form::checkbox("free_lesson", 1, $lesson->free_lesson == 1 ? true : false, ["disabled"]) }}</td>
                                 <td>{{ Form::checkbox("published", 1, $lesson->published == 1 ? true : false, ["disabled"]) }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
@@ -66,7 +66,7 @@
                                         'route' => ['lessons.restore', $lesson->id])) !!}
                                     {!! Form::submit(trans('global.app_restore'), array('class' => 'btn btn-xs btn-success')) !!}
                                     {!! Form::close() !!}
-                                                                    {!! Form::open(array(
+                                    {!! Form::open(array(
                                         'style' => 'display: inline-block;',
                                         'method' => 'DELETE',
                                         'onsubmit' => "return confirm('".trans("global.app_are_you_sure")."');",
@@ -104,7 +104,7 @@
     </div>
 @stop
 
-@section('javascript') 
+@section('scripts') 
     <script>
         
             @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('lessons.mass_destroy') }}'; @endif

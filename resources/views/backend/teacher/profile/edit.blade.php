@@ -24,7 +24,7 @@
                         <div class="form-group row mb-3">
                             <label class="col-md-3 col-form-label" for="name"> {{ translate('other_name') }}</label>
                             <div class="col-md-9">
-                                <input type="text" id="name" name="middle_name" class="form-control"  value="{{ Auth::user()->middle_name }}" required>
+                                <input type="text" id="name" name="middle_name" class="form-control"  value="{{ Auth::user()->middle_name }}" >
                             </div>
                         </div>
 

@@ -23,23 +23,23 @@ function school_id() {
     }
 }
 
-function studentPostion($position){  /* student result position suffix  */                               
+function studentPosition($position){  /* student result position suffix  */                               
                 
                 if($position == 1){
                     
-                    $positionSup = "1<sup>st</sup>"; 
+                    $positionSup = "1st"; 
             
                 }elseif($position == 2){
                     
-                    $positionSup = "2<sup>nd</sup>"; 
+                    $positionSup = "2nd"; 
             
                 }elseif($position == 3){
                     
-                    $positionSup = "3<sup>rd</sup>"; 
+                    $positionSup = "3rd"; 
             
                 }elseif(($position != '') && ($position > 3)){
                     
-                    $positionSup = "$position<sup>th</sup>"; 
+                    $positionSup = $position."th"; 
                     
                 }else{
                     

@@ -48,7 +48,7 @@
                             </td>
                             
                             <td style="text-align: center;">
-                                <button type="button" class="btn btn-icon btn-success" onclick="saveMark('{{ $mark->id }}')"> <i class="mdi mdi-check-circle"></i> </button>
+                                <button id="submit" type="button" class="btn btn-icon btn-success" onclick="saveMark('{{ $mark->id }}')"> <i class="mdi mdi-check-circle"></i> </button>
                             </td>
                         </tr>
                     @endforeach

@@ -10,4 +10,9 @@ class Section extends Model
     {
         return $this->belongsTo(Classes::class);
     }
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class)->orderBy('position');
+    }
 }

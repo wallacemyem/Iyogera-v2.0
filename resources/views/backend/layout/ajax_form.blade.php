@@ -16,13 +16,13 @@
                 data: data,
                 success: function(response)
                 {
-                    (response.status === true) ? var notyf = new Notyf();
-            notyf.success(response.notification) : var notyf = new Notyf();
-            notyf.error(response.notification);
+                    (response.status === true) ? var notyf = 
+                    new Notyf();
+                        notyf.success(response.notification) : var notyf = 
+                    new Notyf();
+                        notyf.error(response.notification);
                     callBackFunction();
-                    if(form.attr('id') != 'paypal_settings' && form.attr('id') != 'stripe_settings') {
-                        form.trigger("reset");
-                    }
+
                 }
             });
         }else {

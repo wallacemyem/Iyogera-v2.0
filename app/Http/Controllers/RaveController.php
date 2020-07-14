@@ -55,7 +55,7 @@ class RaveController extends Controller
           $pay = new payment;
           $pay->amount = $amount;
           $pay->school_id = $school_id;
-          $pay->time_stamp = $data->data->created;
+          $pay->time_stamp = date("Y-m-d h:i a");
           $pay->amount_paid = $data->data->chargedamount;
           $pay->tranx_id = $data->data->txref;
           $pay->ip_address = $data->data->ip;

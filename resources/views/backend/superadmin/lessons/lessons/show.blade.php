@@ -17,16 +17,16 @@
                             <td>{{ $lesson->course->name }}</td>
                         </tr>
                         <tr>
+                            <th>{{translate('section')}}</th>
+                            <td>{{ $lesson->section->name }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('global.lessons.fields.title')</th>
                             <td>{{ $lesson->title }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('global.lessons.fields.slug')</th>
-                            <td>{{ $lesson->slug }}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('global.lessons.fields.lesson-image')</th>
-                            <td>@if($lesson->lesson_image)<a href="{{ asset('uploads/' . $lesson->lesson_image) }}" target="_blank"><img src="{{ asset('uploads/thumb/' . $lesson->lesson_image) }}"/></a>@endif</td>
+                            <td>@if($lesson->lesson_image)<a href="{{ asset('public/uploads/' . $lesson->lesson_image) }}" target="_blank"><img src="{{ asset('public/uploads/thumb/' . $lesson->lesson_image) }}"/></a>@endif</td>
                         </tr>
                         <tr>
                             <th>@lang('global.lessons.fields.short-text')</th>
@@ -48,10 +48,7 @@
                                 </p>
                             @endforeach</td>
                         </tr>
-                        <tr>
-                            <th>@lang('global.lessons.fields.free-lesson')</th>
-                            <td>{{ Form::checkbox("free_lesson", 1, $lesson->free_lesson == 1 ? true : false, ["disabled"]) }}</td>
-                        </tr>
+                        
                         <tr>
                             <th>@lang('global.lessons.fields.published')</th>
                             <td>{{ Form::checkbox("published", 1, $lesson->published == 1 ? true : false, ["disabled"]) }}</td>

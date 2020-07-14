@@ -176,6 +176,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     //end lesson admin
 
+    #live lessons
+    Route::resource('live_lessons', 'Livelessons');
+    Route::get('live_lesson_list', 'Livelessons@list')->name('live_lesson_list.list');
+    Route::post('live_lesson_start', 'Livelessons@meetup')->name('live_lesson_start.meetup');
+    Route::get('live_lesson_start', 'Livelessons@meetup')->name('live_lesson_start.meetup');
+
 });
 
 Auth::routes();

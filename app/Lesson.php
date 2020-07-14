@@ -51,6 +51,11 @@ class Lesson extends Model implements HasMedia
         return $this->belongsTo(Classes::class, 'classes_id')->withTrashed();
     }
 
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
+
     public function test() {
         return $this->hasOne('App\Test');
     }

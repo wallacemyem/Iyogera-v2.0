@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     @if ($lesson->lesson_image)
-                        <a href="{{ asset('uploads/'.$lesson->lesson_image) }}" target="_blank"><img src="{{ asset('uploads/thumb/'.$lesson->lesson_image) }}"></a>
+                        <a href="{{ asset('public/uploads/'.$lesson->lesson_image) }}" target="_blank"><img src="{{ asset('public/uploads/thumb/'.$lesson->lesson_image) }}"></a>
                     @endif
                     {!! Form::label('lesson_image', 'Lesson image', ['class' => 'control-label']) !!}
                     {!! Form::file('lesson_image', ['class' => 'form-control', 'style' => 'margin-top: 4px;']) !!}
@@ -94,6 +94,7 @@
                     {!! Form::label('downloadable_files', 'Downloadable files', ['class' => 'control-label']) !!}
                     {!! Form::file('downloadable_files[]', [
                         'multiple',
+                        'id' => 'fileupload',
                         'class' => 'form-control file-upload',
                         'data-url' => route('media.upload'),
                         'data-bucket' => 'downloadable_files',
@@ -153,7 +154,7 @@
     {!! Form::close() !!}
 @stop
 
-@section('javascript')
+@section('scripts')
     @parent
     <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
     <script>

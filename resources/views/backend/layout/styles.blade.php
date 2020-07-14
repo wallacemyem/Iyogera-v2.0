@@ -13,4 +13,6 @@
     <link href="{{ asset('backend/css/tble.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/css/notyf.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
-    {{--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">--}}
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css">
+    
+    

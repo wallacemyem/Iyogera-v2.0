@@ -13,13 +13,23 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('classes_id', 'Course', ['class' => 'control-label']) !!}
-                    {!! Form::select('classes_id', $courses, old('classes_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::select('classes_id', $courses, old('classes_id'), ['class' => 'form-control select2', 'onchange' => 'classWiseSection(this.value)', 'id' => 'class_id']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('classes_id'))
                         <p class="help-block">
                             {{ $errors->first('classes_id') }}
                         </p>
                     @endif
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-xs-12 form-group" id = "section_content">
+                    <label class="control-label" for="section_id"> {{ translate('section') }}</label>
+                        
+                    <select name="section_id" id="section_id" class="form-control select2"  required >
+                        <option value="" selected="selected">Select a class first</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
@@ -34,18 +44,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('slug', 'Slug', ['class' => 'control-label']) !!}
-                    {!! Form::text('slug', old('slug'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('slug'))
-                        <p class="help-block">
-                            {{ $errors->first('slug') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('lesson_image', 'Lesson image', ['class' => 'control-label']) !!}
@@ -107,19 +106,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('free_lesson', 'Free lesson', ['class' => 'control-label']) !!}
-                    {!! Form::hidden('free_lesson', 0) !!}
-                    {!! Form::checkbox('free_lesson', 1, false, []) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('free_lesson'))
-                        <p class="help-block">
-                            {{ $errors->first('free_lesson') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('published', 'Published', ['class' => 'control-label']) !!}
@@ -137,11 +124,12 @@
         </div>
     </div>
 
-    {!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-danger']) !!}
+    {!! Form::submit(trans('global.app_save'), ['class' => 'btn btn-primary']) !!}
+    <a href="{{route('lessons.index')}}" class="btn btn-danger"> {{translate('cancel')}} </a>
     {!! Form::close() !!}
 @stop
 
-@section('javascript')
+@section('scripts')
     @parent
     <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script>
     <script>
@@ -157,11 +145,35 @@
 
     <script src="{{ asset('adminlte/plugins/fileUpload/js/jquery.iframe-transport.js') }}"></script>
     <script src="{{ asset('adminlte/plugins/fileUpload/js/jquery.fileupload.js') }}"></script>
+    
+    <script>
+        var form;
+
+        function classWiseSection(class_id) {
+            var url = '{{ route("section.show", "class_id") }}';
+            url = url.replace('class_id', class_id);
+            
+            $.ajax({
+                type : 'GET',
+                url: url,
+                success : function(response) {
+                    $('#section_content').html(response);
+                }
+            });
+        }
+
+        function onChangeSection(section_id) {
+
+        }
+    </script>
+
     <script>
         $(function () {
             $('.file-upload').each(function () {
+
                 var $this = $(this);
                 var $parent = $(this).parent();
+                
 
                 $(this).fileupload({
                     dataType: 'json',

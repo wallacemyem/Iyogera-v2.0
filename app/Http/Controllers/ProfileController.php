@@ -19,7 +19,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $title = translate('manage_profile');
+        $name = Auth::user()->other_name.' '.Auth::user()->first_name.' '.Auth::user()->middle_name;
+        $title = $name;
         return view('backend.'.Auth::user()->role.'.profile.index', compact('title'));
     }
 

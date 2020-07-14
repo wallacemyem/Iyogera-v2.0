@@ -16,4 +16,12 @@ class Subject extends Model
     public function teacher() {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function class() {
+        return $this->belongsTo(Classes::class);
+    }
+
+    public function section() {
+        return $this->belongsTo(Section::class);
+    }
 }

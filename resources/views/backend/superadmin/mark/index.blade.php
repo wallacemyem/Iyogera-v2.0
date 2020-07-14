@@ -62,6 +62,8 @@
 
 @section('scripts')
     <script>
+
+
         function classWiseSection(class_id) {
             var url = '{{ route("section.show", "class_id") }}';
             url = url.replace('class_id', class_id);
@@ -120,6 +122,31 @@
             var objectives    = $('#objectives_'+id).val();
             var practicals    = $('#practicals_'+id).val();
             var theory    = $('#theory_'+id).val();
+            /*
+            var input = document.getElementById(objectives);
+            input.addEventListener("keyup", function(event) {
+              if (event.keyCode === 13) {
+               event.preventDefault();
+               document.getElementById("submit").click();
+              }
+            });
+
+            var input = document.getElementById(practicals);
+                input.addEventListener("keyup", function(event) {
+                  if (event.keyCode === 13) {
+                   event.preventDefault();
+                   document.getElementById("submit").click();
+                  }
+                });
+
+            var input = document.getElementById(theory);
+                input.addEventListener("keyup", function(event) {
+                  if (event.keyCode === 13) {
+                   event.preventDefault();
+                   document.getElementById("submit").click();
+                  }
+                });
+                */
 
             var comment = $('#comment_'+id).val();
             var url = '{{ route("mark.update", "id") }}';
@@ -135,5 +162,6 @@
                 }
             });
         }
+
     </script>
 @endsection
