@@ -19,6 +19,7 @@
         <tbody>
             @foreach ( $teachers as $teacher)
                 <tr>
+                    {{ dd($teacher)}}
                     <td> {{ $teacher->name }} </td>
                     <td> {{ $teacher->email }} </td>
                     <td> {{ $teacher->role }} </td>
