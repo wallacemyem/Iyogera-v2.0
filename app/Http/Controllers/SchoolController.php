@@ -24,7 +24,8 @@ class SchoolController extends Controller
     	$title = translate('schools');
     	//$session = get_settings('running_session');
     	//$schools = DB::table('schools')->where(['session' => get_settings('running_session')])->get();
-    	//dd($schools);
+        $re = '["43","6","85","17","16","46","20","28","41","39","82","83"]';
+    	dd($re);
 
     	return view('backend.'.Auth::user()->role.'.school.index', compact('title'));
     }
@@ -112,6 +113,8 @@ class SchoolController extends Controller
         $user->school_id = $school_id;
         $user->phone = $request->phone;
         $user->save();
+
+
 
         flash(translate('saved_successfully'))->success();
         return redirect()->back();
