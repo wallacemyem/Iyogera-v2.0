@@ -8,8 +8,18 @@
         </div>
 
         <div class="form-group col-md-12">
-            <label for="email">{{ translate('name') }}</label>
-            <input type="text" class="form-control" id="phone" name = "name" required>
+            <label for="email">{{ translate('first_name') }}</label>
+            <input type="text" class="form-control" id="phone" name = "first_name" required>
+            <small id="author_help" class="form-text text-muted">{{ translate('provide_admin_name') }}.</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="email">{{ translate('last_name') }}</label>
+            <input type="text" class="form-control" id="phone" name = "other_name" >
+            <small id="author_help" class="form-text text-muted">{{ translate('provide_admin_name') }}.</small>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="email">{{ translate('middle_name') }}</label>
+            <input type="text" class="form-control" id="phone" name = "middle_name">
             <small id="author_help" class="form-text text-muted">{{ translate('provide_admin_name') }}.</small>
         </div>
 

@@ -97,7 +97,9 @@ class SchoolController extends Controller
         $role->save();
 
         $user = new User;
-        $user->name = $request->name;
+        $user->first_name = $request->first_name;
+        $user->other_name = $request->other_name;
+        $user->middle_name = $request->middle_name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->role = "superadmin";
