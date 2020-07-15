@@ -2,12 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    @php
-    $selected_branch_id = school_id();
-    $selected_branch = \App\School::find($selected_branch_id); 
-    isset($title) ? $title = $title." | ".$selected_branch->name : $title = $selected_branch->name; 
-    @endphp
-    <title>{{ $title }}</title>
+    
+    <title>Iyogera ERP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Best school ERP" name="description" />
     <meta content="Iyogera NG" name="author" />
@@ -88,6 +84,6 @@ function switchLanguage(language_code) {
     }
   endif
 </script>
-    {{ TawkTo::widgetCode() }}
+                
 </body>
 </html>
