@@ -43,7 +43,7 @@
                 </tr>
             {{-- @endif --}}
         @endforeach
-        @if (sizeof(App\Invoice::where(['school_id'=> school_id(), 'session' => get_settings('running_session')])->get()) == 0)
+        @if (sizeof(App\Invoice::get()) == 0)
             <tr>
                 <td colspan="8"> No Data Found</td>
             </tr>
