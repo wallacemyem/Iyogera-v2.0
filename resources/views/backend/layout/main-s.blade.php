@@ -27,7 +27,7 @@
     <div class="content-page">
         <div class="content">
 
-            @include('backend.layout.header')
+            @include('backend.layout.header-s')
 
             <!-- Start Content-->
             <div class="container-fluid">
@@ -52,7 +52,7 @@
 <!-- END wrapper -->
 
 @include('backend.layout.scripts')
-@include('backend.layout.modal')
+@include('backend.layout.modal-s')
 @include('backend.layout.ajax_form')
 @yield('scripts')
 <script>
