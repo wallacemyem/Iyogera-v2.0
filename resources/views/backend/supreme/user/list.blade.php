@@ -19,8 +19,8 @@
         <tbody>
             @foreach ( $teachers as $teacher)
                 <tr>
-                    
-                    <td> {{ $teacher->name }} </td>
+
+                    <td> {{ $teacher->other_name }} {{ $teacher->first_name }} {{ $teacher->middle_name }} </td>
                     <td> {{ $teacher->email }} </td>
                     <td> {{ $teacher->role }} </td>
                     <td>
