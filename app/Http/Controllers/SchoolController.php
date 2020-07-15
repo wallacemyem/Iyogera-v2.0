@@ -93,6 +93,11 @@ class SchoolController extends Controller
         $sch->save();
 
         $role = new Role;
+        $role->admin = '["43","6","85","17","16","46","20","28","41","39","82","83"]';
+        $role->teacher = '["2","6","85","18","17","46","24","41","87","88"]';
+        $role->student = '["6","15","85","17","46","23","28","41","87","88"]';
+        $role->accountant = '["28","62","30","39","82"]';
+        $role->librarian = '["8","46","54","55","41","40"]';
         $role->school_id = $school_id;
         $role->save();
 
