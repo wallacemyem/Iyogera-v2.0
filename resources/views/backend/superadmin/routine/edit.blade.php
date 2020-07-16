@@ -52,7 +52,7 @@
             <select name="teacher_id" id = "teacher_id" class="form-control" required>
                 <option value="">{{ translate('assign_a_teacher') }}</option>
                 @foreach (App\Teacher::where(['school_id' => school_id()])->get() as $teacher)
-                    <option value="{{ $teacher->id }}" @if($teacher->id == $routine->teacher_id) selected @endif>{{ $teacher->user->name }}</option>
+                    <option value="{{ $teacher->id }}" @if($teacher->id == $routine->teacher_id) selected @endif>{{ $teacher->user->other_name }} {{ $teacher->user->first_name }} {{ $teacher->user->middle_name }}</option>
                 @endforeach
             </select>
             <small id="teacher_help" class="form-text text-muted">{{ translate('assign_a_teacher') }}.</small>
