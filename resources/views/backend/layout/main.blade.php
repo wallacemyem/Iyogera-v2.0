@@ -16,6 +16,7 @@
     @include('backend.layout.styles')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <script src="//code.jivosite.com/widget/ZDlIeOqRJt" async></script>
 </head>
 
 <body @if(Request::route()->getName() == 'daily_attendance.index' || Request::route()->getName() == 'student.create' || Request::route()->getName() == 'report.index' || Request::route()->getName() == 'invoice.index'|| Request::route()->getName() == 'student.bulk' || Request::route()->getName() == 'student.excel') class="enlarged" data-keep-enlarged="true" @endif >
@@ -88,6 +89,5 @@ function switchLanguage(language_code) {
     }
   endif
 </script>
-    {{ TawkTo::widgetCode() }}
 </body>
 </html>
