@@ -8,8 +8,7 @@
             </div>
                 
         </div>
-        <div class="col-md-8 font-weight-bold h4 d-flex" id = "school_name">
-        </div>
+        
         <div class="col-md-4 col-6">
             <ul class="list-unstyled topbar-right-menu float-right mb-0">
                 <li class="dropdown notification-list">
