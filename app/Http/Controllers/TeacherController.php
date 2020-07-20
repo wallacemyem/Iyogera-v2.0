@@ -112,7 +112,9 @@ class TeacherController extends Controller
         $teacher = Teacher::find($id);
         if(count(User::where('email', $request->email)->where('id', '!=', $teacher->user->id)->get()) == 0) {
             $user = User::find($teacher->user_id);
-            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->other_name = $request->other_name;
+            $user->middle_name = $request->middle_name;
             $user->email = $request->email;
             $user->role = "teacher";
             $user->phone = $request->phone;
