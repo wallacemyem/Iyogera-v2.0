@@ -16,7 +16,7 @@
 
             <div class="form-group col-md-12">
                 <label for="name">{{ translate('teacher_other_name') }}</label>
-                <input type="text" class="form-control" id="middle_name" name = "middle_name" value="{{ $teacher->user->middlename }}">
+                <input type="text" class="form-control" id="middle_name" name = "middle_name" value="{{ $teacher->user->middle_name }}">
                 <small id="" class="form-text text-muted">{{ translate('provide_teachers_other_name') }}.</small>
             </div>
 
