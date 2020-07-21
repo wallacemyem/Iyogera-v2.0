@@ -18,6 +18,14 @@ class Livelessons extends Controller
     {
         //dd(date("Y-m-d h:i a"));
         $title = translate('live_lessons');
+        return view('backend.'.Auth::user()->role.'.live_lessons.index', compact('title'));
+
+    }
+    
+    public function home()
+    {
+        //dd(date("Y-m-d h:i a"));
+        $title = translate('live_lessons');
         return view('backend.'.Auth::user()->role.'.live_lessons.home', compact('title'));
 
     }
