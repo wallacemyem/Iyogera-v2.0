@@ -68,20 +68,13 @@ class TeacherController extends Controller
                 $teacher->save();
 
                 //$this->add_to_teacher_permission($teacher->id);
-
-                $data = array(
-                    'status' => true,
-                    'notification' => translate('teacher_added_successfully')
-                );
+                flash(translate('teacher_added_successfully'))->success();
             }
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+            
+            flash(translate('email_duplication'))->error();
         }
-
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -119,7 +112,9 @@ class TeacherController extends Controller
         $teacher = Teacher::find($id);
         if(count(User::where('email', $request->email)->where('id', '!=', $teacher->user->id)->get()) == 0) {
             $user = User::find($teacher->user_id);
-            $user->name = $request->name;
+            $user->first_name = $request->first_name;
+            $user->other_name = $request->other_name;
+            $user->middle_name = $request->middle_name;
             $user->email = $request->email;
             $user->role = "teacher";
             $user->phone = $request->phone;
@@ -132,19 +127,14 @@ class TeacherController extends Controller
                 $teacher->school_id = school_id();
                 $teacher->save();
 
-                $data = array(
-                    'status' => true,
-                    'notification' => translate('teacher_updated_successfully')
-                );
+                flash(translate('teacher_updated_successfully'))->success();
             }
         }else {
-            $data = array(
-                'status' => false,
-                'notification' => translate('email_duplication')
-            );
+            
+            flash(translate('email_duplication'))->error();
         }
 
-        return $data;
+        return redirect()->back();
     }
 
     /**
@@ -158,10 +148,9 @@ class TeacherController extends Controller
         $teacher = Teacher::find($id);
         $teacher->delete();
         $teacher->user->delete();
-        return array(
-            'status' => true,
-            'notification' => translate('teacher_has_been_deleted_successfully')
-        );
+        
+        flash(translate('teacher_deleted_successfully'))->success();
+        return redirect()->back();
     }
 
 
