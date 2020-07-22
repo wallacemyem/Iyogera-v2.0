@@ -6,7 +6,9 @@ Its named after the definition and after the british Airlines concord jet becaus
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Live Lessons</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0;">
 	<link href="{{ asset('css/student_live.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
