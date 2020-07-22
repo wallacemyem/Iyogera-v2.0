@@ -388,7 +388,7 @@ input[type="button"].concord-exit:active{
 		left:0!important;
 	}
 }
-@media screen and (min-width: 600px){
+@media screen and (min-width: 730px){
 	.card.in-flight{
 		left: calc((100vw - 460px) / 2)!important;
 		max-width: 460px!important;
