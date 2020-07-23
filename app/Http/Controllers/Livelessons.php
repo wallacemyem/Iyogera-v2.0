@@ -22,7 +22,7 @@ class Livelessons extends Controller
         $set = CarbonImmutable::now();
         //dd($time);
         $title = translate('live_lessons');
-        return view('backend.'.Auth::user()->role.'.live_lessons.home', compact('title', 'time', 'set'));
+        return view('backend.'.Auth::user()->role.'.live_lessons.index', compact('title', 'time', 'set'));
 
     }
 
