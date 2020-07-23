@@ -51,7 +51,7 @@ Card x = Card without icon and footer
 Card V = Card with video-->
 @if (count($live_lessons) > 0)
 	@foreach ($live_lessons as $live)
-		<h2>{{ dd($live->teacher) }}</h2>
+		<h2>{{ dd($live->user) }}</h2>
 		<div class="card xl i">
 			<input type="button" class="concord exit" value="×"/>
 			<section class="wrapper">
