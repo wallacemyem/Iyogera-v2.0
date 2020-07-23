@@ -58,7 +58,7 @@ Card V = Card with video-->
 				<img style="background-color: #FED8C1; background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/mountain-landscape-vector.png);" alt=""></img>
 				<header class="card-title">
 					<img class="icon" style="background-image: url({{ asset('backend/images/user_image/'.$live->user->id.'.jpg') }});"></img>
-					<h2>{{ dd($live->topic) }}</h2>
+					<h2>{{ $live->topic }}</h2>
 				</header>
 				<footer class="card-footer">
 					<h6>{{ $live->user->other_name }} {{ $live->user->first_name }} {{ $live->user->middle_name }}</h6>
