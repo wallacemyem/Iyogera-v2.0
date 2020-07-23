@@ -51,13 +51,14 @@ Card x = Card without icon and footer
 Card V = Card with video-->
 @if (count($live_lessons) > 0)
 	@foreach ($live_lessons as $live)
+		<h2>{{ dd($live->topic) }}</h2>
 		<div class="card xl i">
 			<input type="button" class="concord exit" value="×"/>
 			<section class="wrapper">
 				<img style="background-color: #FED8C1; background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/mountain-landscape-vector.png);" alt=""></img>
 				<header class="card-title">
 					<img class="icon" style="background-image: url({{ asset('backend/images/user_image/'.$live->teacher->user->id.'.jpg') }});"></img>
-					<h2>{{ $live->topic }}</h2>
+					<h2>{{ dd($live->topic) }}</h2>
 				</header>
 				<footer class="card-footer">
 					<h6>{{ $live->teacher->user->other_name }} {{ $live->teacher->user->first_name }} {{ $live->teacher->user->middle_name }}</h6>
