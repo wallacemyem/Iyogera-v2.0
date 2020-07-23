@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Teacher;
 use App\Mark;
+use App\User;
 use App\Classes;
 use App\Subject;
 
@@ -25,5 +26,9 @@ class Livelesson extends Model
 
     public function section() {
         return $this->belongsTo(Section::class);
+    }
+    
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }
