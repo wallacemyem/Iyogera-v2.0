@@ -17,7 +17,7 @@ Its named after the definition and after the british Airlines concord jet becaus
 	@php
                 $login = Auth::user()->id;
                 $student = \App\Student::where('user_id', $login)->first();
-                
+                $live_lessons = App\Livelesson::where(['school_id' => school_id(), 'session' => get_schools()])->get();
                 $selected_branch_id = school_id();
                 $selected_branch = \App\School::find($selected_branch_id);
                 
@@ -25,28 +25,44 @@ Its named after the definition and after the british Airlines concord jet becaus
 	<main class="concord" id="concord-cards">
 		<header>
 			<time>
-			<h5 id="date">January 30</h5>
-			<h3 id="day">Today</h3>
-		</time>
-			<a href="#"><avatar style="background-image:url({{ 'backend/images/student_image/'.$student->profile_pix.'.jpg' }}" alt="{{Auth::user()->name}})"></avatar></a>
+				<a href="dash"><avatar style="background-image:url({{ asset('media/home1.png') }}" alt=""></avatar>
+			</a>
+			</time>
+			<a href="#"><avatar style="background-image:url({{ 'backend/images/student_image/'.$student->profile_pix.'.jpg' }}" alt="{{Auth::user()->name}})"></avatar>
+			</a>
+		</header>
+		<div class="content">
+			</div>
+		<header>
+			<time>
+				<h5 id="date">{{ $time->isoFormat('MMMM DD') }}</h5>
+				@if( $time->isoFormat('DD') === $time->isoFormat('DD'))
+				<h3 id="day">Today</h3>
+				@else
+				<h3 id="day">{{ $set->isoFormat('dddd') }}</h3>
+				@endif
+			</time>
+			
 		</header>
 		<!--
 Card = Original Card white bttom
 Card i = Icon/Image with price
 Card x = Card without icon and footer
 Card V = Card with video-->
+@if (count($live_lessons) > 0)
+	@foreach ($live_lessons as $live)
 		<div class="card xl i">
 			<input type="button" class="concord exit" value="×"/>
 			<section class="wrapper">
 				<img style="background-color: #FED8C1; background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/mountain-landscape-vector.png);" alt=""></img>
 				<header class="card-title">
-					<img class="icon" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/leaf-icon.jpg);"></img>
-					<h2>App of the Day</h2>
+					<img class="icon" style="background-image: url({{ asset('backend/images/user_image/'.$live->teacher->user->id.'.jpg') }});"></img>
+					<h2>{{ $live->topic }}</h2>
 				</header>
 				<footer class="card-footer">
-					<h6>Khan Academy</h6>
-					<p>You can learn anything</p>
-					<input type="button" class="concord" value="$4.99"></input>
+					<h6>{{ $live->teacher->user->other_name }} {{ $live->teacher->user->first_name }} {{ $live->teacher->user->middle_name }}</h6>
+					<p>{{ $live->subject->name }}</p>
+					<input type="button" class="concord" value="JOIN"></input>
 				</footer>
 			</section>
 			<div class="content">
@@ -71,7 +87,8 @@ Card V = Card with video-->
 				<p>In elementum finibus dui, ac rutrum ante consectetur sit amet. Aenean mauris sem, pulvinar vel tempor vel, volutpat sed turpis. Vestibulum arcu est, blandit ac ex et, ultrices consequat est.</p>
 			</div>
 		</div>
-		
+		@endforeach
+		@endif
 	</main>
 	<script src="{{ asset('js/student_live.js') }}"></script>
 </body>
