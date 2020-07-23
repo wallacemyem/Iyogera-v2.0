@@ -97,6 +97,12 @@ main.concord {
 .concord > header time h3 {
 	color: black;
 	font-weight: 700;
+	
+}
+
+.concord > header logo {
+	
+	align-items: center;
 }
 
 .concord > header avatar{
@@ -342,7 +348,8 @@ input[type="button"].concord-exit:active{
 	z-index: 98;
 	display: block;
 	max-height: none;
-	max-width: none;
+	left: calc((100vw - 700px) / 2)!important;
+	max-width: 700px!important;
 	top: 40px!important;
 	height: 95vh !important;
 	width: 100vw !important;
@@ -369,18 +376,18 @@ input[type="button"].concord-exit:active{
 }
 
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 530px){
 	.card{
 		width: 75%;
 	}
 }
-@media screen and (min-width: 900px){
+@media screen and (min-width: 600px){
 	.card{
 		max-width:340px;
 		width: 65%;
 	}
 }
-@media screen and (max-width: 900px){
+@media screen and (max-width: 599px){
 	.card.in-flight{
 		border-radius: 0;
 		max-width: 100%;
@@ -388,7 +395,7 @@ input[type="button"].concord-exit:active{
 		left:0!important;
 	}
 }
-@media screen and (min-width: 730px){
+@media screen and (min-width: 600px){
 	.card.in-flight{
 		left: calc((100vw - 460px) / 2)!important;
 		max-width: 460px!important;

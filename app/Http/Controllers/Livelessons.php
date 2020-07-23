@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use App\Livelesson;
 
 class Livelessons extends Controller
@@ -16,17 +18,11 @@ class Livelessons extends Controller
      */
     public function index()
     {
-        //dd(date("Y-m-d h:i a"));
+        $time = Carbon::now();
+        $set = CarbonImmutable::now();
+        //dd($time);
         $title = translate('live_lessons');
-        return view('backend.'.Auth::user()->role.'.live_lessons.index', compact('title'));
-
-    }
-    
-    public function home()
-    {
-        //dd(date("Y-m-d h:i a"));
-        $title = translate('live_lessons');
-        return view('backend.'.Auth::user()->role.'.live_lessons.home', compact('title'));
+        return view('backend.'.Auth::user()->role.'.live_lessons.home', compact('title', 'time', 'set'));
 
     }
 
