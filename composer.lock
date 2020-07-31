@@ -4953,21 +4953,22 @@
         },
         {
             "name": "socialiteproviders/google",
-            "version": "v3.0.0",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Google-Plus.git",
-                "reference": "2ff6bbd2f4d616ece912386807b59ba5f3b76895"
+                "reference": "32de376b9ae29765c09f8e4a4ea022154605231b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Google-Plus/zipball/2ff6bbd2f4d616ece912386807b59ba5f3b76895",
-                "reference": "2ff6bbd2f4d616ece912386807b59ba5f3b76895",
+                "url": "https://api.github.com/repos/SocialiteProviders/Google-Plus/zipball/32de376b9ae29765c09f8e4a4ea022154605231b",
+                "reference": "32de376b9ae29765c09f8e4a4ea022154605231b",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "php": "^5.6 || ^7.0",
-                "socialiteproviders/manager": "~3.0"
+                "socialiteproviders/manager": "~2.0 || ~3.0"
             },
             "type": "library",
             "autoload": {
@@ -4981,12 +4982,12 @@
             ],
             "authors": [
                 {
-                    "name": "Brian Faust",
-                    "email": "hello@brianfaust.de"
+                    "name": "xstoop",
+                    "email": "myenglishnameisx@gmail.com"
                 }
             ],
             "description": "Google OAuth2 Provider for Laravel Socialite",
-            "time": "2017-01-25T09:48:29+00:00"
+            "time": "2020-07-14T02:02:00+00:00"
         },
         {
             "name": "socialiteproviders/manager",
