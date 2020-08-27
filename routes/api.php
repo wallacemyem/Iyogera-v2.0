@@ -19,23 +19,26 @@ Route::get('/users', function () {
 
     }); 
 
+Route::post('login', 'Api\AuthController@login');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 
+    	//Lessons
+		Route::get('lessons', 'LessonController@index');
+		Route::get('lesson/{id}', 'LessonController@show');
+		Route::post('lessons', 'LessonController@store');
+		Route::put('lessons', 'LessonController@store');
+		Route::delete('lesson/{id}', 'LessonController@destroy');
+
+
+		//LiveLesson
+		Route::get('live_lesson', 'Livelessons@index');
+		Route::post('live_lesson', 'Livelessons@store');
+		Route::get('live_lesson/{id}', 'Livelessons@show');
+		Route::put('live_lesson', 'Livelessons@store');
+		Route::delete('live_lesson/{id}', 'Livelessons@destroy');
 });
 
-//Lessons
-Route::get('lessons', 'LessonController@index');
-Route::get('lesson/{id}', 'LessonController@show');
-Route::post('lessons', 'LessonController@store');
-Route::put('lessons', 'LessonController@store');
-Route::delete('lesson/{id}', 'LessonController@destroy');
 
-
-//LiveLesson
-Route::get('live_lesson', 'Livelessons@index');
-Route::post('live_lesson', 'Livelessons@store');
-Route::get('live_lesson/{id}', 'Livelessons@show');
-Route::put('live_lesson', 'Livelessons@store');
-Route::delete('live_lesson/{id}', 'Livelessons@destroy');
 
