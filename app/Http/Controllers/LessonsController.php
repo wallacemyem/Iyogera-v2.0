@@ -12,6 +12,14 @@ use App\Http\Resources\Lesson as LessonResource;
 class LessonsController extends Controller
 {
 
+
+    public function index()
+    {
+        $lesson = Lesson::all();
+
+        return new LessonResource($lesson);
+    }
+
     public function show($id)
     {
         $lesson = Lesson::findOrFail($id);

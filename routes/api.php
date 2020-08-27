@@ -24,7 +24,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
-Route::get('lesson/{id}', 'LessonsController@show');
+//Lessons
+Route::get('lessons', 'LessonController@index');
+Route::get('lesson/{id}', 'LessonController@show');
+Route::post('lessons', 'LessonController@store');
+Route::put('lessons', 'LessonController@store');
+Route::delete('lesson/{id}', 'LessonController@destroy');
+
 
 //LiveLesson
 Route::get('live_lesson', 'Livelessons@index');

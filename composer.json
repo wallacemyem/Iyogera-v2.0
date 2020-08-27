@@ -36,6 +36,7 @@
         "spatie/laravel-medialibrary": "^7.19",
         "stevebauman/location": "^5.0",
         "tom-lingham/searchy": "^2.0",
+        "tymon/jwt-auth": "^1.0",
         "unicodeveloper/laravel-paystack": "^1.0",
         "unisharp/laravel-filemanager": "^2.1",
         "wallacemyem/laravel-zoom": "^5.0",

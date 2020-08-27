@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use App\Lesson;
+use App\Question;
+use App\QuestionsOption;
+use App\TestsResult;
+use App\Http\Request as AppRequest;
+use App\Http\Resources\Lesson as LessonResource;
 
 class LessonController extends Controller
 {
@@ -15,8 +21,9 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $title = 'Lessons';
-        return view('backend.'.Auth::user()->role.'.lesson.index', compact('title'));
+        $lesson = Lesson::all();
+
+        return new LessonResource($lesson);
     }
 
     /**
@@ -48,7 +55,9 @@ class LessonController extends Controller
      */
     public function show($id)
     {
-        //
+        $lesson = Lesson::findOrFail($id);
+
+        return new LessonResource($lesson);
     }
 
     /**
