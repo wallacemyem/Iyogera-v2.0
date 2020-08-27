@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Resources\User as UserResource;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,22 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/users', function () {
+    	return UserResource::collection(User::all());
+
+    }); 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+
 });
+
+Route::get('lesson/{id}', 'LessonsController@show');
+
+//LiveLesson
+Route::get('live_lesson', 'Livelessons@index');
+Route::post('live_lesson', 'Livelessons@store');
+Route::get('live_lesson/{id}', 'Livelessons@show');
+Route::put('live_lesson', 'Livelessons@store');
+Route::delete('live_lesson/{id}', 'Livelessons@destroy');
+

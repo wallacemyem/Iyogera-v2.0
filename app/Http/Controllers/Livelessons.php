@@ -8,6 +8,7 @@ use Auth;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
 use App\Livelesson;
+use App\Http\Resources\Livelesson as LivelessonResource;
 
 class Livelessons extends Controller
 {
@@ -18,11 +19,9 @@ class Livelessons extends Controller
      */
     public function index()
     {
-        $time = Carbon::now();
-        $set = CarbonImmutable::now();
-        //dd($time);
-        $title = translate('live_lessons');
-        return view('backend.'.Auth::user()->role.'.live_lessons.index', compact('title', 'time', 'set'));
+        $livelesson = Livelesson::all();
+
+        return new LivelessonResource($livelesson);
 
     }
 
@@ -45,37 +44,33 @@ class Livelessons extends Controller
     public function store(Request $request)
     {
 
-        $start_time = $request->starting_hour.':'.$request->starting_minute.' '.$request->start_day;
-        $end_time   = $request->ending_hour.':'.$request->ending_minute.' '.$request->end_day;
-        $slug       = str_slug($request->topic);
+        $start_time = $request->input('starting_hour').':'.$request->input('starting_minute').' '.$request->input('start_day');
+        $end_time   = $request->input('ending_hour').':'.$request->input('ending_minute').' '.$request->input('end_day');
+        $slug       = str_slug($request->input('topic'));
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $hex        = substr(str_shuffle($permitted_chars), 0, 16);
         $hexx       = substr(str_shuffle($permitted_chars), 0, 16);
         $pss        = $hexx.'-'.$slug.'-'.$hex;
-        $name_slug  = preg_replace('/\s/', '', $request->name);
+        $name_slug  = preg_replace('/\s/', '', $request->input('name'));
         $name       = $hex.$name_slug;
         //dd($name_slug);
 
-        $live = new Livelesson;
-        $live->name = $request->name;
-        $live->topic = $request->topic;
+        $live = $request->isMethod('put') ? Livelesson::findorFail($request->id) : new Livelesson;
+        $live->name = $request->input('name');
+        $live->topic = $request->input('topic');
         $live->live_url = $name;
         $live->slug   = $slug;
         $live->start_time = $start_time;
         $live->end_time = $end_time;
         $live->password = $pss;
-        $live->school_id = school_id();
-        $live->session = get_schools();
+        
 
         if($live->save()){
-            flash(translate('live_lessons_added_successfully'))->success();
-               
-        }else {
-            flash('an_error_occured_when_adding_live')->error();
             
+            return new LivelessonResource($live);   
         }
 
-        return redirect()->back();
+        
     }
 
     /**
@@ -86,7 +81,9 @@ class Livelessons extends Controller
      */
     public function show($id)
     {
-        //
+        $live = Livelesson::findOrFail($id);
+
+        return new LivelessonResource($live);
     }
 
     /**
@@ -141,10 +138,13 @@ class Livelessons extends Controller
      */
     public function destroy($id)
     {
-        $live = Livelesson::find($id);
+        $live = Livelesson::findOrFail($id);
         $live->unpublish = 1;
-        $live->save();
-        flash(translate('live_lesson_unpublished_successfully'))->success();
-        return redirect()->back();
+        if($live->save()){
+            
+            return new LivelessonResource($live);   
+        }
+        
+
     }
 }
