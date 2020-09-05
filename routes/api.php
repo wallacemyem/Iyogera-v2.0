@@ -14,17 +14,12 @@ use App\User;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/users', function () {
-    	return UserResource::collection(User::all());
-
-    }); 
+Route::get('users', 'Api\UserController@index'); 
 
 Route::post('login', 'Api\AuthController@login');
+Route::get('refresh', 'Api\AuthController@refresh');
 
-Route::middleware('api')->get('/user', function (Request $request) {
-    return $request->user();
-
-    	//Lessons
+//Lessons
 		Route::get('lessons', 'LessonController@index');
 		Route::get('lesson/{id}', 'LessonController@show');
 		Route::post('lessons', 'LessonController@store');
@@ -38,6 +33,11 @@ Route::middleware('api')->get('/user', function (Request $request) {
 		Route::get('live_lesson/{id}', 'Livelessons@show');
 		Route::put('live_lesson', 'Livelessons@store');
 		Route::delete('live_lesson/{id}', 'Livelessons@destroy');
+
+Route::middleware('api')->get('/user', function (Request $request) {
+    return $request->user();
+
+    	
 });
 
 

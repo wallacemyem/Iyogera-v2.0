@@ -49,6 +49,8 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+
+        $user->generateToken();
         flash(translate('welcome_back').' '.$user->other_name.' '.$user->first_name.' '.$user->middle_name)->success();
         return redirect()->intended('dash');
     }
@@ -56,6 +58,12 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         # code...
+        $user = Auth::guard()->user();
+
+    if ($user) {
+        $user->api_token = null;
+        $user->save();
+    }
         Auth::logout(); 
         session(['role' => '']); 
         Session::flush(); 

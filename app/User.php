@@ -34,6 +34,16 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    public function generateToken()
+    {
+        //$credentials = $request->only('email', 'password');
+
+        $this->api_token =  str_random(60);
+        $this->save();
+
+        return $this->api_token;
+    }
+
     /**
      * The attributes that are mass assignable.
      *

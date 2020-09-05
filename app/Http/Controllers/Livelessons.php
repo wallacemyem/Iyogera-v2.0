@@ -22,7 +22,7 @@ class Livelessons extends Controller
     {
         $livelesson = Livelesson::all();
 
-        return new LivelessonResource($livelesson);
+        return LivelessonResource::collection($livelesson);
 
     }
 
@@ -64,12 +64,11 @@ class Livelessons extends Controller
         $live->start_time = $start_time;
         $live->end_time = $end_time;
         $live->password = $pss;
-        
-
-        if($live->save()){
+        //$live->user_id = Auth::user()->id;
+        $live->save();
             
             return new LivelessonResource($live);   
-        }
+        
 
         
     }

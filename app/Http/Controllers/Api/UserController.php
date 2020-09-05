@@ -1,22 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+use App\Http\Resources\User as UserResource;
 
-use Auth;
-use App\Lesson;
-use App\Question;
-use App\QuestionsOption;
-use App\TestsResult;
-use App\Http\Requests\Admin\StoreLessonsRequest;
-use App\Http\Requests\Admin\UpdateLessonsRequest;
-use App\Http\Controllers\Traits\FileUploadTrait;
-use Optix\Media\MediaUploader;
-use App\Http\Request as AppRequest;
-use App\Http\Resources\Lesson as LessonResource;
-
-class LessonController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,9 +16,8 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lesson = Lesson::all();
-
-        return LessonResource::collection($lesson);
+        //
+        return UserResource::collection(User::all());
     }
 
     /**
@@ -48,21 +38,7 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        $slug = $request->input('title');
-        $slugb = str_slug($slug);
-
-        $section = $request->input('section_id');
-        //dd($request->input('downloadable_files_id', []));
-
-        //$request = $this->saveFiles($request);
-        $lesson = $request->isMethod('put') ? Lesson::findorFail($request->id) : Lesson::create($request->all()
-            + ['position' => Lesson::where('classes_id', $request->classes_id)->max('position') + 1] + ['slug' => $slugb] + ['section_id' => $section]);
-
-        foreach ($request->input('downloadable_files_id', []) as $index => $id) {
-            $media = MediaUploader::fromFile($id)->upload();
-            $media->save();
-        }
-        return new LessonResource($lesson);
+        //
     }
 
     /**
@@ -73,9 +49,7 @@ class LessonController extends Controller
      */
     public function show($id)
     {
-        $lesson = Lesson::findOrFail($id);
-
-        return new LessonResource($lesson);
+        //
     }
 
     /**

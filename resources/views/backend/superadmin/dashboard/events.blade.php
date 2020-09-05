@@ -8,9 +8,9 @@
         @foreach ($events as $event)
             @if (strtotime($event->starting_date) >= strtotime($date_from) && strtotime($event->starting_date) <= strtotime($date_to))
                 <div class="timeline-item">
-                    <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
+                    <i class="mdi mdi-upload bg-info-lighten text-info-white timeline-icon"></i>
                     <div class="timeline-item-info">
-                        <a href="#" class="text-info font-weight-bold mb-1 d-block">{{ $event->title }}</a>
+                        <a href="#" class="text-info-white font-weight-bold mb-1 d-block">{{ $event->title }}</a>
                         <p style="font-size: 12px;">{{ date('D, d-M-Y', strtotime($event->starting_date)) }} - {{ date('D, d-M-Y', strtotime($event->ending_date)) }}</p>
                     </div>
                 </div> 

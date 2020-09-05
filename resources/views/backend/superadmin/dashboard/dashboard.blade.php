@@ -14,7 +14,7 @@
         <div class="col-xl-12">
             <div class="row">
                 <div class="col-xl-8">
-                    <div class="card">
+                    <div class="card bg-primary">
                         <div class="card-body">
                             <h4 class="header-title mb-3">{{ translate('overview') }}</h4>
                             <div class="row">
@@ -123,9 +123,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card bg-primary">
                         <div class="card-body">
-                            <h4 class="header-title"> {{ translate('recent_events') }}<a href="{{ route('event_calendar.index') }}" style="color: #6c757d;"><i class = "mdi mdi-export"></i></a></h4>
+                            <h4 class="header-title text-white"> {{ translate('recent_events') }}<a href="{{ route('event_calendar.index') }}" style="color: #6c757d;"><i class = "mdi mdi-export"></i></a></h4>
                             @include('backend.'.Auth::user()->role.'.dashboard.events')
                         </div>
                     </div>
