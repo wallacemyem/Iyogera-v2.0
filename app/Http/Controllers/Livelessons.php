@@ -22,7 +22,9 @@ class Livelessons extends Controller
     {
         $livelesson = Livelesson::paginate(4);
 
-        return LivelessonResource::collection($livelesson);
+        return LivelessonResource::collection($livelesson)
+                ->response()
+                ->header('Access-Control-Allow-Origin', '*');
 
     }
 
