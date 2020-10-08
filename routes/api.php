@@ -17,7 +17,7 @@ use App\User;
 Route::get('users', 'Api\UserController@index');
 
 
-Route::post('login', 'Api\AuthController@login');
+Route::post('login', 'Api\LoginController@signin');
 Route::get('refresh', 'Api\AuthController@refresh');
 Route::get('me', 'Api\AuthController@me');
 
