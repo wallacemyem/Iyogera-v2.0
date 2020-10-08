@@ -14,10 +14,12 @@ use App\User;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('users', 'Api\UserController@index'); 
+Route::get('users', 'Api\UserController@index');
+
 
 Route::post('login', 'Api\AuthController@login');
 Route::get('refresh', 'Api\AuthController@refresh');
+Route::get('me', 'Api\AuthController@me');
 
 //Lessons
 		Route::get('lessons', 'LessonController@index');
@@ -28,6 +30,7 @@ Route::get('refresh', 'Api\AuthController@refresh');
 
 
 		//LiveLesson
+		Route::get('live_lessons', 'Livelessons@lists');
 		Route::get('live_lesson', 'Livelessons@index');
 		Route::post('live_lesson', 'Livelessons@store');
 		Route::get('live_lesson/{id}', 'Livelessons@show');

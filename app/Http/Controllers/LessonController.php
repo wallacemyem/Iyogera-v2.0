@@ -27,7 +27,9 @@ class LessonController extends Controller
     {
         $lesson = Lesson::all();
 
-        return LessonResource::collection($lesson);
+        return LessonResource::collection($lesson)
+                ->response()
+                ->header('Access-Control-Allow-Origin', '*');
     }
 
     /**

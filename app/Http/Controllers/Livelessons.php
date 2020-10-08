@@ -20,9 +20,19 @@ class Livelessons extends Controller
      */
     public function index()
     {
-        $livelesson = Livelesson::all();
+        $livelesson = Livelesson::paginate(4);
 
         return LivelessonResource::collection($livelesson);
+
+    }
+
+    public function lists()
+    {
+        $livelesson = Livelesson::all();
+
+        return LivelessonResource::collection($livelesson)
+                ->response()
+                ->header('Access-Control-Allow-Origin', '*');
 
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 use App\Http\Resources\User as UserResource;
 
 class UserController extends Controller
@@ -14,10 +15,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         //
-        return UserResource::collection(User::all());
+        $user = User::all();
+        //$user = Auth::user()->role;
+
+        return UserResource::collection($user)
+                ->response()
+                ->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
