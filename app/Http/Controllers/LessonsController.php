@@ -30,7 +30,7 @@ class LessonsController extends Controller
     public function test($lesson_slug, Request $request)
     {
         $lesson = Lesson::where('slug', $lesson_slug)->firstOrFail();
-        $answers = [];
+        $answers = []; 
         $test_score = 0;
         foreach ($request->get('questions') as $question_id => $answer_id) {
             $question = Question::find($question_id);

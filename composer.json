@@ -13,6 +13,7 @@
         "erusev/parsedown": "^1.7",
         "fico7489/laravel-eloquent-join": "^4.1",
         "fideloper/proxy": "^4.0",
+        "fruitcake/laravel-cors": "^2.0",
         "google/apiclient": "^2.4",
         "google/auth": "^1.9",
         "kingflamez/laravelrave": "^2.0",

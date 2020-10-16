@@ -163,6 +163,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Emotality\TawkTo\TawkToServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Fruitcake\Cors\CorsServiceProvider::class,
 
         /*
          * Package Service Providers...
