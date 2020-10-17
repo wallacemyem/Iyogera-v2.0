@@ -47,7 +47,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAccountingRoutes(); // Accounting Route is being used for managin the Accounting staffs
 
-        // $this->mapInstallRoutes(); // Install route is being used for managing the installation process 
+        $this->mapExamsRoutes(); // Exams route is being used for managing the examinations
     }
 
     /**
@@ -66,11 +66,11 @@ class RouteServiceProvider extends ServiceProvider
              Router::router();
     }
 
-    protected function mapInstallRoutes()
+    protected function mapExamsRoutes()
     {
         Route::middleware('web')
              ->namespace($this->namespace)
-             ->group(base_path('routes/install.php'));
+             ->group(base_path('routes/exams.php'));
     }
 
     protected function mapAddonRoutes()

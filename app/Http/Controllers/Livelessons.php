@@ -20,7 +20,7 @@ class Livelessons extends Controller
      */
     public function index()
     {
-<<<<<<< Updated upstream
+
         $livelesson = Livelesson::paginate(4);
 
         return LivelessonResource::collection($livelesson)
@@ -36,11 +36,11 @@ class Livelessons extends Controller
         return LivelessonResource::collection($livelesson)
                 ->response()
                 ->header('Access-Control-Allow-Origin', '*');
-=======
+
         $livelesson = Livelesson::all();
 
         return LivelessonResource::collection($livelesson);
->>>>>>> Stashed changes
+
 
     }
 
@@ -85,12 +85,8 @@ class Livelessons extends Controller
         //$live->user_id = Auth::user()->id;
         $live->save();
             
-<<<<<<< Updated upstream
-            return new LivelessonResource($live);   
-=======
-        return new LivelessonResource($live);   
->>>>>>> Stashed changes
-        
+
+            return new LivelessonResource($live);
 
         
     }

@@ -113,15 +113,18 @@
                         @endforeach
                     </tbody>
                 </table>
-                <center>
-                    <form method="POST" action=" {{ route('report.printa') }} " >
-                        @csrf
-                        <input type="hidden" name="exam_id" value="{{$exam_id}}">
-                        <input type="hidden" name="session_id" value="{{$session_id}}">
-                        <button type="submit" formtarget="_blank" class="btn btn-primary"><i class="mdi mdi-printer"></i> Print
-                        </button>
-                    </form>
-                </center>
+{{--                <div style="text-align: center;">--}}
+{{--                    <form method="POST" action=" {{ route('report.print') }} " >--}}
+{{--                        @php--}}
+{{--                        $session_id = $running_session;--}}
+{{--                        @endphp--}}
+{{--                        @csrf--}}
+{{--                        <input type="hidden" name="exam_id" value="{{$exam_id}}">--}}
+{{--                        <input type="hidden" name="session_id" value="{{$session_id}}">--}}
+{{--                        <button type="submit" formtarget="_blank" class="btn btn-primary"><i class="mdi mdi-printer"></i> Print--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
             </div>
         
 </div>
