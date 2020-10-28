@@ -28,6 +28,7 @@
                             <th>{{ translate('student_name') }}</th>
                             <th>{{ translate('section') }}</th>
                             <th>{{ translate('code') }}</th>
+                            <th>{{ translate('average') }}</th>
                             <th>{{ translate('status') }}</th>
                             <th>{{ translate('action') }}</th>
                         </tr>
@@ -35,9 +36,17 @@
                         <tbody>
                             @foreach ($students as $student)
                                 <tr>
-                                    <td>{{ $student->student->user->name }}</td>
+                                    @php
+                                        $results = \App\Result::where('student_id', $student->student_id)->where('school_id', school_id())->get();
+                                    @endphp
+                                    <td>{{ $student->student->user->first_name }} {{ $student->student->user->middle_name }} {{ $student->student->user->other_name }}</td>
                                     <td>{{ $student->section->name }}</td>
                                     <td>{{ $student->student->code }}</td>
+                                    @foreach($results as $result)
+
+                                    <td>{{ $result->average }}</td>
+
+                                    @endforeach
                                     <td style="text-align: center;">
                                         <span class="badge badge-info-lighten" id = "success_{{ $student->id }}" style="display: none;">Promoted</span>
                                         <span class="badge badge-light"  id = "danger_{{ $student->id }}">{{ translate('not_promoted_yet') }}</span>

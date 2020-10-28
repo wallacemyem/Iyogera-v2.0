@@ -146,8 +146,7 @@ class RoutineController extends Controller
     public function subject($class_id) {
         $checker = array(
             'class_id'  => $class_id,
-            'school_id' => school_id(),
-            'session'   => get_schools()
+            'school_id' => school_id()
         );
         $subjects = Subject::where($checker)->get();
         return view('backend.'.Auth::user()->role.'.routine.subject', compact('subjects'));

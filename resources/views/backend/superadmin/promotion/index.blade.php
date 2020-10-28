@@ -87,7 +87,9 @@
                     }
                 });
             }else {
-                toastr.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                var notyf = new Notyf();
+                notyf.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
+                //toastr.error('{{ translate('please_make_sure_to_fill_all_the_necessary_fields') }}');
             }
         }
 
@@ -100,7 +102,9 @@
                     success : function(response) {
                         $("#success_"+enroll_id).show();
                         $("#danger_"+enroll_id).hide();
-                        toastr.success('{{ translate('student_has_been_promoted_successfully') }}');
+                        var notyf = new Notyf();
+                        notyf.success('{{ translate('student_has_been_promoted_successfully') }}');
+                        //toastr.success('{{ translate('student_has_been_promoted_successfully') }}');
                     }
                 });
         }

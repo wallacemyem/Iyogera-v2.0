@@ -2,9 +2,10 @@
 
 namespace App;
 
+use App\Mark;
 use Illuminate\Database\Eloquent\Model;
 use App\Enroll;
-use App\Mark;
+use App\Result;
 
 class Student extends Model
 {
@@ -20,5 +21,9 @@ class Student extends Model
 
     public function mark() {
         return $this->belongsTo(Mark::class);
+    }
+
+    public function report() {
+        return $this->belongsTo(Result::class);
     }
 }

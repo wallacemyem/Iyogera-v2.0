@@ -169,7 +169,7 @@ class ReportController extends Controller
 		//dd(!$sexy);
 		$allresult = Result::where(['exam_id' => $exam_id, 'class_id' => $class_id, 'section_id' => $section_id])->exists();
                     
-                        //dd($allresult);
+		//dd($exam);
         if ( !($allresult) ) {
 
 		        $subject = Subject::where(['class_id' => $class_id, 'session' => $running_session, 'school_id' => $school_id])->get();
@@ -181,9 +181,10 @@ class ReportController extends Controller
 		            $subject_strings    = '';
 		            $marks_string       = '';
 		            foreach ($students as $SingleStudent) {
+                        //dd($SingleStudent);
 		                foreach ($subject as $subjects) {
-		                	
-		                	$stu_id = $SingleStudent->id;
+		                	//dd($subjects);
+                            $stu_id = $SingleStudent->id;
 		                    $sub_id = $subjects->id;
 		                    //dd($students);
 		                    $subject_strings    = (empty($subject_strings)) ? $subjects->name : $subject_strings . ',' . $subjects->name;
@@ -213,16 +214,16 @@ class ReportController extends Controller
 		            	$sum_of_mark = ($total_marks == 0) ? 0 : $total_marks;
 		            	//dd($sum_of_mark);
 		            	$marks_count = $result->count();
-		                $average_Mark = ($total_marks == 0) ? 0 : ($total_marks / $result->count()); //get average number 
+		                $average_Mark = ($total_marks == 0) ? 0 : ($total_marks / $result->count()); //get average number
 		                //dd($average_Mark);
 						$average_mark = number_format($average_Mark, 2, '.', '');
-						
-						$full_name          =   $SingleStudent->student->user->other_name.' '.$SingleStudent->student->user->first_name.' '.$SingleStudent->student->user->middle_name;                 //get name 
-                        //dd($full_name); 
+
+						$full_name          =   $SingleStudent->student->user->other_name.' '.$SingleStudent->student->user->first_name.' '.$SingleStudent->student->user->middle_name;                 //get name
+                        //dd($full_name);
 		                $admission_no       =   $SingleStudent->student->code;           //get admission no
 
-                        
-                            
+
+
 		           			$insert_results                     = new Result;
 			        		$insert_results->student_id       	= $stu_id;
 			                $insert_results->student_name       = $full_name;
@@ -237,36 +238,36 @@ class ReportController extends Controller
 			                $insert_results->session            = $running_session;
 			                $insert_results->school_id          = $school_id;                //if (!$sexy){
 			                $insert_results->save();
-			                
+
 			                $subject_strings = "";
 			                $marks_string = "";
 			                $total_marks = 0;
 			                $average = 0;
 			                $admission_no = 0;
 			                $full_name = "";
-                            
-                            
+
+
 
                         }
-		            
+
 		            //end loop eligible_students
-        		
+
                 $allresult_data = Result::where(['exam_id' => $exam_id, 'class_id' => $class_id, 'section_id' => $section_id])->orderBy('average', 'desc')->get();
-	            
+
 	            //dd($allresult_data);
 	            $merit_serial = 1;
 	            foreach ($allresult_data as $row) {
 	                $D = Result::find($row->id);
 	                $D->position = $merit_serial++;
 	                $D->save();
-	            
+
 	            	}
 
                     return response()->json(['success']);
                 } else {
 
                     return response()->json(['error']);
-                    
+
                 }
                     
     }
