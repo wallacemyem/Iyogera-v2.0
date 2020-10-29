@@ -11,6 +11,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function home()
+    {
+        return Redirect::to('https://home.iyogera.com');
+    }
+    
     public function index()
     {
         $purchased_courses = NULL;
