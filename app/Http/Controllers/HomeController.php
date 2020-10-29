@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Course;
 use Illuminate\Support\Facades\Redirect;
 
@@ -15,7 +16,7 @@ class HomeController extends Controller
     
     public function home()
     {
-        if(\Auth::check()){
+        if(Auth::check()){
             $title = "Dashboard";
             return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
         }else{
