@@ -15,7 +15,12 @@ class HomeController extends Controller
     
     public function home()
     {
-        return Redirect::to('https://home.iyogera.com');
+        if(\Auth::check()){
+            return Redirect::to('https://home.iyogera.com');
+        }else{
+            $title = "Dashboard";
+            return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
+        }
     }
     
     public function index()
