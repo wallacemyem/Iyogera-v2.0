@@ -27,7 +27,7 @@
         "maatwebsite/excel": "^3.1",
         "mashape/unirest-php": "^3.0",
         "niklasravnsborg/laravel-pdf": "^4.0",
-        "optix/media": "^0.4.0",
+        "optix/media": "^0.5.0",
         "orangehill/iseed": "^2.6",
         "oscarafdev/migrations-generator": "^2.0",
         "php-junior/laravel-video-chat": "^1.1",
