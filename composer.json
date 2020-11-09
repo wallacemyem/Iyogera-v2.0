@@ -33,7 +33,7 @@
         "php-junior/laravel-video-chat": "^1.1",
         "pion/laravel-eloquent-position": "^1.0",
         "realrashid/sweet-alert": "^3.1",
-        "socialiteproviders/google": "^3.0",
+        "socialiteproviders/google": "^4.0",
         "spatie/laravel-medialibrary": "^7.19",
         "stevebauman/location": "^5.0",
         "tom-lingham/searchy": "^2.0",
