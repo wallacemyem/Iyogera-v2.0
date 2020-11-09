@@ -14,6 +14,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>{{ translate('name') }}</th>
+                    <th>{{ translate('class') }}</th>
                     <th>{{ translate('subject_teacher') }}</th>
                     <th>{{ translate('option') }}</th>
                 </tr>
@@ -22,7 +23,8 @@
                 @foreach ( $subjects as $subject)
                     <tr>
                         <td> {{ $subject->name }} </td>
-                        <td> {{ $subject->teacher->user->name }} </td>
+                        <td> {{ $subject->class->name }}{{ $subject->section->name }} </td>
+                        <td> {{ $subject->teacher->user->other_name }} {{ $subject->teacher->user->first_name }} {{ $subject->teacher->user->middle_name }} </td>
                         <td>
                             <div class="btn-group mb-2">
                                 <button type="button" class="btn btn-icon btn-secondary btn-sm" style="margin-right:5px;" onclick="showAjaxModal('{{ route('subject.edit', $subject->id) }}', '{{ translate('update_subject') }}')"

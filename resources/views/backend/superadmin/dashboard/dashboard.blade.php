@@ -14,7 +14,7 @@
         <div class="col-xl-12">
             <div class="row">
                 <div class="col-xl-8">
-                    <div class="card">
+                    <div class="card bg-primary">
                         <div class="card-body">
                             <h4 class="header-title mb-3">{{ translate('overview') }}</h4>
                             <div class="row">
@@ -61,26 +61,6 @@
 
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="card widget-flat" id = "parent">
-                                        <div class="card-body">
-                                            <div class="float-right">
-                                                    <i class="mdi mdi-account-multiple widget-icon"></i>
-                                            </div>
-                                            <h5 class="text-muted font-weight-normal mt-0" title="Number of Parents"> <i class="mdi mdi-account-group title_icon"></i> {{ translate('parents') }}  <a href="{{ route('parent.index') }}" style="color: #6c757d; display: none;" id = "parent_list"><i class = "mdi mdi-export"></i></a></h5>
-                                            <h3 class="mt-3 mb-3">
-                                                @php
-                                                    $parents = \App\User::where(['school_id' => school_id(), 'role' => 'parent'])->get();
-                                                    echo count($parents);
-                                                @endphp
-                                            </h3>
-                                            <p class="mb-0 text-muted">
-                                                <span class="text-nowrap">{{ translate('total_number_of_parent') }}</span>
-                                            </p>
-                                        </div> <!-- end card-body-->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col-->
-
-                                <div class="col-lg-6">
                                     <div class="card widget-flat">
                                         <div class="card-body">
                                             <div class="float-right">
@@ -123,9 +103,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card bg-primary">
                         <div class="card-body">
-                            <h4 class="header-title"> {{ translate('recent_events') }}<a href="{{ route('event_calendar.index') }}" style="color: #6c757d;"><i class = "mdi mdi-export"></i></a></h4>
+                            <h4 class="header-title text-white"> {{ translate('recent_events') }}<a href="{{ route('event_calendar.index') }}" style="color: #6c757d;"><i class = "mdi mdi-export"></i></a></h4>
                             @include('backend.'.Auth::user()->role.'.dashboard.events')
                         </div>
                     </div>

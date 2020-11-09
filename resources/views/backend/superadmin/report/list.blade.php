@@ -19,16 +19,14 @@
 <div class="panel panel-primary">
     
             <div class="table-responsive-sm">
-                <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
+                <table id="basic-datatable" class="table table-striped dt-responsive" width="100%">
                     <thead class="thead-dark">
                         <tr>
                         @php
                             $hello = 0;
                         @endphp
                             <th rowspan="2" style="text-align: center;">Position</th>
-                            <th rowspan="2" style="text-align: center;">
-                                Reg NO
-                            </th>
+                            
                             <th rowspan="2" style="text-align: center;">
                                 Students <i class="em em-arrow_down" aria-role="presentation" aria-label="DOWNWARDS BLACK ARROW"></i> | Subjects <i class="em em-arrow_right" aria-role="presentation" aria-label="BLACK RIGHTWARDS ARROW"></i>
                             </th>
@@ -45,7 +43,7 @@
 
                         @foreach ($subject as $key)
                             <th colspan="2">CA</th>
-                            <th colspan="2">Exam</th>
+                            <th colspan="2">Ex</th>
                         @endforeach
                         </tr>
                     </thead>
@@ -55,15 +53,15 @@
                             @php
                                 $positionh = \App\Result::where('student_id', $student->student->id)->where('class_id', $class_id)->where('section_id', $section_id)->where('exam_id', $exam_id)->where('session', $running_session)->where('school_id', $school_id)->orderBy('position', 'asc')->get();
                             @endphp
+
                     @foreach ($positionh as $position)
+                    
                         <tr>
                             <td style="text-align: center;">
                                 {{$position->position}}
                                 
                             </td>
-                            <td style="text-align: left;">
-                                {{$position->student_code}}
-                            </td>
+                            
                             <td style="text-align: left;">
                                 {{$position->student_name}}
                             </td>
@@ -115,12 +113,18 @@
                         @endforeach
                     </tbody>
                 </table>
-                <center>
-                    <a href="#"
-                        class="btn btn-primary">
-                        print
-                    </a>
-                </center>
+{{--                <div style="text-align: center;">--}}
+{{--                    <form method="POST" action=" {{ route('report.print') }} " >--}}
+{{--                        @php--}}
+{{--                        $session_id = $running_session;--}}
+{{--                        @endphp--}}
+{{--                        @csrf--}}
+{{--                        <input type="hidden" name="exam_id" value="{{$exam_id}}">--}}
+{{--                        <input type="hidden" name="session_id" value="{{$session_id}}">--}}
+{{--                        <button type="submit" formtarget="_blank" class="btn btn-primary"><i class="mdi mdi-printer"></i> Print--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
             </div>
         
 </div>

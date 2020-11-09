@@ -11,9 +11,23 @@
             </div>
             
             <div class="form-group row mb-3">
-                <label class="col-md-3 col-form-label" for="name"> {{ translate('name') }}</label>
+                <label class="col-md-3 col-form-label" for="first_name"> {{ translate('first_name') }}</label>
                 <div class="col-md-9">
-                    <input type="text" id="name" name="name" class="form-control"  value="" required>
+                    <input type="text" id="first_name" name="first_name" class="form-control"  value="" required>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-md-3 col-form-label" for="other_name"> {{ translate('last_name') }}</label>
+                <div class="col-md-9">
+                    <input type="text" id="name" name="other_name" class="form-control"  value="" required>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-md-3 col-form-label" for="middle_name"> {{ translate('other_name') }}</label>
+                <div class="col-md-9">
+                    <input type="text" id="name" name="middle_name" class="form-control"  value="">
                 </div>
             </div>
 

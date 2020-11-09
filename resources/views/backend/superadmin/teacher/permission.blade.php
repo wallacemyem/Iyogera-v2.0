@@ -1,4 +1,4 @@
-<h5 class="text-center">{{ $teacher_details->user->name }}</h5>
+<h5 class="text-center">{{ $teacher_details->user->other_name }} {{ $teacher_details->user->first_name }} {{ $teacher_details->user->middle_name }}</h5>
 
 @foreach ($permissions as $permission)
 <table class="table table-hover table-centered mb-0" style="margin-bottom: 50px !important; background-color: #FAFAFA;">

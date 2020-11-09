@@ -17,7 +17,9 @@
             @foreach ($entries as $entry)
                 <tr>
                     <td>
-                        {{ App\Student::find($entry->student_id)->user->name }}
+                        {{ App\Student::find($entry->student_id)->user->other_name }} 
+                        {{ App\Student::find($entry->student_id)->user->first_name }} 
+                        {{ App\Student::find($entry->student_id)->user->middle_name }}
                     </td>
                     <td>
                         <div class="custom-control custom-radio">

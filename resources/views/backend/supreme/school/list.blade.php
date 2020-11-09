@@ -1,7 +1,6 @@
 @php
     $schools = DB::table('schools')->get();
-    $current_session = get_settings('running_session');
-    $session_active = DB::table('sessions')->where(['status' => '1'])->get();
+    
 @endphp
 @if (sizeof($schools) > 0)
     <div class="table-responsive-sm">

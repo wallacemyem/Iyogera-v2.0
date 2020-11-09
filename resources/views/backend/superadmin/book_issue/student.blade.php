@@ -4,7 +4,7 @@
     @else
         <option value="">{{ translate('select_a_student') }}</option>
         @foreach ($students as $student)
-            <option value="{{ $student->id }}">{{ $student->student->user->name }}</option>
+            <option value="{{ $student->id }}">{{ $student->student->user->other_name }} {{ $student->student->user->first_name }} {{ $student->student->user->middle_name }}</option>
         @endforeach
     @endif
 </select>

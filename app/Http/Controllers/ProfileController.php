@@ -19,7 +19,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $title = translate('manage_profile');
+        $name = Auth::user()->other_name.' '.Auth::user()->first_name.' '.Auth::user()->middle_name;
+        $title = $name;
         return view('backend.'.Auth::user()->role.'.profile.index', compact('title'));
     }
 
@@ -78,9 +79,11 @@ class ProfileController extends Controller
         $user = Auth::user();
         if($type == 'profile') {
             
-                $user->name = $request->name;
-                $user->phone = $request->phone;
-                $user->address = $request->address;
+            $user->first_name = $request->first_name;
+            $user->other_name = $request->other_name;
+            $user->middle_name = $request->middle_name;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
                 if ($request->hasFile('user_image')) {
                     $id = $user->id;
                     $dir  = 'backend/images/user_image';

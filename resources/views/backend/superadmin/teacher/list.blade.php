@@ -19,8 +19,13 @@
         <tbody>
             @foreach ( $teachers as $teacher)
                 <tr>
-                    <td> {{ $teacher->user->name }} </td>
+                    
+                    <td> {{ $teacher->user->other_name }} {{ $teacher->user->first_name }} {{ $teacher->user->middle_name }} </td>
+                    @if( empty($teacher->department->name))
+                    <td></td>
+                    @else
                     <td> {{ $teacher->department->name }} </td>
+                    @endif
                     <td> {{ $teacher->designation }} </td>
                     <td>
                         <div class="btn-group mb-2">

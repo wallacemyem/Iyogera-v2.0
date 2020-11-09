@@ -14,7 +14,7 @@
                 <tbody>
                     @foreach ( $librarians as $librarian)
                         <tr>
-                            <td> {{ $librarian->name }} </td>
+                            <td> {{ $librarian->other_name }} {{ $librarian->first_name }} {{ $librarian->middle_name }}</td>
                             <td> {{ $librarian->email }} </td>
                             <td>
                                 <div class="btn-group mb-2">

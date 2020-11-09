@@ -36,7 +36,7 @@
                     
                     @foreach ($marks as $mark)
                         <tr>
-                            <td>{{ $mark->student->user->name }}</td>
+                            <td>{{ $mark->student->user->other_name }} {{ $mark->student->user->middle_name }} {{ $mark->student->user->first_name }}</td>
                             <td>
                                 <input type="text" class="form-control" name="objectives" id="objectives_{{ $mark->id }}" value="{{ $mark->objectives }}">
                             </td>

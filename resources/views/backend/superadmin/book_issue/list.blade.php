@@ -21,7 +21,7 @@
                     {{ date('D, d/M/Y', $book_issue->issue_date) }}
                 </td>
                 <td>
-                    {{ $book_issue->student->user->name}} <br> <small style="font-size: 10px; color: #9E9E9E;">{{ translate('student_code') }}: {{ $book_issue->student->code }}</small>
+                    {{ $book_issue->student->user->other_name}} {{ $book_issue->student->user->first_name}} {{ $book_issue->student->user->middle_name}} <br> <small style="font-size: 10px; color: #9E9E9E;">{{ translate('student_code') }}: {{ $book_issue->student->code }}</small>
                 </td>
                 <td>
                     {{ $book_issue->class->name }}

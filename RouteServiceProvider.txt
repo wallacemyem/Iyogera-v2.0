@@ -73,6 +73,13 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes/install.php'));
     }
 
+    protected function mapLessonsRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/lessons.php'));
+    }
+
     protected function mapAddonRoutes()
     {
         Route::middleware('web')

@@ -1,5 +1,3 @@
-
-
 @if (isset($students) && count($students) > 0)
 <div class="table-responsive-sm">
     <table id="basic-datatable" class="table table-striped dt-responsive nowrap" width="100%">
@@ -16,13 +14,13 @@
                     <tr>
                             <td>{{ $student->student->code }}</td>
                             <td>
-                                @if (file_exists('backend/images/student_image/'.$student->profile_pix.'.jpg'))
-                                    <img src="{{'backend/images/student_image/'.$student->profile_pix.'.jpg'}}" alt="$student->name" height="50" width="50" class="rounded-circe">
+                                @if (file_exists('backend/images/student_image/'.$student->student->profile_pix.'.jpg'))
+                                    <img src="{{asset('backend/images/student_image/'.$student->student->profile_pix.'.jpg')}}" alt="$student->student->code" height="50" width="50" class="rounded-circe">
                                 @else
                                     <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="50">
                                 @endif
                             </td>
-                        <td>{{ $student->student->user->name }}</td>
+                        <td>{{ $student->student->user->other_name }} {{ $student->student->user->first_name }} {{ $student->student->user->middle_name }}</td>
                         <td>
                             <div class="btn-group mb-2">
 

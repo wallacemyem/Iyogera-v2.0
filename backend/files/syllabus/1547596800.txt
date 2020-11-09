@@ -1,0 +1,24 @@
+===Database eativeit_ekattor_demo
+
+== Table structure for table invoice
+
+|------
+|Column|Type|Null|Default
+|------
+|//**invoice_id**//|int(11)|No|
+|student_id|int(11)|Yes|NULL
+|title|longtext|Yes|NULL
+|description|longtext|Yes|NULL
+|amount|int(11)|Yes|NULL
+|amount_paid|longtext|Yes|NULL
+|due|longtext|Yes|NULL
+|creation_timestamp|int(11)|Yes|NULL
+|payment_timestamp|longtext|Yes|NULL
+|payment_method|longtext|Yes|NULL
+|payment_details|longtext|Yes|NULL
+|status|longtext|Yes|NULL
+|year|longtext|Yes|NULL
+== Dumping data for table invoice
+
+|1|1|Exam Fees|Testing|500|0|500|1524420000|NULL|NULL|NULL|unpaid|2017-2018
+|2|2|Exam Fees|Testing|500|500|0|1524420000|NULL|NULL|NULL|paid|2017-2018

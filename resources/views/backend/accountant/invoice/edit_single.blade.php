@@ -19,7 +19,7 @@
                 <select name="student_id" id="student_id" class="form-control" required >
                     <option value="">Select A Class First</option>
                     @foreach (\App\Enroll::where(['class_id' => $invoice->class_id, 'session' => get_schools(), 'school_id' => school_id()])->get(); as $student)
-                        <option value="{{ $student->id }}" @if($student->id == $invoice->student_id) selected @endif>{{ $student->student->user->name }}</option>
+                        <option value="{{ $student->id }}" @if($student->id == $invoice->student_id) selected @endif>{{ $student->student->user->other_name }} {{ $student->student->user->first_name }} {{ $student->student->user->middle_name }}</option>
                     @endforeach
                 </select>
             </div>

@@ -19,7 +19,7 @@
             <tbody>
                 @foreach ($teachers as $teacher)
                 <tr>
-                    <td>{{ $teacher->user->name }}</td>
+                    <td>{{ $teacher->user->other_name }} {{ $teacher->user->first_name }} {{ $teacher->user->middle_name }}</td>
                     @foreach ($columns as $column)
                     @php
                         if ($column == 'class_id' || $column == 'section_id' || $column == 'created_at' || $column == 'updated_at' || $column == 'teacher_id' || $column == 'id')

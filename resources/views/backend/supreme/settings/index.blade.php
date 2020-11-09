@@ -13,7 +13,7 @@
         $class = 'col-xl-10 offset-xl-1';
 @endphp
 
-@extends('backend.layout.main')
+@extends('backend.layout.main-s')
 @section('content')
     <!-- start page title -->
     <div class="row">

@@ -7,7 +7,7 @@
             <label class="col-md-3 col-form-label" for="name"> {{ translate('student_profile_image') }}</label>
             
             @if (file_exists('backend/images/student_image/'.$student->profile_pix.'.jpg'))
-                <img src="backend/images/student_image/'.{{$student->profile_pix}}.'.jpg" alt="{{$student->name}}" height="100" width="100">
+                <img src="{{asset('backend/images/student_image/'.$student->profile_pix.'.jpg')}}" alt="{{$student->code}}" height="100" width="100">
             @else
                 <img src="{{ asset('backend/images/student_image/preview.png') }}" alt="" height="100">
             @endif
@@ -20,11 +20,26 @@
         </div>
 
         <div class="form-group row mb-3">
-            <label class="col-md-3 col-form-label" for="name"> {{ translate('name') }}</label>
+            <label class="col-md-3 col-form-label" for="name"> {{ translate('first_name') }}</label>
             <div class="col-md-9">
-                <input type="text" id="name" name="name" class="form-control"  value="{{ $student->user->name }}" required>
+                <input type="text" id="first_name" name="first_name" class="form-control"  value="{{ $student->user->first_name }}" required>
             </div>
         </div>
+
+        <div class="form-group row mb-3">
+            <label class="col-md-3 col-form-label" for="name"> {{ translate('last_name') }}</label>
+            <div class="col-md-9">
+                <input type="text" id="other_name" name="other_name" class="form-control"  value="{{ $student->user->other_name }}" required>
+            </div>
+        </div>
+
+        <div class="form-group row mb-3">
+            <label class="col-md-3 col-form-label" for="name"> {{ translate('other_name') }}</label>
+            <div class="col-md-9">
+                <input type="text" id="middle_name" name="middle_name" class="form-control"  value="{{ $student->user->middle_name }}">
+            </div>
+        </div>
+
         <div class="form-group row mb-3">
             <label class="col-md-3 col-form-label" for="email">{{ translate('email') }}</label>
             <div class="col-md-9">

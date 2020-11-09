@@ -2,9 +2,21 @@
     @csrf
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="name">{{ translate('librarian_name') }}</label>
-            <input type="text" class="form-control" id="name" name = "name" required>
-            <small id="" class="form-text text-muted">{{ translate('provide_name') }}.</small>
+            <label for="name">{{ translate('first_name') }}</label>
+            <input type="text" class="form-control" id="name" name = "first_name" required>
+            <small id="" class="form-text text-muted">{{ translate('provide_first_name') }}.</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="name">{{ translate('last_name') }}</label>
+            <input type="text" class="form-control" id="name" name = "other_name" required>
+            <small id="" class="form-text text-muted">{{ translate('provide_last_name') }}.</small>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="name">{{ translate('other_name') }}</label>
+            <input type="text" class="form-control" id="name" name = "middle_name">
+            <small id="" class="form-text text-muted">{{ translate('provide_other_name') }}.</small>
         </div>
 
         <div class="form-group col-md-12">

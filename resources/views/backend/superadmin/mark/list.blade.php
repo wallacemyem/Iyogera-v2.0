@@ -36,7 +36,8 @@
                     
                     @foreach ($marks as $mark)
                         <tr>
-                            <td>{{ $mark->student->user->name }}</td>
+
+                            <td>{{ $mark->student->user->other_name }} {{ $mark->student->user->first_name }} {{ $mark->student->user->middle_name }}</td>
                             <td>
                                 <input type="text" size= "200" class="form-control" name="objectives" id="objectives_{{ $mark->id }}" value="{{ $mark->objectives }}">
                             </td>
@@ -48,7 +49,7 @@
                             </td>
                             
                             <td style="text-align: center;">
-                                <button type="button" class="btn btn-icon btn-success" onclick="saveMark('{{ $mark->id }}')"> <i class="mdi mdi-check-circle"></i> </button>
+                                <button id="submit" type="button" class="btn btn-icon btn-success" onclick="saveMark('{{ $mark->id }}')"> <i class="mdi mdi-check-circle"></i> </button>
                             </td>
                         </tr>
                     @endforeach

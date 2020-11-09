@@ -44,6 +44,7 @@ class SubjectController extends Controller
     {
         $subject = new Subject;
         $subject->class_id = $request->class_id;
+        $subject->section_id = $request->section_id;
         $subject->name = $request->name;
         $subject->teacher_id = $request->teacher_id;
         $subject->school_id = school_id();
@@ -74,6 +75,7 @@ class SubjectController extends Controller
         $school_id = school_id();
         $checker = array(
             'class_id' => $class_id,
+            'section_id' => $section_id,
             'session' => $running_session,
             'school_id' => $school_id
         );
@@ -107,6 +109,7 @@ class SubjectController extends Controller
 
         $subject->name = $request->name;
         $subject->class_id = $request->class_id;
+        $subject->section_id = $request->section_id;
         $subject->teacher_id = $request->teacher_id;
 
         if($subject->save()){

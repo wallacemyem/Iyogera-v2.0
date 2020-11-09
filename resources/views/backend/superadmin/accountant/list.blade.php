@@ -14,7 +14,7 @@
             <tbody>
                 @foreach ( $accountants as $accountant)
                     <tr>
-                        <td> {{ $accountant->name }} </td>
+                        <td> {{ $accountant->other_name }} {{ $accountant->first_name }} {{ $accountant->middle_name }}</td>
                         <td> {{ $accountant->email }} </td>
                         <td>
                             <div class="btn-group mb-2">

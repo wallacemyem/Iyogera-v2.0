@@ -31,7 +31,7 @@
             @if (isset($students))
                 @foreach ($students as $student)
                     <tr>
-                        <td width = "124px;" style="font-size: 12px;">{{ $student->student->user->name }}</td>
+                        <td width = "124px;" style="font-size: 12px;">{{ $student->student->user->other_name }} {{ $student->student->user->first_name }} {{ $student->student->user->middle_name }}</td>
                         @for ($i = 1; $i <= $number_of_days; $i++)
                             @php
                                 $status = App\DailyAttendance::where('school_id', school_id())->where('class_id', $class_id)->where('section_id', $section_id)->where('student_id', $student->student_id)->where('timestamp', strtotime($i.'-'.$month.'-'.$year))->pluck('status')->first();

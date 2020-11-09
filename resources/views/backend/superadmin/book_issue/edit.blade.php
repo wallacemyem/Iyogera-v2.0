@@ -27,7 +27,7 @@
             <select name="student_id" id="student_id" class="form-control" required >
                 <option value="">{{ translate('select_a_student') }}</option>
                 @foreach (App\Enroll::where(['class_id' => $book_issue->class_id, 'school_id' => school_id(), 'session' => get_schools()])->get() as $student)
-                    <option value="{{ $student->id }}" @if($student->id == $book_issue->student_id) selected @endif>{{ $student->student->user->name }}</option>
+                    <option value="{{ $student->id }}" @if($student->id == $book_issue->student_id) selected @endif>{{ $student->student->user->other_name }} {{ $student->student->user->first_name }} {{ $student->student->user->middle_name }}</option>
                 @endforeach
             </select>
         </div>
