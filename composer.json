@@ -20,7 +20,7 @@
         "laracasts/flash": "^3.0",
         "laravel/framework": "6.18.*",
         "laravel/helpers": "^1.2",
-        "laravel/socialite": "^4.3",
+        "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.4",
         "laravelcollective/html": "^6.1",
         "livewire/livewire": "^1.0",
