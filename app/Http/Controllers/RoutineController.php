@@ -151,4 +151,20 @@ class RoutineController extends Controller
         $subjects = Subject::where($checker)->get();
         return view('backend.'.Auth::user()->role.'.routine.subject', compact('subjects'));
     }
+
+    public function teacher($class_id) {
+        $user_id = Auth::user()->id;
+
+        $teacher_id = Teacher::where('user_id', $user_id)->first();
+       // $subject = Subject::where('class_id', $class_id)->where('teacher_id', $teacher_id)->get();
+        //dd($subject);
+        $checker = array(
+            'class_id'  => $class_id,
+            'school_id' => school_id(),
+            'teacher_id' => $teacher_id
+        );
+        //dd($checker);
+        $subjects = Subject::where($checker)->get();
+        return view('backend.'.Auth::user()->role.'.routine.teacher', compact('subjects'));
+    }
 }

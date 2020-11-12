@@ -669,5 +669,6 @@
     "live_lesson_unpublished_successfully": "Live lesson unpublished successfully",
     "join_lesson": "Join lesson",
     "join": "Join",
-    "N/A": "N/A"
+    "N/A": "N/A",
+    "no_subject_allocated": "No subject allocated"
 }
