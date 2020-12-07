@@ -161,10 +161,11 @@ class RoutineController extends Controller
         $checker = array(
             'class_id'  => $class_id,
             'school_id' => school_id(),
-            'teacher_id' => $teacher_id
+            'teacher_id' => $teacher_id->id
         );
         //dd($checker);
         $subjects = Subject::where($checker)->get();
+        //dd($subjects);
         return view('backend.'.Auth::user()->role.'.routine.teacher', compact('subjects'));
     }
 }
