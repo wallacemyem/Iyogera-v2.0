@@ -11,11 +11,9 @@
 |
 */
 
+Route::get('/', 'HomeController@home')->name('home');
+
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        $title = "Dashboard";
-        return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
-    })->name('dashboard');
 
     Route::get('/dash', function () {
         $title = "Dashboard";
