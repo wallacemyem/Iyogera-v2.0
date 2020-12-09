@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Section;
 use App\Enroll;
 use App\Mark;
@@ -16,6 +16,7 @@ use App\Result;
 use App\Student;
 use App\Session;
 use App\School;
+use App\Check;
 use PDF;
 use Carbon\Carbon;
 //use App\Exam;
@@ -167,9 +168,9 @@ class ReportController extends Controller
 		//dd($section);
 		//$sexy = Result::where(['student_id' => $student_id])->exists();
 		//dd(!$sexy);
-		$allresult = Result::where(['exam_id' => $exam_id, 'class_id' => $class_id, 'section_id' => $section_id])->exists();
+		$allresult = Check::where(['exam_id' => $exam_id, 'class_id' => $class_id, 'section_id' => $section_id])->exists();
                     
-		//dd($exam);
+		//dd($allresult);
         if ( !($allresult) ) {
 
 		        $subject = Subject::where(['class_id' => $class_id, 'session' => $running_session, 'school_id' => $school_id])->get();
@@ -246,8 +247,12 @@ class ReportController extends Controller
 			                $admission_no = 0;
 			                $full_name = "";
 
-
-
+			                $check              = new Check;
+			                $check->class_id    = $class_id;
+                            $check->exam_id     = $exam_id;
+			                $check->section_id  = $section_id;
+			                $check->session     = $running_session;
+			                $check->save();
                         }
 
 		            //end loop eligible_students
