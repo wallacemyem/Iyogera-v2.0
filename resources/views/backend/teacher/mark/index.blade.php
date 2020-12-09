@@ -77,7 +77,7 @@
         }
 
         function classWiseSubject(class_id) {
-            var url = '{{ route("routine.subject", "class_id") }}';
+            var url = '{{ route("routine.teacher", "class_id") }}';
             url = url.replace('class_id', class_id);
 
             $.ajax({

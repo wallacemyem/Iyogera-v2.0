@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('routine', 'RoutineController');
     Route::get('get_subject/{class_id}', 'RoutineController@subject')->name('routine.subject');
+    Route::get('get_subject_teacher/{class_id}', 'RoutineController@teacher')->name('routine.teacher');
 
     Route::resource('room', 'ClassRoomController');
     Route::get('room_list', 'ClassRoomController@list')->name('room.list');

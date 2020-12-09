@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\User; 
 use Auth;
 use Session;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use JWTAuth;
 class LoginController extends Controller
 {
     /*
@@ -50,7 +52,12 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
 
-        $user->generateToken();
+        $credentials = $request->only('email', 'password');
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json([
+                'error' => 'Invalid Credentials!'
+            ], 401);
+        }
         flash(translate('welcome_back').' '.$user->other_name.' '.$user->first_name.' '.$user->middle_name)->success();
         return redirect()->intended('dash');
     }
