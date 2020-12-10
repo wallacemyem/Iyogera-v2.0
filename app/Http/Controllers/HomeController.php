@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Course;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -11,6 +13,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function home()
+    {
+        if(Auth::check()){
+            $title = "Dashboard";
+            return view('backend.'.Auth::user()->role.'.dashboard.dashboard', compact('title'));
+        }else{
+            return Redirect::to('https://home.iyogera.com');            
+        }
+    }
+    
     public function index()
     {
         $purchased_courses = NULL;
