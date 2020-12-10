@@ -16,8 +16,8 @@ function get_schools() {
 }
 
 function school_id() {
-    if(Auth::user()->role == "superadmin") {
-        return Auth::user()->school_id;
+    if(Auth::user()->role == "supreme") {
+        return 'Iyogera Management Dashboard';
     }else {
         return Auth::user()->school_id;
     }
