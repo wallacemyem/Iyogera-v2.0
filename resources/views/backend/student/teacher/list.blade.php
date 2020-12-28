@@ -12,15 +12,15 @@
             <tr>
                 <th>{{ translate('name') }}</th>
                 <th>{{ translate('department') }}</th>
-                <th>{{ translate('designation') }}</th>
+{{--                <th>{{ translate('designation') }}</th>--}}
                 <th>{{ translate('phone_number') }}</th>
             </tr>
         </thead>
         <tbody>
             @foreach ( $teachers as $teacher)
                 <tr>
-                    <td> {{ $teacher->user->name }} </td>
-                    <td> {{ $teacher->department->name }} </td>
+                    <td> {{ $teacher->user->other_name }} {{ $teacher->user->middle_name }} {{ $teacher->user->first_name }} </td>
+{{--                    <td> {{ $teacher->department->name }} </td>--}}
                     <td> {{ $teacher->designation }} </td>
                     <td>
                         {{ $teacher->user->phone}}

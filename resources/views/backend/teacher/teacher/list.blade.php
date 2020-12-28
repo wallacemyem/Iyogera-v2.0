@@ -19,8 +19,13 @@
         <tbody>
             @foreach ( $teachers as $teacher)
                 <tr>
-                    <td> {{ $teacher->user->name }} </td>
-                    <td> {{ $teacher->department->name }} </td>
+                    <td>{{ $teacher->user->other_name }} {{ $teacher->user->first_name }} {{ $teacher->user->middle_name }}  </td>
+
+                    @if ( $teacher->department > 0 )
+                        <td> {{ $teacher->department->name }} </td>
+                    @else
+                        <td> Not Assigned </td>
+                    @endif
                     <td> {{ $teacher->designation }} </td>
                     <td>
                         {{ $teacher->user->phone}}
