@@ -80,14 +80,14 @@
                                 @if ($mark->ca_total > 0) 
                                     {{$mark->ca_total}}
                                 @else
-                                     $hello;
+                                     '0';
                                 @endif
                             </td>
                             <td colspan="2" style="text-align: center;">
                                 @if ($mark->theory > 0) 
                                     {{$mark->theory}}
                                 @else
-                                     $hello;
+                                     '0';
                                 @endif
                             </td> 
                             
@@ -107,7 +107,7 @@
                                @if ($sum > 0) 
                                     {{$sum}}
                                 @else
-                                     $hello;
+                                     0;
                                 @endif
                             </td>
                         </tr>

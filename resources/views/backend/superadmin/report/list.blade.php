@@ -103,7 +103,7 @@
                                @if ($sum > 0) 
                                     {{$sum}}
                                 @else
-                                     $hello;
+                                     0
                                 @endif
                             </td>
                         
