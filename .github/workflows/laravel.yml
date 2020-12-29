@@ -26,7 +26,7 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
     - name: Setup Node.js environment
-      uses: actions/setup-node@v1.4.2
+    - uses: actions/setup-node@v1.4.2
       with:
         # Set always-auth in npmrc
         always-auth: false # optional, default is false
