@@ -16,7 +16,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "google/apiclient": "^2.4",
         "google/auth": "^1.9",
-        "kingflamez/laravelrave": "^3.0",
+        "kingflamez/laravelrave": "^4.1",
         "laracasts/flash": "^3.0",
         "laravel/framework": "6.20.*",
         "laravel/helpers": "^1.2",
