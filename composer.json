@@ -32,7 +32,7 @@
         "oscarafdev/migrations-generator": "^2.0",
         "php-junior/laravel-video-chat": "^1.1",
         "pion/laravel-eloquent-position": "^1.0",
-        "realrashid/sweet-alert": "^3.1",
+        "realrashid/sweet-alert": "^5.0",
         "socialiteproviders/google": "^4.0",
         "spatie/laravel-medialibrary": "^7.19",
         "stevebauman/location": "^6.0",
