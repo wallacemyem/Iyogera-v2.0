@@ -9,7 +9,7 @@
         "brickservers/gsuite": "^1.1",
         "djunehor/laravel-sms": "^2.0",
         "doctrine/dbal": "^2.10",
-        "emotality/tawk-laravel": "^1.0",
+        "emotality/tawk-laravel": "^2.1",
         "erusev/parsedown": "^1.7",
         "fico7489/laravel-eloquent-join": "^4.1",
         "fideloper/proxy": "^4.0",
